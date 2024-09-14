@@ -1,0 +1,41 @@
+.step-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	max-width: 600px;
+	margin: 20px auto;
+	color: #333;
+}
+
+.step {
+	text-align: center;
+	position: relative;
+	width: 30%;
+}
+
+.step.active .step-text {
+	background-color: #333;
+	border: 1px solid;
+	border-color: #ff9900;
+	color: #E0E0E0;
+	font-weight: bold;
+}
+
+.step-text {
+  height: 66px;
+  background-color: #E0E0E0;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow {
+	color: #E0E0E0;
+}
+
+.arrow.active {
+	color: #ff9900;
+}
