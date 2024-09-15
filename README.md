@@ -18,7 +18,7 @@
 - 必要なソフトウェアのインストール
   ```
   java -version
-  sudo apt upgrade -y
+  sudo apt update && sudo apt upgrade -y
   sudo apt install -y openjdk-21-jdk
   java -version
   sudo apt install -y maven git tomcat10
@@ -39,6 +39,7 @@
   FLUSH PRIVILEGES;
   exit
   mysql -u username -p
+  show variables like '%char%';
   systemctl status mysql.service
   source ~/202411SeapkRefTool/initDatabase.sql
   ```
@@ -76,7 +77,7 @@
   vi ConnectionManager.java
   ```
   ```
-  private static final String FILENAME = "\\home\\ubuntu\\202411SepakRefTool\\DB.properties";
+  private static final String FILENAME = "/home/ubuntu/202411SepakRefTool/DB.properties";
   ```
 - Mavenを使用してプロジェクトをビルド
   ```
@@ -100,7 +101,8 @@
   ```
   http://your-ec2-public-ip:8080/demo202411/judgeFC
   ```
-  
+
+#### VPS(ubuntu)のセットアップ
 `java -version`
 - OpenJDK 21のインストール
 `apt install openjdk-21-jre-headless`
