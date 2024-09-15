@@ -14,10 +14,93 @@
    git config --global user.password PASSWORD
    git push origin main
   ```
-#### VPSのセットアップ
-- aptの最新化
-`sudo apt update && sudo apt upgrade -y`
-- Javaが入っているか確認
+#### AWSのEC2(Ubuntu)のセットアップ
+- 必要なソフトウェアのインストール
+  ```
+  java -version
+  sudo apt upgrade -y
+  sudo apt install -y openjdk-21-jdk
+  java -version
+  sudo apt install -y maven git tomcat10
+  sudo apt install mysql-server
+  sudo systemctl start mysql.service
+  ```
+- MySQLの初期設定
+  ```
+  sudo mysql
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+  exit
+  mysql -u root -p
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+  sudo mysql_secure_installation
+  sudo mysql
+  CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+  GRANT CREATE, ALTER, DROP, INSERT, UPDATE, INDEX, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'username'@'localhost' WITH GRANT OPTION;
+  FLUSH PRIVILEGES;
+  exit
+  mysql -u username -p
+  systemctl status mysql.service
+  source ~/202411SeapkRefTool/initDatabase.sql
+  ```
+- GitHubからプロジェクトのクローン
+  ```
+  git clone https://github.com/takaT-toho/202411SepakRefTool.git
+  cd your-project
+  ```
+- GitHubのファイル追加および編集
+  ```
+  vi DB.properties
+  ```
+  ```
+  URL=jdbc:mysql://localhost:3306/sendai?allowPublicKeyRetrieval=true&useSSL=false
+  USER=XXXXX
+  PASSWORD=XXXXX
+  ```
+  ```
+  vi pom.xml
+  ```
+  ```
+  <maven.compiler.source>21</maven.compiler.source>
+  <maven.compiler.target>21</maven.compiler.target>
+
+  <plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.0</version>
+    <configuration>
+      <release>21</release>
+    </configuration>
+  </plugin>
+  ```
+  ```
+  cd src/main/java/dao
+  vi ConnectionManager.java
+  ```
+  ```
+  private static final String FILENAME = "\\home\\ubuntu\\202411SepakRefTool\\DB.properties";
+  ```
+- Mavenを使用してプロジェクトをビルド
+  ```
+  cd ~/202411SepakRefTool
+  mvn clean package
+  ```
+- 生成されたWARファイルをTomcatのwebappsディレクトリにコピー
+  ```
+  sudo cp target/demo202411.war /var/lib/tomcat10/webapps/
+  ```
+- Tomcatを再起動
+  ```
+  sudo systemctl restart tomcat10
+  ```
+- ファイアウォールの設定
+  ```
+  sudo ufw allow 8080/tcp
+  sudo ufw enable
+  ```
+- Webアプリにアクセス
+  ```
+  http://your-ec2-public-ip:8080/demo202411/judgeFC
+  ```
+  
 `java -version`
 - OpenJDK 21のインストール
 `apt install openjdk-21-jre-headless`
