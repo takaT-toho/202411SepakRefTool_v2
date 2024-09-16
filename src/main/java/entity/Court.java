@@ -42,13 +42,3 @@ public class Court implements Serializable {
 	public void setLastUpdate(long lastUpdate) { this.lastUpdate = lastUpdate; }
 
 }
-// CREATE TABLE COURT (
-// COURTID INT PRIMARY KEY,
-// NAME VARCHAR (10) NOT NULL,
-// PASS VARCHAR (10) NOT NULL,
-// SESSIONID VARCHAR (256),
-// LASTUPDATE BIGINT
-// );
-
-// INSERT INTO COURT VALUES (1, 'A', '12341', NULL, 0);
-// INSERT INTO COURT VALUES (2, 'B', '12342', NULL, 0);

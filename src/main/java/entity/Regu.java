@@ -56,27 +56,7 @@ public class Regu implements Serializable {
 	
 	
 }
-// レグ名命名規則
-// TEAMID+連番
 
-//CREATE TABLE REGU (
-//REGUID INT PRIMARY KEY,
-//TEAMID INT NOT NULL,
-//FOREIGN KEY (TEAMID) REFERENCES TEAM(TEAMID) ON DELETE CASCADE,
-//NAME VARCHAR (10) NOT NULL,
-//ABBREVIATION VARCHAR (10) NOT NULL,
-//DEPARTMENT VARCHAR (10) NOT NULL
-//)
-//
-//INSERT INTO REGU VALUES (10000, 100, '北北Aチーム', '北北A', 'アスリート')
-//INSERT INTO REGU VALUES (10001, 100, '北北Bチーム', '北北B', 'アスリート')
-//INSERT INTO REGU VALUES (10002, 100, '北北Cチーム', '北北C', 'エンジョイ')
-//INSERT INTO REGU VALUES (20000, 200, '東東Aチーム', '東東A', 'アスリート')
-//INSERT INTO REGU VALUES (20001, 200, '東東Bチーム', '東東B', 'アスリート')
-//INSERT INTO REGU VALUES (30000, 300, '関関Aチーム', '関関A', 'アスリート')
-//INSERT INTO REGU VALUES (40000, 400, '陸陸Aチーム', '陸陸A', 'アスリート')
-//INSERT INTO REGU VALUES (50000, 500, '海海Aチーム', '海海A', 'エンジョイ')
-// INSERT INTO REGU VALUES (60000, 600, '近々Aチーム', '近々A', 'エンジョイ')
 
 
 
