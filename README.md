@@ -41,12 +41,16 @@
   mysql -u username -p
   show variables like '%char%';
   systemctl status mysql.service
-  source ~/202411SeapkRefTool/initDatabase.sql
   ```
 - GitHubからプロジェクトのクローン
   ```
   git clone https://github.com/takaT-toho/202411SepakRefTool.git
   cd your-project
+  ```
+- MySQLの初期データベース作成
+  ```
+  mysql -u username -p
+  source ~/202411SepakRefTool/initDatabase.sql
   ```
 - GitHubのファイル追加および編集
   ```
@@ -100,6 +104,10 @@
 - Webアプリにアクセス
   ```
   http://your-ec2-public-ip:8080/demo202411/judgeFC
+  ```
+- エラーログを見る
+  ```
+  /var/lib/tomcat10/catalina.out
   ```
 
 #### VPS(ubuntu)のセットアップ
