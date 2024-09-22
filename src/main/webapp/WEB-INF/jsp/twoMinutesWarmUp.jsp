@@ -16,23 +16,54 @@
 <%@ include file="headerNonMenu.jsp" %>	
 
 <div class="step-container">
-	<div class="step">
-		<div class="step-text">サービス/<br>サイド決め</div>
-	</div>
-	<div class="arrow">&gt;</div>
-	<div class="step active">
-		<div class="step-text">2分間練習</div>
-	</div>
-	<div  class="arrow active">&gt;</div>
-	<div class="step">
-		<div class="step-text">チーム・<br>選手紹介</div>
+	<div class="progress-bar">
+		<div class="progress-line">
+			<div class="line active"></div>
+			<div class="line"></div>
+		</div>
+		<div class="steps">
+			<div class="step">
+				<div class="step-circle completed">1</div>
+				<span class="step-text">サービス/サイド決め</span>
+			</div>
+			<div class="step">
+				<div class="step-circle active">2</div>
+				<span class="step-text active">2分間練習</span>
+			</div>
+			<div class="step">
+				<div class="step-circle">3</div>
+				<span class="step-text">チーム・選手紹介</span>
+			</div>
+		</div>
 	</div>
 </div>
 
 <div class="container">
-	<h3>1. 主審は、コイントスの勝ちチームから2分間練習開始を合図してください。</h3>
-	<p>順番は、「<c:out value="${ sessionScope.tossWinner }" />」→「<c:out value="${ sessionScope.tossLoser }" />」の順です。</p>
-	<p>「それでは、2分練を始めてください！」</p>
+	<div class="explain-card-header">
+		<h2>2分間練習手順</h2>
+	</div>
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-number">Step 1</span>
+			</div>
+			<p class="explain-step-description">2分間練習開始を合図してください。</p>
+			<p class="explain-step-description">最初は、コイントスに勝った「<c:out value="${ sessionScope.tossWinner }" />」チームからです。</p>
+			<div class="explain-quote">
+				<p>"それでは、2分練を始めてください！"</p>
+			</div>
+			<p class="explain-step-description">下のタイマーのスタートボタンを押します。</p>
+			<p class="explain-step-description">タイマーが1分になったら</p>
+			<div class="explain-quote">
+				<p>"残り1分です！"</p>
+			</div>
+			<p class="explain-step-description">タイマーが終了したら</p>
+			<div class="explain-quote">
+				<p>"終了です！"</p>
+			</div>
+		</div>
+	</div>
 
 	<div class="timer">02:00</div>
 	<div class="buttons">
@@ -50,9 +81,14 @@
 		</svg>
 	</div>
 
-	<p>・タイマーが1分になったら、「残り1分です！」</p>
-	<p>・タイマーが終了したら、「終了です！」</p>
-	<p>両チームの2分間練習が終了したら、チーム・選手紹介です。</p>
+	
+	<div class="explain-steps">
+		<div class="explain-step">
+			<p class="explain-step-description">次は、「<c:out value="${ sessionScope.tossLoser }" />」チームの番です。</p>
+			<p class="explain-step-description">最初のチームと同様に行います。</p>
+			<p class="explain-step-description">両チームの2分間練習が終了したら、チーム・選手紹介に進んでください。</p>
+		</div>
+	</div>
 
 	<form action="judgeFC" method="post">
 		<button type="submit" name="buttonId" value="p0005">チーム・選手紹介へ</button>

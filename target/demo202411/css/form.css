@@ -60,3 +60,67 @@ button[type="submit"]:hover {
 :-ms-input-placeholder {
   color: #fff;
 }
+
+.explain-card-header {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.explain-card-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.explain-steps {
+    padding: 8px 0;
+}
+
+.explain-step {
+    margin: 16px 0;
+    padding-left: 16px;
+    border-left: 4px solid #f0f0f0;
+}
+
+.explain-step-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.explain-step-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.explain-step-number {
+    font-size: 12px;
+    background-color: #2d2d2d;
+    padding: 4px 8px;
+    border-radius: 4px;
+	margin-left: 8px;
+}
+
+.explain-step-description {
+    color: #cfcccc;
+    margin-bottom: 8px;
+	margin-left: 8px;
+}
+
+.explain-quote {
+    background-color: #2d2d2d;
+    padding: 8px;
+    border-top: 1px solid #4a4a4a;
+    border-bottom: 1px solid #4a4a4a;
+    border-radius: 4px;
+}
+
+.explain-quote p {
+    font-size: 14px;
+    font-style: italic;
+    color: #cfcccc;
+	margin-left: 0;
+}

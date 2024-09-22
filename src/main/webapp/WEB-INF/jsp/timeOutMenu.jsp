@@ -16,8 +16,13 @@
 <div class="container">
 	<h2>タイムアウト</h2>
 	
-	
-	<h3>1. タイムアウトを申請したレグを選択してください。</h3>	
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">1. タイムアウトを申請したレグを選択してください。</span>
+			</div>
+		</div>
+	</div>
 	<div class="reguRequestedContainer">
 	  <table>
 	    <thead>
@@ -28,8 +33,14 @@
 	    </thead>
 	  </table>
 	</div>
-		
-	<h3>2. タイムアウトの種類を選択してください。</h3>	
+
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">2. タイムアウトの種類を選択してください。</span>
+			</div>
+		</div>
+	</div>	
 	<div class="timerTypeContainer">
 	  <table>
 	    <thead>
@@ -50,8 +61,15 @@
 	    </tbody>
 	  </table>
 	</div>
-	
-	<h3>3. 再生ボタンを押すとタイマーが開始します。</h3>	
+
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">3. 再生ボタンを押すとタイマーが開始します。</span>
+			</div>
+		</div>
+	</div>	
+		
 	<div class="timer">01:00</div>
 	<div class="buttons">
 		<svg class="button start" viewBox="0 0 24 24">

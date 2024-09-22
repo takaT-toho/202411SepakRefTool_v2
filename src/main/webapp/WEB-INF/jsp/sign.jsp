@@ -39,9 +39,14 @@
 		<div>&</div>
 		<div><c:out value="${sessionScope.subRef.name}"/></div>
 	</div>
+
+	<div class="explain-steps">
+		<div class="explain-step">
+			<p class="explain-step-description">上記の試合で合っていますか？</p>
+			<p class="explain-step-description">確認したら、ご自身のお名前を記入の上、次へお進みください。</p>
+		</div>
+	</div>
 	
-	<p>上記の試合で合っていますか？</p>
-	<p>確認したら、ご自身のお名前を記入の上、次へお進みください</p>
 	<form action="/demo202411/judgeFC" method="post" id="checkForm">
 		<input type="text" name="sign" id="sign" placeholder="署名" pattern=".{0,20}">
 		<button type="submit" name="buttonId" value="p0003">次へ</button>

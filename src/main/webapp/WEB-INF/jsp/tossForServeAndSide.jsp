@@ -16,24 +16,54 @@
 <%@ include file="headerNonMenu.jsp" %>
 
 <div class="step-container">
-	<div class="step active">
-		<div class="step-text">サービス/<br>サイド決め</div>
-	</div>
-	<div class="arrow active">&gt;</div>
-	<div class="step">
-		<div class="step-text">2分間練習</div>
-	</div>
-	<div  class="arrow">&gt;</div>
-	<div class="step">
-		<div class="step-text">チーム・<br>選手紹介</div>
+	<div class="progress-bar">
+		<div class="progress-line">
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<div class="steps">
+			<div class="step">
+				<div class="step-circle active">1</div>
+				<span class="step-text active">サービス/サイド決め</span>
+			</div>
+			<div class="step">
+				<div class="step-circle">2</div>
+				<span class="step-text">2分間練習</span>
+			</div>
+			<div class="step">
+				<div class="step-circle">3</div>
+				<span class="step-text">チーム・選手紹介</span>
+			</div>
+		</div>
 	</div>
 </div>
 
 <div class="container">
-	<h3>1. 主審が、両チームのキャプテンを呼び集めてください。</h3>
-	<p>「両チーム キャプテン！」</p>
+	<div class="explain-card-header">
+		<h2>サービス/サイド決め手順</h2>
+	</div>
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-number">Step 1</span>
+			</div>
+			<p class="explain-step-description">両チームのキャプテンを呼び集めてください。</p>
+			<div class="explain-quote">
+				<p>"両チームキャプテン！"</p>
+			</div>
+		</div>
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-number">Step 2</span>
+			</div>
+			<p class="explain-step-description">コイントスを行います。</p>
+			<p class="explain-step-description">トスに勝ったチームが、「サービスの選択権」または「コートサイドの選択権」のどちらかを選べます。</p>
+			<p class="explain-step-description">トスに負けたチームは、残りの選択権を有します。</p>
+		</div>
+	</div>
 
-	<h3>2. 主審が、コイントスを行います。</h3>
 	<div id="coin-container">
 	    <svg id="coin" width="100" height="100" viewBox="0 0 100 100">
 	      <circle cx="50" cy="50" r="40" fill="#BF9F00" />
@@ -57,11 +87,17 @@
 			</tr>
 		</table>
 	</div>
-	
-	<p>トスに勝ったチームが、"サービスの選択権"か"コートサイドの選択権"を選びます。</p>
-	<p>トスに負けたチームは、残りの選択権を有します。</p>
 
-	<h3>3. 主審は、各チームの選択に従って、サービスとコートサイドの設定を行いましょう。</h3>
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-number">Step 3</span>
+			</div>
+			<p class="explain-step-description">各チームの選択に聞いたうえで、サービスとコートサイドの設定を行いましょう。</p>
+		</div>
+	</div>
+
 	<div class="regu-container">
 	  <table>
 	    <thead>
@@ -86,7 +122,11 @@
 	  </table>
 	</div>
 	
-	<p>コイントスに勝ったチームが、最初に2分間のウォーミングアップを行います。</p>
+	<div class="explain-steps">
+		<div class="explain-step">
+			<p class="explain-step-description">コイントスに勝ったチームが、最初に2分間のウォーミングアップを行います。2分練へ進みましょう。</p>
+		</div>
+	</div>
 
 	<form action="judgeFC" method="post">
 		<input type="hidden" id="isAreguTossWin" name="isAreguTossWin" value="1">

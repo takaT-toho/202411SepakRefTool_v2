@@ -15,8 +15,14 @@
 <%@ include file="headerNonMenu.jsp" %>
 <div class="container">
 	<h2>選手交代</h2>
-	
-	<h3>1. 選手交代を実施するレグを選択してください。</h3>	
+
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">1. 選手交代を実施するレグを選択してください。</span>
+			</div>
+		</div>
+	</div>
 	<div class="reguRequestedContainer">
 	  <table>
 	    <thead>
@@ -37,8 +43,14 @@
 	    </tbody>
 	  </table>
 	</div>
-	
-	<h3>2. 交代する2選手を選択してください。</h3>
+
+	<div class="explain-steps">
+		<div class="explain-step">
+			<div class="explain-step-header">
+				<span class="explain-step-title">2. 交代する2選手を選択してください。</span>
+			</div>
+		</div>
+	</div>
 	<div class="playersContainer">
 	  <table>
 	    <thead>

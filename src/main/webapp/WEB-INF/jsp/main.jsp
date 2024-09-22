@@ -172,13 +172,22 @@
 	</div>
 	
 	
-	<div class="callMsgArea">
-		<div id="callMsg">メッセージ</div>
-		<!-- <div id="callMsgEng">メッセージ</div> -->
+	<div class="callMsgContainer">
+		<div class="callMsgLine"></div>
+		<div class="callMsgArea">
+			<div id="callMsg">メッセージ</div>
+			<!-- <div id="callMsgEng">メッセージ</div> -->
+		</div>
+		<div class="callMsgLine"></div>
 	</div>
 	
 	<div class="middleButtonContainer">
-		<div id="backGame">←</div>
+		<button class="undo-button" aria-label="元に戻す" id="backGame">
+			<svg class="undo-icon" viewBox="0 0 24 24">
+				<path d="M1 4v6h6"></path>
+				<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+			</svg>
+		</button>
 		<form action="judgeFC" method="post" id="main-submit-form">
 			<input type="text" name="setNow" id="setNow" value="<c:out value='${sessionScope.game.setNow}'/>" hidden>
 			<input type="text" name="isAreguSetWin" id="isAreguSetWin" value="" hidden>
