@@ -210,6 +210,7 @@ body {
     align-items: center;
 	padding: 10px 20px;
 	border: 1px solid white;
+	border-radius: 2px;
 }
 .callMsgLine {
 	height: 2px;
@@ -226,31 +227,10 @@ body {
 
 .middleButtonContainer {
 	display: flex;
-	justify-content: space-between;
 	padding: 20px 20px;
 	height: 64px;
 }
 
-#backGame {
-	display: flex;
-	width: 64px;
-	height: 64px;
-	justify-content: center;
-	align-items: center;
-	
-	font-size: 2rem;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-transition: all 0.3s;
-	transition: all 0.3s;
-	text-decoration: none;
-	border-radius: 50%;
-	color: #fff100;
-	background-color: #333;
-}
 .undo-button {
 	width: 64px;
 	height: 64px;
@@ -281,6 +261,10 @@ body {
 	stroke-linejoin: round;
 }
 
+.formContainer {
+	flex: 1;
+}
+
 .submitResult {
 	display: flex;
 	justify-content: center;
@@ -308,7 +292,7 @@ button[type="submit"] {
 	align-items: center;
 	width: 200px;
 	padding: 22px 5px;
-	margin: 0 calc((100vw - 240px) / 2) 0 calc((100vw - 336px) / 2);
+	margin-left: calc(50vw - 184px);
 	border: none;
 	border-radius: 6px;
 	box-sizing: border-box;

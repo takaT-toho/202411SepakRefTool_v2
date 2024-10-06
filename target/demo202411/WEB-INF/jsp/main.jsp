@@ -188,7 +188,7 @@
 				<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
 			</svg>
 		</button>
-		<form action="judgeFC" method="post" id="main-submit-form">
+		<form action="judgeFC" method="post" id="main-submit-form" class="formContainer">
 			<input type="text" name="setNow" id="setNow" value="<c:out value='${sessionScope.game.setNow}'/>" hidden>
 			<input type="text" name="isAreguSetWin" id="isAreguSetWin" value="" hidden>
 			<button type="submit" name="buttonId" id="SetEndButton" value="p0201">1セット目の結果を送る</button>
