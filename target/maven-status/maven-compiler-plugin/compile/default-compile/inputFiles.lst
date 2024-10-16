@@ -3,6 +3,7 @@ C:\workspace\demo202411\src\main\java\servlet\SetEndAction.java
 C:\workspace\demo202411\src\main\java\logic\SelectGameLogic.java
 C:\workspace\demo202411\src\main\java\entity\Court.java
 C:\workspace\demo202411\src\main\java\servlet\SessionCheck.java
+C:\workspace\demo202411\src\main\java\servlet\GameSettingChangeAction.java
 C:\workspace\demo202411\src\main\java\servlet\GameBasicInfoAction.java
 C:\workspace\demo202411\src\main\java\entity\Player.java
 C:\workspace\demo202411\src\main\java\servlet\PointProgressAction.java
@@ -30,6 +31,7 @@ C:\workspace\demo202411\src\main\java\entity\PlayerMaster.java
 C:\workspace\demo202411\src\main\java\servlet\UpdateIsGameFinishedAction.java
 C:\workspace\demo202411\src\main\java\logic\UpdateGameLogic.java
 C:\workspace\demo202411\src\main\java\servlet\TwoMinutesWarmUpAction.java
+C:\workspace\demo202411\src\main\java\logic\SelectGameConfigLogic.java
 C:\workspace\demo202411\src\main\java\servlet\GameStartAction.java
 C:\workspace\demo202411\src\main\java\servlet\UpdatePlayerSubstituteAction.java
 C:\workspace\demo202411\src\main\java\dao\CourtDAO.java
@@ -53,6 +55,7 @@ C:\workspace\demo202411\src\main\java\servlet\GameEndAction.java
 C:\workspace\demo202411\src\main\java\dao\GameDAO.java
 C:\workspace\demo202411\src\main\java\servlet\TimeoutAction.java
 C:\workspace\demo202411\src\main\java\logic\UpdateLoginStatusLogic.java
+C:\workspace\demo202411\src\main\java\servlet\ServiceCourtSideChangeAction.java
 C:\workspace\demo202411\src\main\java\servlet\SecondSetEndAction.java
 C:\workspace\demo202411\src\main\java\servlet\TossAndServeAction.java
 C:\workspace\demo202411\src\main\java\common\JudgeBusinessException.java

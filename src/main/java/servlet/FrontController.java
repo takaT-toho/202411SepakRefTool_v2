@@ -56,6 +56,10 @@ public class FrontController extends HttpServlet {
 				// QRログイン処理
 				shouldDoPost = true;
 				break;
+			case "p0006":
+				// メイン画面
+				shouldDoPost = true;
+				break;
 			case "p0101":
 				// メイン画面：メニュー：試合基本情報
 				shouldDoPost = true;
@@ -183,6 +187,11 @@ public class FrontController extends HttpServlet {
 				// メイン画面：メニュー：サービス/コートサイド選択
 				action = new ServiceCourtSideAction();
 				break;
+			case "p0304":
+				// メイン画面：メニュー：サービス/コートサイド選択 > メニュー画面
+				action = new ServiceCourtSideChangeAction();
+				shouldRedirect = true;
+				break;
 			case "p0105":
 				// メイン画面：メニュー：得点経過表
 				action = new PointProgressAction();
@@ -190,6 +199,11 @@ public class FrontController extends HttpServlet {
 			case "p0106":
 				// メイン画面：メニュー：試合設定
 				action = new GameSettingAction();
+				break;
+			case "p0306":
+				// メイン画面：メニュー：試合設定 > メニュー画面
+				action = new GameSettingChangeAction();				
+				shouldRedirect = true;
 				break;
 			// セット終了処理
 			case "p0201":
@@ -201,6 +215,15 @@ public class FrontController extends HttpServlet {
 				// セット終了処理 > 次セット画面
 				action = new MainPageAction();
 				break;
+			// case "p0203":
+			// 	// セット終了処理 > じゃんけん画面
+			// 	action = new RPSAction();
+			// 	break;
+			// 試合終了処理
+			// case "p0204":
+			// 	// じゃんけん画面 > 試合終了画面
+			// 	action = new RPSGameEndAction();
+			// 	break;
 			// 試合終了処理
 			case "p0210":
 				// 試合終了処理 > 試合終了画面

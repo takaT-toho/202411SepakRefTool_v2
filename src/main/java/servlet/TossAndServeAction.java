@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import logic.SelectGameConfigLogic;
 import logic.UpdateGameConfigLogic;
 import common.JudgeBusinessException;
 import common.JudgeSystemException;
@@ -59,7 +60,15 @@ public class TossAndServeAction implements ActionIF {
 			gameConfig.setIsAreguFirstServe(serve.equals("1"));
 			gameConfig.setIsAreguLeft(court.equals("1"));
 			UpdateGameConfigLogic gmLogic = new UpdateGameConfigLogic();
-			gmLogic.updateGameConfig(gameConfig);
+			boolean configResult = gmLogic.updateBasicGameConfig(gameConfig);
+			if (!configResult) {
+				throw new JudgeBusinessException("データベースの更新に失敗しました。");
+			}
+			SelectGameConfigLogic selectGameConfigLogic = new SelectGameConfigLogic();
+			gameConfig = selectGameConfigLogic.selectGameConfig(game.getGameId());
+			if (gameConfig == null) {
+				throw new JudgeBusinessException("試合が見つかりません。");
+			}
 			session.setAttribute("gameConfig", gameConfig);
 
 			// セッションからAレグとBレグの名前情報を取得する

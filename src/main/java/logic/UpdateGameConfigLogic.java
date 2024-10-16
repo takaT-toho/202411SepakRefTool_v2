@@ -11,6 +11,37 @@ import entity.GameConfig;
 
 public class UpdateGameConfigLogic {
 
+    public boolean updateBasicGameConfig(GameConfig gameConfig) throws JudgeBusinessException, JudgeSystemException {
+        Connection con = null;
+        boolean res = false;
+
+        try {
+			con = ConnectionManager.getConnectionManager().getConnection();
+			GameConfigDAO dao = new GameConfigDAO(con);
+			boolean result = dao.updateBasicGameConfig(gameConfig);
+			
+			if (result == false) {
+				throw new JudgeBusinessException("データベースの更新に失敗しました。");
+			}
+
+            res = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。1");
+		} finally {
+			try {
+				if (con != null) {
+					con.close();
+				} 
+			} catch (SQLException e) {
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			}
+		}
+
+        return res;
+    }
+
+	
     public boolean updateGameConfig(GameConfig gameConfig) throws JudgeBusinessException, JudgeSystemException {
         Connection con = null;
         boolean res = false;
@@ -26,7 +57,8 @@ public class UpdateGameConfigLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。1");
 		} finally {
 			try {
 				if (con != null) {

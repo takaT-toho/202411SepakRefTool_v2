@@ -27,7 +27,28 @@ let isSetFinished = funcIsSetFinished(setNow);
 let isAreguServeArray = [1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 
 	1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0];
 let isProcessing = false;
-let languageSetting = 0; // 0: 日本語, 1: 英語, 2: タイ語
+
+// 設定値
+// 0: 日本語, 1: 英語, 2: タイ語
+const LANGUAGE = parseInt(document.getElementById("LANGUAGE").textContent) || 0;
+const MAX_SCORE = [
+	parseInt(document.getElementById("MAX_SCORE_1SET").textContent || 25),
+	parseInt(document.getElementById("MAX_SCORE_2SET").textContent || 25),
+	parseInt(document.getElementById("MAX_SCORE_3SET").textContent || 25)
+];
+const DEUCE_START_SCORE = [
+	parseInt(document.getElementById("DEUCE_START_SCORE_1SET").textContent) || 20,
+	parseInt(document.getElementById("DEUCE_START_SCORE_2SET").textContent) || 20,
+	parseInt(document.getElementById("DEUCE_START_SCORE_3SET").textContent) || 20
+];
+const DEUCE_DIFFERENCE = [
+	parseInt(document.getElementById("DEUCE_DIFFERENCE_1SET").textContent) || 2,
+	parseInt(document.getElementById("DEUCE_DIFFERENCE_2SET").textContent) || 2,
+	parseInt(document.getElementById("DEUCE_DIFFERENCE_3SET").textContent) || 2
+];
+const COURT_CHANGE_SCORE = parseInt(document.getElementById("COURT_CHANGE_SCORE").textContent) || 11;
+const MAX_SET = parseInt(document.getElementById("MAX_SET").textContent) || 3;
+const GAME_RULE = document.getElementById("GAME_RULE").textContent || "firstToGet";
 
 
 // スコア履歴を格納する配列
@@ -204,20 +225,29 @@ async function checkSetFinished() {
 	// どちらかのスコアが25に達した場合、セットが終了
 	// どちらかのスコアも20以上で、差が2点以上の場合、セットが終了
 	// どちらかのスコアが21で、差が2点以上の場合、セットが終了
-	if (scoreLeft ===  25 || scoreRight === 25) {
+	if (scoreLeft ===  MAX_SCORE[setNow - 1] || scoreRight === MAX_SCORE[setNow - 1]) {
 		await endSet();
-	} else if ((scoreLeft >= 20 && scoreRight >= 20) && Math.abs(scoreLeft - scoreRight) >= 2) {
+	} else if ((scoreLeft >= DEUCE_START_SCORE[setNow - 1] 
+		&& scoreRight >= DEUCE_START_SCORE[setNow - 1]) 
+		&& Math.abs(scoreLeft - scoreRight) >= DEUCE_DIFFERENCE[setNow - 1]) {
 		await endSet();
-	} else if ((scoreLeft === 21 || scoreRight === 21) && Math.abs(scoreLeft - scoreRight) >= 2) {
+	} else if ((scoreLeft === (DEUCE_START_SCORE[setNow - 1] + 1)
+		|| scoreRight === (DEUCE_START_SCORE[setNow - 1] + 1)) 
+		&& Math.abs(scoreLeft - scoreRight) >= DEUCE_DIFFERENCE[setNow - 1]) {
 		await endSet();
 	}
 }
 
 // セットが終了した際の処理
 async function endSet() {
+	let isDGZero = false;
 
 	isSetFinished = true;
-	document.getElementById("isAreguSetWin").value = isAreguSetWin();
+	try{
+		document.getElementById("isAreguSetWin").value = isAreguSetWin();
+	} catch (error) {
+		isDGZero = true;
+	}
 	if (isGameFinished()) {
 		await updateIsGameFinished(isSetFinished);
 	}
@@ -228,8 +258,17 @@ async function endSet() {
 	await sleep(1000);
 
 	const SetEndButton = document.getElementById("SetEndButton");
-	SetEndButton.textContent = setNow.toString() + "セット目の結果を送る";
-	SetEndButton.style.display = "block";
+	if (isDGZero) {
+		SetEndButton.textContent = "結果が決まりません。じゃんけんを行います。";
+		SetEndButton.style.display = "block";
+		SetEndButton.value = "p0203";
+	} else {
+		SetEndButton.textContent = setNow.toString() + "セット目の結果を送る";
+		SetEndButton.style.display = "block";
+	}
+
+	// 勝者・敗者を表示する
+
 }
 
 // セットが終了処理のキャンセル処理
@@ -245,8 +284,28 @@ async function resetEndSet() {
 	// document.getElementById("SetEndButton").style.display = "none";
 }
 
+function getGoalDifference() {
+	const scoreLeft1set = parseInt(document.getElementById("setNumber1setLeft").textContent);
+	const scoreRight1set = parseInt(document.getElementById("setNumber1setRight").textContent);
+	const scoreLeft2set = parseInt(document.getElementById("setNumber2setLeft").textContent);
+	const scoreRight2set = parseInt(document.getElementById("setNumber2setRight").textContent);
+	return scoreLeft1set - scoreRight1set + scoreLeft2set - scoreRight2set;
+}
+
 // Aレグこのセットを取ったのか判定する
 function isAreguSetWin() {
+	if (GAME_RULE === "drawGD") {
+		if (!(isMatchPoint('A') || isMatchPoint('B'))) {
+			const goalDifference = getGoalDifference();
+			if (goalDifference > 0) {
+				return judgeAreguLeft();
+			} else if (goalDifference < 0) {
+				return !judgeAreguLeft();
+			} else {
+				throw new Error("Goal Difference is 0");
+			}
+		}
+	}
 	let popped = scoreStockList.slice(-1)[0];
 	if (popped === 'L') {
 		return judgeAreguLeft() ? true : false;
@@ -268,11 +327,16 @@ function generateCallText() {
 	}
 	if (scoreLeft === 0 && scoreRight === 0) {
 		return generateFirstCallText();
-	} else if (scoreLeft === 20 && scoreRight === 20) {
-		return "セッティング アップ トゥー トゥウェンティ ファイブ トゥウェンティ オール";
+	} else if (scoreLeft === DEUCE_START_SCORE[setNow - 1] 
+		&& scoreRight === DEUCE_START_SCORE[setNow - 1]) {
+		let text = "セッティング アップ トゥー ";
+		text += convertNumberToCallText[MAX_SCORE[setNow - 1]][1] + " ";
+		text += convertNumberToCallText[scoreLeft][1] + " オール";
+		return text;
 	} else if (scoreLeft == scoreRight) {
 		return convertNumberToCallText[scoreLeft][1] + " オール";
-	} else if (scoreLeft >= 20 || scoreRight >= 20) {
+	} else if (scoreLeft >= DEUCE_START_SCORE[setNow - 1] 
+		|| scoreRight >= DEUCE_START_SCORE[setNow - 1]) {
 		return generateFinalCallText();
 	} else {
 		return generateNormalCallText();
@@ -314,6 +378,9 @@ function generateFinalCallText() {
 		} else {
 			callText =  " セットポイント ";
 		}
+	// } else if (scoreA === scoreB === (MAX_SCORE[setNow - 1] - 1)) {
+	// 	// ここ何ていうの？
+	// 	callText = " デュース ";
 	} else {
 		if (isMatchPoint('B')) {
 			callText =  " マッチポイント ";
@@ -393,7 +460,7 @@ function updateServeDisplay() {
 		serveGageRight1.classList.remove('active');
 		serveGageRight2.classList.remove('active');
 		serveGageRight3.classList.remove('active');
-		if (serialNumber < 39){
+		if (serialNumber < (DEUCE_START_SCORE[setNow - 1] * 2 - 1)){
 			if (serialNumber % 3 === 0) {
 				serveGageLeft1.classList.add('active');
 			} else if (serialNumber % 3 === 1) {
@@ -415,7 +482,7 @@ function updateServeDisplay() {
 		serveGageRight1.classList.remove('active');
 		serveGageRight2.classList.remove('active');
 		serveGageRight3.classList.remove('active');
-		if (serialNumber < 39){
+		if (serialNumber < (DEUCE_START_SCORE[setNow - 1] * 2 - 1)){
 			if (serialNumber % 3 === 0) {
 				serveGageRight1.classList.add('active');
 			} else if (serialNumber % 3 === 1) {
@@ -524,10 +591,10 @@ function isMatchPoint(team) {
 async function checkChangeCourtIn3set() {
 	if (is3setCourtChanged) return;
 	// 3セット目かつ、どちらかのチームが11点になった時にコートチェンジする
-	if (setNow === 3 && (scoreLeft === 11 || scoreRight === 11)) {
+	if (setNow === 3 && (scoreLeft === COURT_CHANGE_SCORE || scoreRight === COURT_CHANGE_SCORE)) {
 		is3setCourtChanged = true;
 		await updateIs3setCourtChanged(is3setCourtChanged);
-		window.alert("11点になりました。コートチェンジしてください。\n「チェンジコート(Change Court)!」");
+		window.alert(COURT_CHANGE_SCORE + "点になりました。コートチェンジしてください。\n「チェンジコート(Change Court)!」");
 		let popped = scoreStockList.pop();
 		if (popped === 'L') {
 			popped = 'R';
@@ -547,11 +614,13 @@ async function reset3setCourtChanged(popped) {
 	if (!(popped)) return;
 
 	if (popped === 'L') {
-		if (!(scoreLeft === 10 && scoreRight <= 10)) {
+		if (!(scoreLeft === (COURT_CHANGE_SCORE - 1) 
+			&& scoreRight <= (COURT_CHANGE_SCORE - 1))) {
 			return;
 		}
 	} else if (popped === 'R') {
-		if (!(scoreRight === 10 && scoreLeft <= 10)) {
+		if (!(scoreRight === (COURT_CHANGE_SCORE - 1) 
+			&& scoreLeft <= (COURT_CHANGE_SCORE - 1))) {
 			return;
 		}
 	}
@@ -562,6 +631,9 @@ async function reset3setCourtChanged(popped) {
 
 // 試合が終了しているかどうかを判定する
 function isGameFinished() {
+	if (setNow === MAX_SET) {
+		return true;
+	}
 	if (isAreguSetWin()) {
 		if (setGotByA === 1) {
 			return true;

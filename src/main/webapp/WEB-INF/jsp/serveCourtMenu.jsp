@@ -20,16 +20,30 @@
 	  <table>
 	    <thead>
 	      <tr>
-	        <th><div id="labelLeft"><c:out value="${ sessionScope.reguA.name }" /></div></th>
-	        <th></th>
-	        <th><div id="labelRight"><c:out value="${ sessionScope.reguB.name }" /></div></th>
+			<c:if test="${sessionScope.gameConfig.isAreguLeft}">
+				<th><div id="labelLeft"><c:out value="${ sessionScope.reguA.name }" /></div></th>
+				<th></th>
+				<th><div id="labelRight"><c:out value="${ sessionScope.reguB.name }" /></div></th>
+			</c:if>
+			<c:if test="${!sessionScope.gameConfig.isAreguLeft}">
+				<th><div id="labelLeft"><c:out value="${ sessionScope.reguB.name }" /></div></th>
+				<th></th>
+				<th><div id="labelRight"><c:out value="${ sessionScope.reguA.name }" /></div></th>
+			</c:if>
 	      </tr>
 	    </thead>
 	    <tbody>
 	      <tr>
-	        <td><div class="serveCell active" id="serveLeft">先手</div></td>
-	        <td><div class="buttons serveButton" id="serveButton">サービス<br>⇔</div></td>
-	        <td><div class="serveCell" id="serveRight">後手</div></td>
+			<c:if test="${sessionScope.gameConfig.isAreguLeft == sessionScope.gameConfig.isAreguFirstServe}">
+				<td><div class="serveCell active" id="serveLeft">先手</div></td>
+				<td><div class="buttons serveButton" id="serveButton">サービス<br>⇔</div></td>
+				<td><div class="serveCell" id="serveRight">後手</div></td>
+			</c:if>
+			<c:if test="${sessionScope.gameConfig.isAreguLeft != sessionScope.gameConfig.isAreguFirstServe}">
+				<td><div class="serveCell" id="serveLeft">先手</div></td>
+				<td><div class="buttons serveButton" id="serveButton">サービス<br>⇔</div></td>
+				<td><div class="serveCell active" id="serveRight">後手</div></td>
+			</c:if>
 	      </tr>
 	      <tr>
 	        <td><div class="court">左</div></td>
@@ -41,11 +55,11 @@
 	</div>
 	
 	<form action="judgeFC" method="post">
-		<input type="hidden" id="isAreguTossWin" name="isAreguTossWin" value="1">
-		<input type="hidden" id="serve" name="serve" value="1">
-		<input type="hidden" id="court" name="court" value="1">
+		<input type="hidden" id="serve" name="serve" 
+		value=<c:out value="${ sessionScope.gameConfig.isAreguFirstServe ? 1 : 0 }" />>
+		<input type="hidden" id="court" name="court" value=<c:out value="${ sessionScope.gameConfig.isAreguLeft ? 1 : 0 }" />>
 		<button type="submit" name="buttonId" value="p0006">キャンセル</button>
-		<button type="submit" name="buttonId" value="p0006">変更する</button>
+		<button type="submit" name="buttonId" value="p0304">変更する</button>
 	</form>
 </div>
 

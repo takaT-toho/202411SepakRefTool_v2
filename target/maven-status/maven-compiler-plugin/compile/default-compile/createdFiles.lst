@@ -5,6 +5,7 @@ servlet\SessionCheck.class
 logic\UpdateGameDetailLogic.class
 servlet\LoginAction.class
 servlet\QRLoginAction.class
+servlet\GameSettingChangeAction.class
 entity\GameConfig.class
 servlet\GameBasicInfoAction.class
 servlet\GameEndAction.class
@@ -27,12 +28,14 @@ dao\GameEventHistoryDAO.class
 servlet\PointSubtractAction.class
 logic\SelectCourtLogic.class
 servlet\ServiceCourtSideAction.class
+servlet\ServiceCourtSideChangeAction.class
 dao\GameConfigDAO.class
 entity\GameDetail.class
 entity\LoginMap.class
 servlet\GameSettingAction.class
 servlet\TossAndServeAction.class
 servlet\FrontController.class
+logic\SelectGameConfigLogic.class
 entity\PointJSON.class
 entity\Group.class
 logic\UpdateGameEventHistoryLogic.class

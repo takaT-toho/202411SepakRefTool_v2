@@ -26,6 +26,21 @@
 	<div id="isFin2Set" hidden><c:out value="${ sessionScope.game.isFin2Set }" /></div>
 	<div id="isFin3Set" hidden><c:out value="${ sessionScope.game.isFin3Set }" /></div>
 
+	<span id="LANGUAGE" hidden><c:out value="${ sessionScope.gameConfig.language }" /></span>
+	<span id="MAX_SCORE_1SET" hidden><c:out value="${ sessionScope.gameConfig.maxScore1set }" /></span>
+	<span id="MAX_SCORE_2SET" hidden><c:out value="${ sessionScope.gameConfig.maxScore2set }" /></span>
+	<span id="MAX_SCORE_3SET" hidden><c:out value="${ sessionScope.gameConfig.maxScore3set }" /></span>
+	<span id="DEUCE_START_SCORE_1SET" hidden><c:out value="${ sessionScope.gameConfig.deuceStartScore1set }" /></span>
+	<span id="DEUCE_START_SCORE_2SET" hidden><c:out value="${ sessionScope.gameConfig.deuceStartScore2set }" /></span>
+	<span id="DEUCE_START_SCORE_3SET" hidden><c:out value="${ sessionScope.gameConfig.deuceStartScore3set }" /></span>
+	<span id="DEUCE_DIFFERENCE_1SET" hidden><c:out value="${ sessionScope.gameConfig.deuceDifference1set }" /></span>
+	<span id="DEUCE_DIFFERENCE_2SET" hidden><c:out value="${ sessionScope.gameConfig.deuceDifference2set }" /></span>
+	<span id="DEUCE_DIFFERENCE_3SET" hidden><c:out value="${ sessionScope.gameConfig.deuceDifference3set }" /></span>
+	<span id="COURT_CHANGE_SCORE" hidden><c:out value="${ sessionScope.gameConfig.courtChangeScore }" /></span>
+	<span id="MAX_SET" hidden><c:out value="${ sessionScope.gameConfig.maxSet }" /></span>
+	
+	<div id="GAME_RULE" hidden><c:out value="${ sessionScope.gameConfig.gameRule }" /></div>
+
 	<div class="scoreboard">
 	  <div class="team team-a">
 	    <div class="team-name" id="teamLeft"><span class="reguName">
