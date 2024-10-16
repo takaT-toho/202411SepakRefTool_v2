@@ -15,6 +15,7 @@ C:\workspace\demo202411\src\main\java\logic\SelectPlayerLogic.java
 C:\workspace\demo202411\src\main\java\servlet\FrontControllerAsync.java
 C:\workspace\demo202411\src\main\java\entity\Group.java
 C:\workspace\demo202411\src\main\java\logic\SelectGameEventHistoryLogic.java
+C:\workspace\demo202411\src\main\java\servlet\RPSNavigateAction.java
 C:\workspace\demo202411\src\main\java\dao\GameEventHistoryDAO.java
 C:\workspace\demo202411\src\main\java\servlet\UpdateTimeoutAction.java
 C:\workspace\demo202411\src\main\java\servlet\FrontController.java
@@ -46,7 +47,9 @@ C:\workspace\demo202411\src\main\java\servlet\PointSubtractAction.java
 C:\workspace\demo202411\src\main\java\servlet\ServiceCourtSideAction.java
 C:\workspace\demo202411\src\main\java\entity\GameEventHistory.java
 C:\workspace\demo202411\src\main\java\entity\LoginMap.java
+C:\workspace\demo202411\src\main\java\servlet\RPSGameEndAction.java
 C:\workspace\demo202411\src\main\java\servlet\PointAddAction.java
+C:\workspace\demo202411\src\main\java\servlet\RPSAction.java
 C:\workspace\demo202411\src\main\java\logic\UpdateGameDetailLogic.java
 C:\workspace\demo202411\src\main\java\logic\SelectCourtLogic.java
 C:\workspace\demo202411\src\main\java\servlet\PlayerSubstitutionAction.java

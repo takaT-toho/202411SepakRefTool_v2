@@ -88,6 +88,10 @@ public class FrontController extends HttpServlet {
 				// セット終了処理
 				shouldDoPost = true;
 				break;
+			case "p0204":			
+				// じゃんけん処理
+				shouldDoPost = true;
+				break;
 			case "p0210":			
 				// 試合終了処理
 				shouldDoPost = true;
@@ -215,16 +219,21 @@ public class FrontController extends HttpServlet {
 				// セット終了処理 > 次セット画面
 				action = new MainPageAction();
 				break;
-			// case "p0203":
-			// 	// セット終了処理 > じゃんけん画面
-			// 	action = new RPSAction();
-			// 	break;
+			case "p0203":
+				// セット終了処理 > じゃんけん画面
+				action = new RPSAction();			
+				shouldRedirect = true;
+				break;
 			// 試合終了処理
-			// case "p0204":
-			// 	// じゃんけん画面 > 試合終了画面
-			// 	action = new RPSGameEndAction();
-			// 	break;
-			// 試合終了処理
+			case "p0204":
+				// セット終了処理 > じゃんけん画面
+				action = new RPSNavigateAction();
+				break;
+			case "p0205":
+				// じゃんけん画面 > 試合終了画面
+				action = new RPSGameEndAction();				
+				shouldRedirect = true;
+				break;
 			case "p0210":
 				// 試合終了処理 > 試合終了画面
 				action = new GameEndAction();

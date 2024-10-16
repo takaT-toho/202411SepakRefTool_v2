@@ -67,13 +67,13 @@
                 <c:if test="${ sessionScope.gameConfig.isAreguLeft == true }">
                     <p>「オンマイライト <c:out value="${ sessionScope.reguB.name }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListB }">
-                            <br><c:out value="${ player.name }" />選手
+                            <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>
                         <%--リザーブ --%>」
                     </p>
                     <p>「オンマイレフト <c:out value="${ sessionScope.reguA.name }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListA }">
-                            <br><c:out value="${ player.name }" />選手
+                            <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>
                         <%--リザーブ --%>」
                     </p>
@@ -81,13 +81,13 @@
                 <c:if test="${ sessionScope.gameConfig.isAreguLeft == false }">
                     <p>「オンマイライト <c:out value="${ sessionScope.reguA.name }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListA }">
-                            <br><c:out value="${ player.name }" />選手
+                            <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>
                         <%--リザーブ --%>」
                     </p>
                     <p>「オンマイレフト <c:out value="${ sessionScope.reguB.name }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListB }">
-                            <br><c:out value="${ player.name }" />選手
+                            <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>
                         <%--リザーブ --%>」
                     </p>

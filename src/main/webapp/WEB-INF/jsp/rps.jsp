@@ -25,13 +25,14 @@
 			<tr>
 				<td>じゃんけんの<br>勝者レグ</td>
 				<td id="teamA" onclick="selectWinner('A')"></td>
-			<td id="teamB" onclick="selectWinner('B')"></td>
+			    <td id="teamB" onclick="selectWinner('B')"></td>
 			</tr>
 		</table>
 	</div>
 	
 	<form action="/demo202411/judgeFC" method="post" id="checkForm">
-		<button type="submit" name="buttonId" value="p0204">試合を終了する</button>
+        <input type="text" name="isAreguWin" id="isAreguWin" value="" hidden></span>
+		<button type="submit" name="buttonId" value="p0205">試合を終了する</button>
 	</form>
 	<div class="errorMsg" id="errorMsg"></div>
 </div>

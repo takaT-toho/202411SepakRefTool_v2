@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    align-items: center;
+    justify-content: center;
+}
+.toss-regu-container th, .toss-regu-container td {
+    border: 1px solid grey;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+.regu-container th, .regu-container td {
+    border: 1px solid grey;
+    padding: 8px;
+    text-align: center;
+}
+.win {
+    background-color: #FFD700;
+    color: #4c3f00;
+}

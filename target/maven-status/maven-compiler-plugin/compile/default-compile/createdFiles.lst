@@ -1,5 +1,6 @@
 logic\SelectGameEventHistoryLogic.class
 servlet\UpdateCourtChangeAction.class
+servlet\RPSNavigateAction.class
 entity\GameEventHistory.class
 servlet\SessionCheck.class
 logic\UpdateGameDetailLogic.class
@@ -13,6 +14,7 @@ servlet\MainPageAction.class
 entity\Player.class
 logic\UpdateLoginStatusLogic.class
 servlet\PointAddAction.class
+servlet\RPSAction.class
 entity\Court.class
 servlet\SetEndAction.class
 logic\SelectGameLogic.class
@@ -32,6 +34,7 @@ servlet\ServiceCourtSideChangeAction.class
 dao\GameConfigDAO.class
 entity\GameDetail.class
 entity\LoginMap.class
+servlet\RPSGameEndAction.class
 servlet\GameSettingAction.class
 servlet\TossAndServeAction.class
 servlet\FrontController.class

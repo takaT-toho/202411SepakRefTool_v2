@@ -295,13 +295,30 @@ function getGoalDifference() {
 // Aレグこのセットを取ったのか判定する
 function isAreguSetWin() {
 	if (GAME_RULE === "drawGD") {
-		if (!(isMatchPoint('A') || isMatchPoint('B'))) {
-			const goalDifference = getGoalDifference();
+		let scoreA = judgeAreguLeft() ? scoreLeft : scoreRight;
+		let scoreB = judgeAreguLeft() ? scoreRight : scoreLeft;
+		let hasUniqueWinner = false;
+		if ((scoreA > scoreB) && isMatchPoint('A')) {
+			hasUniqueWinner = true;
+		} else if ((scoreB > scoreA) && isMatchPoint('B')) {
+			hasUniqueWinner = true;
+		}
+		if (!hasUniqueWinner) {
+			let popped = scoreStockList.slice(-1)[0];
+			let addScore = popped === 'L' ? 1 : -1;
+			const goalDifference = getGoalDifference() + addScore;
 			if (goalDifference > 0) {
 				return judgeAreguLeft();
 			} else if (goalDifference < 0) {
 				return !judgeAreguLeft();
 			} else {
+				let returnValue = false;
+				if (popped === 'L') {
+					returnValue =  judgeAreguLeft() ? true : false;
+				} else if (popped === 'R') {
+					returnValue =  judgeAreguLeft() ? false : true;
+				}
+				document.getElementById("isAreguSetWin").value = returnValue;
 				throw new Error("Goal Difference is 0");
 			}
 		}

@@ -240,9 +240,14 @@ async function checkSetFinished() {
 
 // セットが終了した際の処理
 async function endSet() {
+	let isDGZero = false;
 
 	isSetFinished = true;
-	document.getElementById("isAreguSetWin").value = isAreguSetWin();
+	try{
+		document.getElementById("isAreguSetWin").value = isAreguSetWin();
+	} catch (error) {
+		isDGZero = true;
+	}
 	if (isGameFinished()) {
 		await updateIsGameFinished(isSetFinished);
 	}
@@ -253,8 +258,17 @@ async function endSet() {
 	await sleep(1000);
 
 	const SetEndButton = document.getElementById("SetEndButton");
-	SetEndButton.textContent = setNow.toString() + "セット目の結果を送る";
-	SetEndButton.style.display = "block";
+	if (isDGZero) {
+		SetEndButton.textContent = "結果が決まりません。じゃんけんを行います。";
+		SetEndButton.style.display = "block";
+		SetEndButton.value = "p0203";
+	} else {
+		SetEndButton.textContent = setNow.toString() + "セット目の結果を送る";
+		SetEndButton.style.display = "block";
+	}
+
+	// 勝者・敗者を表示する
+
 }
 
 // セットが終了処理のキャンセル処理
@@ -270,8 +284,50 @@ async function resetEndSet() {
 	// document.getElementById("SetEndButton").style.display = "none";
 }
 
+function getGoalDifference() {
+	const scoreLeft1set = parseInt(document.getElementById("setNumber1setLeft").textContent);
+	const scoreRight1set = parseInt(document.getElementById("setNumber1setRight").textContent);
+	const scoreLeft2set = parseInt(document.getElementById("setNumber2setLeft").textContent);
+	const scoreRight2set = parseInt(document.getElementById("setNumber2setRight").textContent);
+	return scoreLeft1set - scoreRight1set + scoreLeft2set - scoreRight2set;
+}
+
 // Aレグこのセットを取ったのか判定する
 function isAreguSetWin() {
+	console.log("1", GAME_RULE == "drawGD");
+	console.log("2", GAME_RULE === "drawGD");
+	if (GAME_RULE == "drawGD") {
+		console.log("3", isMatchPoint('A'));
+		console.log("4", isMatchPoint('B'));
+		let scoreA = judgeAreguLeft() ? scoreLeft : scoreRight;
+		let scoreB = judgeAreguLeft() ? scoreRight : scoreLeft;
+		let hasUniqueWinner = false;
+		if ((scoreA > scoreB) && isMatchPoint('A')) {
+			hasUniqueWinner = true;
+		} else if ((scoreB > scoreA) && isMatchPoint('B')) {
+			hasUniqueWinner = true;
+		}
+		if (!hasUniqueWinner) {
+			let popped = scoreStockList.slice(-1)[0];
+			let addScore = popped === 'L' ? 1 : -1;
+			const goalDifference = getGoalDifference() + addScore;
+			console.log("5", goalDifference);
+			if (goalDifference > 0) {
+				return judgeAreguLeft();
+			} else if (goalDifference < 0) {
+				return !judgeAreguLeft();
+			} else {
+				let returnValue = false;
+				if (popped === 'L') {
+					returnValue =  judgeAreguLeft() ? true : false;
+				} else if (popped === 'R') {
+					returnValue =  judgeAreguLeft() ? false : true;
+				}
+				document.getElementById("isAreguSetWin").value = returnValue;
+				throw new Error("Goal Difference is 0");
+			}
+		}
+	}
 	let popped = scoreStockList.slice(-1)[0];
 	if (popped === 'L') {
 		return judgeAreguLeft() ? true : false;
