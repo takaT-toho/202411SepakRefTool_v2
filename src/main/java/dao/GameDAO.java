@@ -269,4 +269,74 @@ public class GameDAO {
 		}
 		return result;
     }
+
+	public boolean updateWinnerLoser(int gameId, int winner, int loser) throws SQLException {
+        String sql = "UPDATE game SET winner = ?, loser = ? WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		boolean result = false;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+            stmt.setInt(1, winner);
+            stmt.setInt(2, loser);
+            stmt.setInt(3, gameId);
+			int row = stmt.executeUpdate();
+			
+			if (row != 1) {
+				throw new SQLException("更新対象のデータが存在しません");
+			}
+			result = true;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return result;
+    }
+	
+	public boolean updateARegu(int gameId, int regu) throws SQLException {
+        String sql = "UPDATE game SET areguid = ? WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		boolean result = false;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+            stmt.setInt(1, regu);
+            stmt.setInt(2, gameId);
+			int row = stmt.executeUpdate();
+			
+			if (row != 1) {
+				throw new SQLException("更新対象のデータが存在しません");
+			}
+			result = true;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return result;
+    }
+	
+	public boolean updateBRegu(int gameId, int regu) throws SQLException {
+        String sql = "UPDATE game SET breguid = ? WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		boolean result = false;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+            stmt.setInt(1, regu);
+            stmt.setInt(2, gameId);
+			int row = stmt.executeUpdate();
+			
+			if (row != 1) {
+				throw new SQLException("更新対象のデータが存在しません");
+			}
+			result = true;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return result;
+    }
 }

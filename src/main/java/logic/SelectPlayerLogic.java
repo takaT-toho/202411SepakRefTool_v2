@@ -30,12 +30,12 @@ public class SelectPlayerLogic {
         } catch (SQLException e) {
                 throw new JudgeSystemException(e.getMessage());
         }finally {
-            if (con != null) {
-                try {
+            try {
+                if (con != null) {
                     con.close();
-                } catch (SQLException e) {
+                } 
+            } catch (SQLException e) {
                     throw new JudgeSystemException(e.getMessage());
-                }
             }
         }
 
@@ -61,12 +61,12 @@ public class SelectPlayerLogic {
         } catch (SQLException e) {
                 throw new JudgeSystemException(e.getMessage());
         }finally {
-            if (con != null) {
-                try {
+            try {
+                if (con != null) {
                     con.close();
-                } catch (SQLException e) {
+                } 
+            } catch (SQLException e) {
                     throw new JudgeSystemException(e.getMessage());
-                }
             }
         }
 

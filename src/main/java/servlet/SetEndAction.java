@@ -71,6 +71,17 @@ public class SetEndAction implements ActionIF {
 			// 試合終了かどうかを判定する
 			if (game.getIsFinished()) {
 				page = "/judgeFC?buttonId=p0210";
+			
+				int areguId = game.getAreguId();
+				int beguId = game.getBreguId();
+				int winner = isAreguSetWin.equals("true") ? areguId : beguId;
+				int loser = isAreguSetWin.equals("true") ? beguId : areguId;
+				gameLogic.updateWinnerLoser(game.getGameId(), winner, loser);
+				
+				int nextGameIdWinner = game.getNextGameIdWinner();
+				int nextGameIdLoser = game.getNextGameIdLoser();
+				gameLogic.updateNextGameReguId(nextGameIdWinner, winner);
+				gameLogic.updateNextGameReguId(nextGameIdLoser, loser);
 			}
 
             // セッションのgame・gamedetailを更新する

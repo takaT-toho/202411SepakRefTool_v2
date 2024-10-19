@@ -294,11 +294,7 @@ function getGoalDifference() {
 
 // Aレグこのセットを取ったのか判定する
 function isAreguSetWin() {
-	console.log("1", GAME_RULE == "drawGD");
-	console.log("2", GAME_RULE === "drawGD");
-	if (GAME_RULE == "drawGD") {
-		console.log("3", isMatchPoint('A'));
-		console.log("4", isMatchPoint('B'));
+	if (GAME_RULE === "drawGD") {
 		let scoreA = judgeAreguLeft() ? scoreLeft : scoreRight;
 		let scoreB = judgeAreguLeft() ? scoreRight : scoreLeft;
 		let hasUniqueWinner = false;
@@ -311,7 +307,6 @@ function isAreguSetWin() {
 			let popped = scoreStockList.slice(-1)[0];
 			let addScore = popped === 'L' ? 1 : -1;
 			const goalDifference = getGoalDifference() + addScore;
-			console.log("5", goalDifference);
 			if (goalDifference > 0) {
 				return judgeAreguLeft();
 			} else if (goalDifference < 0) {

@@ -5,6 +5,7 @@ import common.JudgeSystemException;
 import entity.Game;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import logic.UpdateGameLogic;
 
 public class RPSGameEndAction implements ActionIF {
     public String execute(HttpServletRequest request) {
@@ -34,8 +35,18 @@ public class RPSGameEndAction implements ActionIF {
 			}
 
             // 試合情報を更新する(SetEndActionと同じ処理)
+            int areguId = game.getAreguId();
+            int beguId = game.getBreguId();
+            int winner = isAreguWin.equals("true") ? areguId : beguId;
+            int loser = isAreguWin.equals("true") ? beguId : areguId;
+            UpdateGameLogic gameLogic = new UpdateGameLogic();
+            gameLogic.updateWinnerLoser(game.getGameId(), winner, loser);        
 
-            
+            // 次の試合情報を更新する
+            int nextGameIdWinner = game.getNextGameIdWinner();
+            int nextGameIdLoser = game.getNextGameIdLoser();
+            gameLogic.updateNextGameReguId(nextGameIdWinner, winner);
+            gameLogic.updateNextGameReguId(nextGameIdLoser, loser);
 
 		} catch (JudgeBusinessException e) {
 			request.setAttribute("errorMsg", e.getMessage());

@@ -23,6 +23,8 @@ public class Game implements Serializable {
 	private int setNumGotByA;
 	private int setNumGotByB;
 	private String mainJudgeSign;
+	private int winner; // FK
+	private int loser; // FK
 	
 	public Game() {}	
 	// 変数ありのコンストラクト
@@ -52,6 +54,36 @@ public class Game implements Serializable {
 		this.setNumGotByA = setNumGotByA;
 		this.setNumGotByB = setNumGotByB;
 		this.mainJudgeSign = mainJudgeSign;
+	}
+	
+	public Game(int gameId, String name, String pass, String round, String time,
+			int courtId, int areguId, int breguId, int mainJudgeReguId, int subJudgeReguId,
+			int setNow, int nextGameIdWinner, int nextGameIdLoser,
+			boolean isStarted, boolean isFinished, boolean isFin1Set, boolean isFin2Set, boolean isFin3Set,
+			int setNumGotByA, int setNumGotByB, String mainJudgeSign, int winner, int loser) {
+		this.gameId = gameId;
+		this.name = name;
+		this.pass = pass;
+		this.round = round;
+		this.time = time;
+		this.courtId = courtId;
+		this.areguId = areguId;
+		this.breguId = breguId;
+		this.mainJudgeReguId = mainJudgeReguId;
+		this.subJudgeReguId = subJudgeReguId;
+		this.setNow = setNow;
+		this.nextGameIdWinner = nextGameIdWinner;
+		this.nextGameIdLoser = nextGameIdLoser;
+		this.isStarted = isStarted;
+		this.isFinished = isFinished;
+		this.isFin1Set = isFin1Set;
+		this.isFin2Set = isFin2Set;
+		this.isFin3Set = isFin3Set;
+		this.setNumGotByA = setNumGotByA;
+		this.setNumGotByB = setNumGotByB;
+		this.mainJudgeSign = mainJudgeSign;
+		this.winner = winner;
+		this.loser = loser;
 	}
 	
 	// setter getter
@@ -180,6 +212,18 @@ public class Game implements Serializable {
 	}
 	public void setMainJudgeSign(String mainJudgeSign) {
 		this.mainJudgeSign = mainJudgeSign;
+	}
+	public int getWinner() {
+		return winner;
+	}
+	public void setWinner(int winner) {
+		this.winner = winner;
+	}
+	public int getLoser() {
+		return loser;
+	}
+	public void setLoser(int loser) {
+		this.loser = loser;
 	}
 	
 	// その他のメソッド
