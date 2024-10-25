@@ -1,0 +1,90 @@
+.match-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .round {
+    font-size: 32px;
+    font-weight: bold;
+    border: 2px solid #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  
+  .match-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+  
+  .match-info span {
+      vertical-align: middle;
+      margin: 4px auto;
+  }
+  
+  .teams {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .team {
+    font-size: 30px;
+    background-color: #ddd;
+    color: #333;
+    border-bottom: solid;
+    border-color: #ff9900;
+    padding: 10px;
+    font-weight: bold;
+    width: 170px;
+    height: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    word-wrap: break-word;
+  }
+  
+  .team-a {
+    border-radius: 5px;
+  }
+  
+  .team-b {
+    border-radius: 5px;
+  }
+  
+  @media screen and (max-width: 400px) {
+    .teams {
+      flex-direction: column;
+    }
+  
+    .team {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  
+  
+  
+  .vs {
+    margin: 10px;
+    font-weight: bold;
+  }
+  
+  .referees {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .referees div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      padding: 6px;
+  }

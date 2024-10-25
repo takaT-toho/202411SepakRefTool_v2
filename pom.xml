@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.judge</groupId>
-  <artifactId>demo202411</artifactId>
+  <artifactId>202411SepakRefTool</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>demo202411 Maven Webapp</name>
+  <name>202411SepakRefTool Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -45,7 +45,7 @@
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.28</version>
+        <version>8.0.30</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -55,7 +55,7 @@
   </dependencies>
 
   <build>
-    <finalName>demo202411</finalName>
+    <finalName>202411SepakRefTool</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

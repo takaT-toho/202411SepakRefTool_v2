@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>審判支援システム</title>
-<link href="/demo202411/css/header-non-menu.css" rel="stylesheet" />
-<link href="/demo202411/css/form.css" rel="stylesheet" />
-<link href="/demo202411/css/timeOutMenu-jsp.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/header-non-menu.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/form.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/timeOutMenu-jsp.css" rel="stylesheet" />
 </head>
 <body>
 <%@ include file="headerNonMenu.jsp" %>
@@ -27,8 +27,8 @@
 	  <table>
 	    <thead>
 	      <tr>
-	        <th><div class="reguRequested active" onclick="onReguClick(this, 'A')"><c:out value="${ sessionScope.reguA.name }" /></div></th>
-	        <th><div class="reguRequested" onclick="onReguClick(this, 'B')"><c:out value="${ sessionScope.reguB.name }" /></div></th>
+	        <th><div class="reguRequested active" onclick="onReguClick(this, 'A')"><c:out value="${ sessionScope.reguA.abbreviation }" /></div></th>
+	        <th><div class="reguRequested" onclick="onReguClick(this, 'B')"><c:out value="${ sessionScope.reguB.abbreviation }" /></div></th>
 	      </tr>
 	    </thead>
 	  </table>
@@ -102,7 +102,7 @@
 
 <%@ include file="footer.jsp" %>
 
-<script type="text/javascript" src="/demo202411/js/optionalTimer.js"></script>
-<script type="text/javascript" src="/demo202411/js/optionalTimerAsync.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/optionalTimer.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/optionalTimerAsync.js"></script>
 </body>
 </html>

@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>審判支援システム</title>
-<link href="/demo202411/css/header-non-menu.css" rel="stylesheet" />
-<link href="/demo202411/css/form.css" rel="stylesheet" />
-<link href="/demo202411/css/gameSettingProgress.css" rel="stylesheet" />
-<link href="/demo202411/css/tossForServeAndSide-jsp.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/header-non-menu.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/form.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/gameSettingProgress.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/tossForServeAndSide-jsp.css" rel="stylesheet" />
 </head>
 <body>
 <%@ include file="headerNonMenu.jsp" %>
@@ -77,8 +77,8 @@
 		<table>
 			<tr>
 				<th></th>
-				<th><c:out value="${sessionScope.reguA.name}" /></th>
-				<th><c:out value="${sessionScope.reguB.name}" /></th>
+				<th><c:out value="${sessionScope.reguA.abbreviation}" /></th>
+				<th><c:out value="${sessionScope.reguB.abbreviation}" /></th>
 			</tr>
 			<tr>
 				<td>トスの<br>勝ちチーム</td>
@@ -102,9 +102,9 @@
 	  <table>
 	    <thead>
 	      <tr>
-	        <th><div id="labelLeft"><c:out value="${sessionScope.reguA.name}" /></div></th>
+	        <th><div id="labelLeft"><c:out value="${sessionScope.reguA.abbreviation}" /></div></th>
 	        <th></th>
-	        <th><div id="labelRight"><c:out value="${sessionScope.reguB.name}" /></div></th>
+	        <th><div id="labelRight"><c:out value="${sessionScope.reguB.abbreviation}" /></div></th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -138,7 +138,7 @@
 
 <%@ include file="footer.jsp" %>
 
-<script type="text/javascript" src="/demo202411/js/coinToss.js"></script>
-<script type="text/javascript" src="/demo202411/js/updateServeCourt.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/coinToss.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/updateServeCourt.js"></script>
 </body>
 </html>

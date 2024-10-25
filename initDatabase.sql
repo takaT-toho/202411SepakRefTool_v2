@@ -10,8 +10,8 @@ CREATE TABLE COURT (
     LASTUPDATE BIGINT
 );
 
-INSERT INTO COURT VALUES (1, 'A', '12341', NULL, 0);
-INSERT INTO COURT VALUES (2, 'B', '12342', NULL, 0);
+-- INSERT INTO COURT VALUES (1, 'A', '12341', NULL, 0);
+-- INSERT INTO COURT VALUES (2, 'B', '12342', NULL, 0);
 
 
 -- ユーザーのテーブルを作成します。
@@ -32,14 +32,14 @@ CREATE TABLE TEAM (
     EMAIL VARCHAR (256)
 );
 
-INSERT INTO TEAM VALUES (100, '北海道セパタクロー', '北海道太郎', 'xxxx@xxxxxx.com');
-INSERT INTO TEAM VALUES (200, '東北セパタクロー', '東北太郎', 'xxxx@xxxxxx.com');
-INSERT INTO TEAM VALUES (300, '関東セパタクロー', '関東太郎', 'xxxx@xxxxxx.com');
-INSERT INTO TEAM VALUES (400, '北陸甲信越セパタクロー', '北陸甲信', 'xxxx@xxxxxx.com');
-INSERT INTO TEAM VALUES (500, '東海セパタクロー', '東海太郎', 'xxxx@xxxxxx.com');
-INSERT INTO TEAM VALUES (600, '近畿セパタクロー', '近畿太郎', 'xxxx@xxxxxx.com');
-INSERT INTO TEAM VALUES (700, '中国四国セパタクロー', '中国四国', 'xxxx@xxxxxx.com');
-INSERT INTO TEAM VALUES (800, '九州沖縄セパタクロー', '九州沖縄', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (100, '北海道セパタクロー', '北海道太郎', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (200, '東北セパタクロー', '東北太郎', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (300, '関東セパタクロー', '関東太郎', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (400, '北陸甲信越セパタクロー', '北陸甲信', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (500, '東海セパタクロー', '東海太郎', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (600, '近畿セパタクロー', '近畿太郎', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (700, '中国四国セパタクロー', '中国四国', 'xxxx@xxxxxx.com');
+-- INSERT INTO TEAM VALUES (800, '九州沖縄セパタクロー', '九州沖縄', 'xxxx@xxxxxx.com');
 INSERT INTO TEAM VALUES (900, '運営', '運営', 'xxxx@xxxxxx.com');
 
 
@@ -56,17 +56,17 @@ CREATE TABLE REGU (
     DEPARTMENT VARCHAR (10) NOT NULL
 );
 
-INSERT INTO REGU VALUES (10000, 100, '北北Aチーム', '北北A', 'アスリート');
-INSERT INTO REGU VALUES (10001, 100, '北北Bチーム', '北北B', 'アスリート');
-INSERT INTO REGU VALUES (10002, 100, '北北Cチーム', '北北C', 'エンジョイ');
-INSERT INTO REGU VALUES (20000, 200, '東東Aチーム', '東東A', 'アスリート');
-INSERT INTO REGU VALUES (20001, 200, '東東Bチーム', '東東B', 'アスリート');
-INSERT INTO REGU VALUES (30000, 300, '関関Aチーム', '関関A', 'アスリート');
-INSERT INTO REGU VALUES (40000, 400, '陸陸Aチーム', '陸陸A', 'アスリート');
-INSERT INTO REGU VALUES (50000, 500, '海海Aチーム', '海海A', 'エンジョイ');
-INSERT INTO REGU VALUES (60000, 600, '近々Aチーム', '近々A', 'エンジョイ');
-INSERT INTO REGU VALUES (90000, 900, '運営', '::A9勝者', 'エンジョイ');
-INSERT INTO REGU VALUES (90001, 900, '運営', '::B9勝者', 'エンジョイ');
+-- INSERT INTO REGU VALUES (10000, 100, '北北Aチーム', '北北A', 'アスリート');
+-- INSERT INTO REGU VALUES (10001, 100, '北北Bチーム', '北北B', 'アスリート');
+-- INSERT INTO REGU VALUES (10002, 100, '北北Cチーム', '北北C', 'エンジョイ');
+-- INSERT INTO REGU VALUES (20000, 200, '東東Aチーム', '東東A', 'アスリート');
+-- INSERT INTO REGU VALUES (20001, 200, '東東Bチーム', '東東B', 'アスリート');
+-- INSERT INTO REGU VALUES (30000, 300, '関関Aチーム', '関関A', 'アスリート');
+-- INSERT INTO REGU VALUES (40000, 400, '陸陸Aチーム', '陸陸A', 'アスリート');
+-- INSERT INTO REGU VALUES (50000, 500, '海海Aチーム', '海海A', 'エンジョイ');
+-- INSERT INTO REGU VALUES (60000, 600, '近々Aチーム', '近々A', 'エンジョイ');
+-- INSERT INTO REGU VALUES (90000, 900, '運営', '::A9勝者', 'エンジョイ');
+-- INSERT INTO REGU VALUES (90001, 900, '運営', '::B9勝者', 'エンジョイ');
 
 
 -- プレイヤーマスタのテーブルを作成します。
@@ -79,35 +79,35 @@ CREATE TABLE PLAYERMASTER (
     EXPERIENCE VARCHAR (20) NOT NULL
 );
 
-INSERT INTO PLAYERMASTER VALUES (1000001, 100, '北海 太郎', 'ホッカイ タロウ', 'セパ歴10年');
-INSERT INTO PLAYERMASTER VALUES (1000002, 100, '北海 次郎', 'ホッカイ ジロウ', 'セパ歴8年');
-INSERT INTO PLAYERMASTER VALUES (1000003, 100, '北海 三郎', 'ホッカイ サブロウ', 'セパ歴6年');
-INSERT INTO PLAYERMASTER VALUES (1000004, 100, '北海 四郎', 'ホッカイ シロウ', 'セパ歴4年');
-INSERT INTO PLAYERMASTER VALUES (1000005, 100, '北海 五郎', 'ホッカイ ゴロウ', 'セパ歴2年');
-INSERT INTO PLAYERMASTER VALUES (1000006, 100, '北海 六郎', 'ホッカイ ロクロウ', 'セパ歴1年');
-INSERT INTO PLAYERMASTER VALUES (1000007, 100, '北海 七郎', 'ホッカイ シチロウ', 'セパ歴1年');
-INSERT INTO PLAYERMASTER VALUES (1000008, 100, '北海 八郎', 'ホッカイ ハチロウ', 'セパ歴1年');
-INSERT INTO PLAYERMASTER VALUES (1000009, 100, '北海 九郎', 'ホッカイ クロウ', 'セパ歴1年');
-INSERT INTO PLAYERMASTER VALUES (2000001, 200, '東北 太郎', 'トウホク タロウ', 'セパ歴10年');
-INSERT INTO PLAYERMASTER VALUES (2000002, 200, '東北 次郎', 'トウホク ジロウ', 'セパ歴7年');
-INSERT INTO PLAYERMASTER VALUES (2000003, 200, '東北 三郎', 'トウホク サブロウ', 'セパ歴5年');
-INSERT INTO PLAYERMASTER VALUES (2000004, 200, '東北 四郎', 'トウホク シロウ', 'セパ歴3年');
-INSERT INTO PLAYERMASTER VALUES (2000005, 200, '東北 五郎', 'トウホク ゴロウ', 'セパ歴2年');
-INSERT INTO PLAYERMASTER VALUES (2000006, 200, '東北 六郎', 'トウホク ロクロウ', 'セパ歴1年');
-INSERT INTO PLAYERMASTER VALUES (3000001, 300, '関東 太郎', 'カントウ タロウ', 'セパ歴10年');
-INSERT INTO PLAYERMASTER VALUES (3000002, 300, '関東 次郎', 'カントウ ジロウ', 'セパ歴7年');
-INSERT INTO PLAYERMASTER VALUES (3000003, 300, '関東 三郎', 'カントウ サブロウ', 'セパ歴4年');
-INSERT INTO PLAYERMASTER VALUES (4000001, 400, '北陸 甲信', 'ホクリク コウシン', 'セパ歴10年');
-INSERT INTO PLAYERMASTER VALUES (4000002, 400, '北陸 次郎', 'ホクリク ジロウ', 'セパ歴7年');
-INSERT INTO PLAYERMASTER VALUES (4000003, 400, '北陸 三郎', 'ホクリク サブロウ', 'セパ歴4年');
-INSERT INTO PLAYERMASTER VALUES (5000001, 500, '東海 太郎', 'トウカイ タロウ', 'セパ歴10年');
-INSERT INTO PLAYERMASTER VALUES (5000002, 500, '東海 次郎', 'トウカイ ジロウ', 'セパ歴7年');
-INSERT INTO PLAYERMASTER VALUES (5000003, 500, '東海 三郎', 'トウカイ サブロウ', 'セパ歴4年');
-INSERT INTO PLAYERMASTER VALUES (6000001, 600, '近畿 一郎', 'キンキ イチロウ', 'セパ歴1年');
-INSERT INTO PLAYERMASTER VALUES (6000002, 600, '近畿 二郎', 'キンキ ジロウ', 'セパ歴2年');
-INSERT INTO PLAYERMASTER VALUES (6000003, 600, '近畿 三郎', 'キンキ サブロウ', 'セパ歴3年');
-INSERT INTO PLAYERMASTER VALUES (6000004, 600, '近畿 四郎', 'キンキ シロウ', 'セパ歴4年');
-INSERT INTO PLAYERMASTER VALUES (6000005, 600, '近畿 五郎', 'キンキ シロウ', 'セパ歴5年');
+-- INSERT INTO PLAYERMASTER VALUES (1000001, 100, '北海 太郎', 'ホッカイ タロウ', 'セパ歴10年');
+-- INSERT INTO PLAYERMASTER VALUES (1000002, 100, '北海 次郎', 'ホッカイ ジロウ', 'セパ歴8年');
+-- INSERT INTO PLAYERMASTER VALUES (1000003, 100, '北海 三郎', 'ホッカイ サブロウ', 'セパ歴6年');
+-- INSERT INTO PLAYERMASTER VALUES (1000004, 100, '北海 四郎', 'ホッカイ シロウ', 'セパ歴4年');
+-- INSERT INTO PLAYERMASTER VALUES (1000005, 100, '北海 五郎', 'ホッカイ ゴロウ', 'セパ歴2年');
+-- INSERT INTO PLAYERMASTER VALUES (1000006, 100, '北海 六郎', 'ホッカイ ロクロウ', 'セパ歴1年');
+-- INSERT INTO PLAYERMASTER VALUES (1000007, 100, '北海 七郎', 'ホッカイ シチロウ', 'セパ歴1年');
+-- INSERT INTO PLAYERMASTER VALUES (1000008, 100, '北海 八郎', 'ホッカイ ハチロウ', 'セパ歴1年');
+-- INSERT INTO PLAYERMASTER VALUES (1000009, 100, '北海 九郎', 'ホッカイ クロウ', 'セパ歴1年');
+-- INSERT INTO PLAYERMASTER VALUES (2000001, 200, '東北 太郎', 'トウホク タロウ', 'セパ歴10年');
+-- INSERT INTO PLAYERMASTER VALUES (2000002, 200, '東北 次郎', 'トウホク ジロウ', 'セパ歴7年');
+-- INSERT INTO PLAYERMASTER VALUES (2000003, 200, '東北 三郎', 'トウホク サブロウ', 'セパ歴5年');
+-- INSERT INTO PLAYERMASTER VALUES (2000004, 200, '東北 四郎', 'トウホク シロウ', 'セパ歴3年');
+-- INSERT INTO PLAYERMASTER VALUES (2000005, 200, '東北 五郎', 'トウホク ゴロウ', 'セパ歴2年');
+-- INSERT INTO PLAYERMASTER VALUES (2000006, 200, '東北 六郎', 'トウホク ロクロウ', 'セパ歴1年');
+-- INSERT INTO PLAYERMASTER VALUES (3000001, 300, '関東 太郎', 'カントウ タロウ', 'セパ歴10年');
+-- INSERT INTO PLAYERMASTER VALUES (3000002, 300, '関東 次郎', 'カントウ ジロウ', 'セパ歴7年');
+-- INSERT INTO PLAYERMASTER VALUES (3000003, 300, '関東 三郎', 'カントウ サブロウ', 'セパ歴4年');
+-- INSERT INTO PLAYERMASTER VALUES (4000001, 400, '北陸 甲信', 'ホクリク コウシン', 'セパ歴10年');
+-- INSERT INTO PLAYERMASTER VALUES (4000002, 400, '北陸 次郎', 'ホクリク ジロウ', 'セパ歴7年');
+-- INSERT INTO PLAYERMASTER VALUES (4000003, 400, '北陸 三郎', 'ホクリク サブロウ', 'セパ歴4年');
+-- INSERT INTO PLAYERMASTER VALUES (5000001, 500, '東海 太郎', 'トウカイ タロウ', 'セパ歴10年');
+-- INSERT INTO PLAYERMASTER VALUES (5000002, 500, '東海 次郎', 'トウカイ ジロウ', 'セパ歴7年');
+-- INSERT INTO PLAYERMASTER VALUES (5000003, 500, '東海 三郎', 'トウカイ サブロウ', 'セパ歴4年');
+-- INSERT INTO PLAYERMASTER VALUES (6000001, 600, '近畿 一郎', 'キンキ イチロウ', 'セパ歴1年');
+-- INSERT INTO PLAYERMASTER VALUES (6000002, 600, '近畿 二郎', 'キンキ ジロウ', 'セパ歴2年');
+-- INSERT INTO PLAYERMASTER VALUES (6000003, 600, '近畿 三郎', 'キンキ サブロウ', 'セパ歴3年');
+-- INSERT INTO PLAYERMASTER VALUES (6000004, 600, '近畿 四郎', 'キンキ シロウ', 'セパ歴4年');
+-- INSERT INTO PLAYERMASTER VALUES (6000005, 600, '近畿 五郎', 'キンキ シロウ', 'セパ歴5年');
 
 
 -- プレイヤーのテーブルを作成します。
@@ -124,35 +124,35 @@ CREATE TABLE PLAYER (
     ORDERS INT NOT NULL
 );
 
-INSERT INTO PLAYER VALUES (100011, 10000, 1000001, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (100012, 10000, 1000002, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (100013, 10000, 1000003, 'トサー', 3);
-INSERT INTO PLAYER VALUES (100021, 10001, 1000004, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (100022, 10001, 1000005, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (100023, 10001, 1000006, 'トサー', 3);
-INSERT INTO PLAYER VALUES (100031, 10002, 1000007, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (100032, 10002, 1000008, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (100033, 10002, 1000009, 'トサー', 3);
-INSERT INTO PLAYER VALUES (200001, 20000, 2000001, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (200002, 20000, 2000002, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (200003, 20000, 2000003, 'トサー', 3);
-INSERT INTO PLAYER VALUES (200011, 20001, 2000004, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (200012, 20001, 2000005, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (200013, 20001, 2000006, 'トサー', 3);
-INSERT INTO PLAYER VALUES (300001, 30000, 3000001, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (300002, 30000, 3000002, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (300003, 30000, 3000003, 'トサー', 3);
-INSERT INTO PLAYER VALUES (400001, 40000, 4000001, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (400002, 40000, 4000002, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (400003, 40000, 4000003, 'トサー', 3);
-INSERT INTO PLAYER VALUES (500001, 50000, 5000001, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (500002, 50000, 5000002, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (500003, 50000, 5000003, 'トサー', 3);
-INSERT INTO PLAYER VALUES (600001, 60000, 6000001, 'サーバー', 1);
-INSERT INTO PLAYER VALUES (600002, 60000, 6000002, 'アタッカー', 2);
-INSERT INTO PLAYER VALUES (600003, 60000, 6000003, 'トサー', 3);
-INSERT INTO PLAYER VALUES (600004, 60000, 6000004, 'サーバー', 4);
-INSERT INTO PLAYER VALUES (600005, 60000, 6000005, 'アタッカー', 5);
+-- INSERT INTO PLAYER VALUES (100011, 10000, 1000001, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (100012, 10000, 1000002, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (100013, 10000, 1000003, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (100021, 10001, 1000004, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (100022, 10001, 1000005, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (100023, 10001, 1000006, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (100031, 10002, 1000007, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (100032, 10002, 1000008, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (100033, 10002, 1000009, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (200001, 20000, 2000001, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (200002, 20000, 2000002, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (200003, 20000, 2000003, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (200011, 20001, 2000004, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (200012, 20001, 2000005, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (200013, 20001, 2000006, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (300001, 30000, 3000001, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (300002, 30000, 3000002, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (300003, 30000, 3000003, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (400001, 40000, 4000001, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (400002, 40000, 4000002, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (400003, 40000, 4000003, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (500001, 50000, 5000001, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (500002, 50000, 5000002, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (500003, 50000, 5000003, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (600001, 60000, 6000001, 'サーバー', 1);
+-- INSERT INTO PLAYER VALUES (600002, 60000, 6000002, 'アタッカー', 2);
+-- INSERT INTO PLAYER VALUES (600003, 60000, 6000003, 'トサー', 3);
+-- INSERT INTO PLAYER VALUES (600004, 60000, 6000004, 'サーバー', 4);
+-- INSERT INTO PLAYER VALUES (600005, 60000, 6000005, 'アタッカー', 5);
 
 
 -- ゲーム履歴のテーブルを作成します。
@@ -199,46 +199,46 @@ CREATE TABLE gameDetail (
     sumPoints INT
 );
 
-INSERT INTO gameDetail VALUES (
-    101,
-    NULL,
-    NULL,
-    NULL,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    5,
-    1,
-    5,
-    2,
-    2,
-    FALSE,
-    0
-);
-INSERT INTO gameDetail VALUES (
-    102,
-    NULL,
-    NULL,
-    NULL,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    1,
-    5,
-    1,
-    5,
-    2,
-    2,
-    FALSE,
-    0
-);
+-- INSERT INTO gameDetail VALUES (
+--     101,
+--     NULL,
+--     NULL,
+--     NULL,
+--     0,
+--     0,
+--     0,
+--     0,
+--     0,
+--     0,
+--     1,
+--     5,
+--     1,
+--     5,
+--     2,
+--     2,
+--     FALSE,
+--     0
+-- );
+-- INSERT INTO gameDetail VALUES (
+--     102,
+--     NULL,
+--     NULL,
+--     NULL,
+--     0,
+--     0,
+--     0,
+--     0,
+--     0,
+--     0,
+--     1,
+--     5,
+--     1,
+--     5,
+--     2,
+--     2,
+--     FALSE,
+--     0
+-- );
 
 
 
@@ -264,8 +264,8 @@ CREATE TABLE gameConfig (
     maxSet INT
 );
 
-INSERT INTO gameConfig VALUES (101, 'レグ', '先取', true, true, true, 0, 25, 25, 25, 20, 20, 20, 2, 2, 2, 11, 3);
-INSERT INTO gameConfig VALUES (102, 'レグ', '先取', true, true, true, 0, 25, 25, 25, 20, 20, 20, 2, 2, 2, 11, 3);
+-- INSERT INTO gameConfig VALUES (101, 'レグ', 'drawGD', true, true, true, 0, 25, 25, 25, 20, 20, 20, 2, 2, 2, 11, 3);
+-- INSERT INTO gameConfig VALUES (102, 'レグ', 'drawGD', true, true, true, 0, 25, 25, 25, 20, 20, 20, 2, 2, 2, 11, 3);
 
 
 -- ゲームのテーブルを作成します。
@@ -303,15 +303,15 @@ CREATE TABLE GAME(
 
 );
 
-INSERT INTO GAME VALUES (
-101, 'A1', '123411', '#1', '10:00', 1, 10000, 20000, 30000, 40000, 1,
-201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);
-INSERT INTO GAME VALUES (
-102, 'B1', '123412', '#1', '10:00', 2, 50000, 60000, 30000, 40000, 1,
-201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);
-INSERT INTO GAME VALUES (
-201, 'A2', '123411', '#2', '11:00', 1, 90000, 90001, 30000, 40000, 1,
-201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);
-INSERT INTO GAME VALUES (
-301, 'A3', '123411', '#3', '12:00', 1, 90000, 90001, 30000, 40000, 1,
-201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);
+-- INSERT INTO GAME VALUES (
+-- 101, 'A1', '123411', '#1', '10:00', 1, 10000, 20000, 30000, 40000, 1,
+-- 201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);
+-- INSERT INTO GAME VALUES (
+-- 102, 'B1', '123412', '#1', '10:00', 2, 50000, 60000, 30000, 40000, 1,
+-- 201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);
+-- INSERT INTO GAME VALUES (
+-- 201, 'A2', '123411', '#2', '11:00', 1, 90000, 90001, 30000, 40000, 1,
+-- 201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);
+-- INSERT INTO GAME VALUES (
+-- 301, 'A3', '123411', '#3', '12:00', 1, 90000, 90001, 30000, 40000, 1,
+-- 201, 301, FALSE, FALSE, FALSE, FALSE, FALSE, 0, 0, NULL, NULL, NULL);

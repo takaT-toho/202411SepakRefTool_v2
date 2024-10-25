@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>審判支援システム</title>
-<link href="/demo202411/css/header-non-menu.css" rel="stylesheet" />
-<link href="/demo202411/css/form.css" rel="stylesheet" />
-<link href="/demo202411/css/playerSubstituteMenu-jsp.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/header-non-menu.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/form.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/playerSubstituteMenu-jsp.css" rel="stylesheet" />
 </head>
 <body>
 <%@ include file="headerNonMenu.jsp" %>
@@ -27,8 +27,8 @@
 	  <table>
 	    <thead>
 	      <tr>
-	        <th><div class="reguRequested active" id="reguRequestedA" onclick="onReguClick(this, 'A')"><c:out value="${ sessionScope.reguA.name }" /></div></th>
-	        <th><div class="reguRequested" id="reguRequestedB" onclick="onReguClick(this, 'B')"><c:out value="${ sessionScope.reguB.name }" /></div></th>
+	        <th><div class="reguRequested active" id="reguRequestedA" onclick="onReguClick(this, 'A')"><c:out value="${ sessionScope.reguA.abbreviation }" /></div></th>
+	        <th><div class="reguRequested" id="reguRequestedB" onclick="onReguClick(this, 'B')"><c:out value="${ sessionScope.reguB.abbreviation }" /></div></th>
 	      </tr>
 	    </thead>
 	    <tbody>
@@ -127,8 +127,8 @@
 
 <%@ include file="footer.jsp" %>
 
-<script type="text/javascript" src="/demo202411/js/selectPlayerSubstituteRegu.js"></script>
-<script type="text/javascript" src="/demo202411/js/selectPlayerSubstituteReguAsync.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/selectPlayerSubstituteRegu.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/selectPlayerSubstituteReguAsync.js"></script>
 
 </body>
 </html>

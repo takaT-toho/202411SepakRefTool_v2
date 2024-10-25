@@ -163,13 +163,13 @@ public class FrontController extends HttpServlet {
 				action = new SignCheckAction();
 				break;
 			case "p0004":
-				// トス・サーブ権処理 > 2分練画面
+				// トス・サーブ権処理 > ゲーム開始画面
 				action = new TossAndServeAction();
 				break;
-			case "p0005":
-				// 2分練ページ処理 > ゲーム開始画面
-				action = new TwoMinutesWarmUpAction();
-				break;
+			// case "p0005":
+			// 	// 2分練ページ処理 > ゲーム開始画面
+				// action = new TwoMinutesWarmUpAction();
+			// 	break;
 			case "p0006":
 				// ゲーム開始処理 > メイン画面
 				action = new GameStartAction();

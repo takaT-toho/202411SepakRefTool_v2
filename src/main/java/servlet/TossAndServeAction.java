@@ -15,7 +15,7 @@ import entity.Regu;
 public class TossAndServeAction implements ActionIF {
 
 	public String execute(HttpServletRequest request) {
-		String page = "twoMinutesWarmUp.jsp";
+		String page = "gameReady.jsp";
 		try {
 			// パラメータの取得
 			String isAreguTossWin = request.getParameter("isAreguTossWin");

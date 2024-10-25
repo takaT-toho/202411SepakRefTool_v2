@@ -13,6 +13,10 @@ public class SelectReguLogic {
 	public Regu findReguByReguId(int reguId) throws JudgeBusinessException, JudgeSystemException {
         Connection con = null;
 		Regu regu = null;
+
+        if (reguId == 0) {
+            return regu;
+        }
 		
         try {
             // データベースへの接続を取得

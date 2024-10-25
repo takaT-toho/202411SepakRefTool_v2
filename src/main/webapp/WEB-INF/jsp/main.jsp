@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>審判支援システム</title>
-<link href="/demo202411/css/header.css" rel="stylesheet" />
-<link href="/demo202411/css/main-jsp.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/header.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/main-jsp.css" rel="stylesheet" />
 </head>
 <body>
 <%@ include file="header.jsp" %>
@@ -18,8 +18,8 @@
 	<div id="isAreguFirstServe" hidden><c:out value="${ sessionScope.gameConfig.isAreguFirstServe }" /></div>
 	<div id="is3setCourtChanged" hidden><c:out value="${ sessionScope.gameDetail.is3setCourtChanged }" /></div>
 	<div id="sumPoints" hidden><c:out value="${ sessionScope.gameDetail.sumPoints }" /></div>
-	<div id="reguAName" hidden><c:out value="${ sessionScope.reguA.name }" /></div>
-	<div id="reguBName" hidden><c:out value="${ sessionScope.reguB.name }" /></div>
+	<div id="reguAName" hidden><c:out value="${ sessionScope.reguA.abbreviation }" /></div>
+	<div id="reguBName" hidden><c:out value="${ sessionScope.reguB.abbreviation }" /></div>
 	<div id="setNumGotByA" hidden><c:out value="${ sessionScope.game.setNumGotByA }" /></div>
 	<div id="setNumGotByB" hidden><c:out value="${ sessionScope.game.setNumGotByB }" /></div>
 	<div id="isFin1Set" hidden><c:out value="${ sessionScope.game.isFin1Set }" /></div>
@@ -46,10 +46,10 @@
 	    <div class="team-name" id="teamLeft"><span class="reguName">
 			<c:choose>
 				<c:when test="${ (sessionScope.gameConfig.isAreguLeft == (sessionScope.game.setNow % 2 == 1)) == !sessionScope.gameDetail.is3setCourtChanged }">
-					<c:out value="${ sessionScope.reguA.name }" />
+					<c:out value="${ sessionScope.reguA.abbreviation }" />
 				</c:when>
 				<c:otherwise>
-					<c:out value="${ sessionScope.reguB.name }" />
+					<c:out value="${ sessionScope.reguB.abbreviation }" />
 				</c:otherwise>
 			</c:choose>
 		</span></div>
@@ -213,8 +213,8 @@
 
 <%@ include file="footer.jsp" %>
 
-<script type="text/javascript" src="/demo202411/js/main.js"></script>
-<script type="text/javascript" src="/demo202411/js/mainAsync.js"></script>
-<script type="text/javascript" src="/demo202411/js/header.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/main.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/mainAsync.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/header.js"></script>
 </body>
 </html>

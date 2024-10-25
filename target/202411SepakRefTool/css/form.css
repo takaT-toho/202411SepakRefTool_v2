@@ -1,0 +1,126 @@
+body {
+	background-color: #1a1a1a;
+	color: #fff;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.container {
+	max-width: 400px;
+	margin: 20px auto;
+	background-color: #333;
+	padding: 10px 30px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+form {
+	margin-top: 10px;
+}
+input[type="text"], button[type="submit"] {
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: none;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background-color: #4d4d4d;
+	color: #333;
+	font-size: 18px;
+}
+input[type="text"]	{
+	color: white;
+}
+button[type="submit"] {
+	background-color: #ff9900;
+	color: #333;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-weight: bold;
+}
+button[type="submit"]:hover {
+	background-color: #FFD699;
+}
+.errorMsg {
+	color: #ff0000;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 18px;
+}
+
+/* Chrome, Safari, Opera 15+, Android, iOS用 */
+::-webkit-input-placeholder {
+  color: #fff;
+}
+
+/* Firefox 19+用 */
+::-moz-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+/* IE 10+用 */
+:-ms-input-placeholder {
+  color: #fff;
+}
+
+.explain-card-header {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.explain-card-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.explain-steps {
+    padding: 8px 0;
+}
+
+.explain-step {
+    margin: 16px 0;
+    padding-left: 16px;
+    border-left: 4px solid #f0f0f0;
+}
+
+.explain-step-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.explain-step-title {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.explain-step-number {
+    font-size: 12px;
+    background-color: #2d2d2d;
+    padding: 4px 8px;
+    border-radius: 4px;
+	margin-left: 8px;
+}
+
+.explain-step-description {
+    color: #cfcccc;
+    margin-bottom: 8px;
+	margin-left: 8px;
+}
+
+.explain-quote {
+    background-color: #2d2d2d;
+    padding: 8px;
+    border-top: 1px solid #4a4a4a;
+    border-bottom: 1px solid #4a4a4a;
+    border-radius: 4px;
+}
+
+.explain-quote p {
+    font-size: 14px;
+    font-style: italic;
+    color: #cfcccc;
+	margin-left: 0;
+}

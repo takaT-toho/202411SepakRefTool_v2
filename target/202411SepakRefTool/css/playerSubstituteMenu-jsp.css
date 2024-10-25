@@ -1,0 +1,97 @@
+table {
+	width: 100%;
+	border-collapse: collapse;
+	align-items: center;
+	justify-conten: center;
+}
+
+.reguRequestedContainer th {
+	border: 1px solid grey;
+	padding: 8px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.reguRequestedContainer th.active {
+	border: 1px solid #ff9900;
+}
+
+.reguRequestedContainer td {
+	padding: 8px;
+	text-align: center;
+}
+
+.playersContainer th {
+	border: 1px solid grey;
+	padding: 8px;
+	text-align: center;
+}
+
+.playersContainer td {
+	border: 1px solid grey;
+	padding: 8px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.inCourt.active {
+	border-bottom: 3px solid #ff9900;	
+}
+
+.substitution.active {
+	border-bottom: 3px solid #ff9900;	
+}
+
+.status.out {
+	font-weight: bold;
+	color: red;
+}
+
+.status.in {
+	font-weight: bold;
+	color: lightgreen;
+}
+
+
+.reguRequested {
+	width: 100%;
+	height: 100%;
+}
+
+.reguRequested.active {
+	border-bottom: 3px solid #ff9900;	
+}
+
+.executeButton {
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 20px;
+	text-align: center;
+	border: none;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background-color: #4d4d4d;
+	color: #fff;
+	font-size: 18px;
+	
+	background-color: #ff9900;
+	color: #333;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-weight: bold;
+}
+.executeButton:hover {
+	background-color: #ff7700;
+}
+
+h2 {
+	text-align: center;
+}
+
+h3 {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: #333;
+}

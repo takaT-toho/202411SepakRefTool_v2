@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>審判支援システム</title>
-<link href="/demo202411/css/header-non-menu.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/header-non-menu.css" rel="stylesheet" />
 <style>
     button[type="submit"] {
         display: flex;

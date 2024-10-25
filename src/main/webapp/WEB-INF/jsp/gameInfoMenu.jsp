@@ -7,9 +7,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>審判支援システム</title>
-<link href="/demo202411/css/header-non-menu.css" rel="stylesheet" />
-<link href="/demo202411/css/form.css" rel="stylesheet" />
-<link href="/demo202411/css/gameInfoMenu-jsp.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/header-non-menu.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/form.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/gameInfoMenu-jsp.css" rel="stylesheet" />
 </head>
 <body>
 <%@ include file="headerNonMenu.jsp" %>
@@ -28,16 +28,19 @@
 	</div>
 	
 	<div class="teams">
-	  <div class="team team-a"><c:out value="${ sessionScope.reguA.name }" /></div>
+	  <div class="team team-a"><c:out value="${ sessionScope.reguA.abbreviation }" /></div>
 	  <div class="vs">VS</div>
-	  <div class="team team-b"><c:out value="${ sessionScope.reguB.name }" /></div>
+	  <div class="team team-b"><c:out value="${ sessionScope.reguB.abbreviation }" /></div>
 	</div>
 	
 	<div class="referees">
-		<div>審判：</div>
-		<div><c:out value="${ sessionScope.mainRef.name }" /></div>
-		<div>&</div>
-		<div><c:out value="${ sessionScope.subRef.name }" /></div>
+		<div>【主審】</div>
+		<div><c:out value="${ sessionScope.mainRef.abbreviation }" /></div>
+		
+		<c:if test="${sessionScope.subRef != null}">
+			<div>【副審】</div>
+			<div><c:out value="${ sessionScope.subRef.abbreviation }" /></div>
+		</c:if>
 	</div>
 	
 	<form action="judgeFC" method="post">

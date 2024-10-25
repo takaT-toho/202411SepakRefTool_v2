@@ -76,7 +76,7 @@ const backButton = document.getElementById("backGame");
 const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
 
-
+// ボタン管理=========================================================================================
 
 // 加算ボタンにイベントリスナーを追加
 buttonLeft.addEventListener('click', async() => {
@@ -220,20 +220,19 @@ form.addEventListener('submit', function(e) {
 });
 
 
+// /ボタン管理=========================================================================================
+
+
 // 試合が終了しているかどうかをチェック
 async function checkSetFinished() {
-	// どちらかのスコアが25に達した場合、セットが終了
-	// どちらかのスコアも20以上で、差が2点以上の場合、セットが終了
-	// どちらかのスコアが21で、差が2点以上の場合、セットが終了
-	if (scoreLeft ===  MAX_SCORE[setNow - 1] || scoreRight === MAX_SCORE[setNow - 1]) {
+	// どちらかのスコアが17に達した場合、セットが終了
+	if (scoreLeft === MAX_SCORE[setNow - 1] || scoreRight === MAX_SCORE[setNow - 1]) {
 		await endSet();
-	} else if ((scoreLeft >= DEUCE_START_SCORE[setNow - 1] 
-		&& scoreRight >= DEUCE_START_SCORE[setNow - 1]) 
-		&& Math.abs(scoreLeft - scoreRight) >= DEUCE_DIFFERENCE[setNow - 1]) {
-		await endSet();
-	} else if ((scoreLeft === (DEUCE_START_SCORE[setNow - 1] + 1)
-		|| scoreRight === (DEUCE_START_SCORE[setNow - 1] + 1)) 
-		&& Math.abs(scoreLeft - scoreRight) >= DEUCE_DIFFERENCE[setNow - 1]) {
+	// 一方が15点で、もう一方が13点以下の場合、セットが終了
+	} else if (((scoreLeft === DEUCE_START_SCORE[setNow - 1] + 1)
+		&& (scoreRight <= DEUCE_START_SCORE[setNow - 1] - 1))
+		|| ((scoreLeft <= DEUCE_START_SCORE[setNow - 1] - 1)
+			&& (scoreRight === DEUCE_START_SCORE[setNow - 1] + 1))) {
 		await endSet();
 	}
 }
@@ -331,6 +330,9 @@ function isAreguSetWin() {
 	}
 }
 
+
+// コール管理 =========================================================================================
+
 // コールテキストを更新する
 function updateCallTextDisplay() {
 	const displayMessage = document.getElementById("callMsg");
@@ -339,8 +341,12 @@ function updateCallTextDisplay() {
 
 // コールテキストを生成する
 function generateCallText() {
+	if (isGameFinished()) {
+		return "ゲームセット マッチ " + AreguName + "チーム ウィン";
+		// return generateGameEndCallText();
+	}
 	if (isSetFinished) {
-		return "結果送信ボタンを押してください";
+		return generateSetEndCallText();
 	}
 	if (scoreLeft === 0 && scoreRight === 0) {
 		return generateFirstCallText();
@@ -350,8 +356,19 @@ function generateCallText() {
 		text += convertNumberToCallText[MAX_SCORE[setNow - 1]][1] + " ";
 		text += convertNumberToCallText[scoreLeft][1] + " オール";
 		return text;
+	} else if (scoreLeft == scoreRight == (MAX_SCORE[setNow - 1] - 1)) {
+		return generateFinalCallText();
 	} else if (scoreLeft == scoreRight) {
 		return convertNumberToCallText[scoreLeft][1] + " オール";
+	} else if (((scoreLeft === DEUCE_START_SCORE[setNow - 1])
+		&& (scoreRight <= (DEUCE_START_SCORE[setNow - 1] - 1))) 
+		|| ((scoreRight === DEUCE_START_SCORE[setNow - 1]) 
+		&& (scoreLeft <= (DEUCE_START_SCORE[setNow - 1] - 1)))
+		|| ((scoreLeft === (MAX_SCORE[setNow - 1] - 1))
+		&& (scoreRight <= (MAX_SCORE[setNow - 1] - 2)))
+		|| ((scoreRight === (MAX_SCORE[setNow - 1] - 1))
+		&& (scoreLeft <= (MAX_SCORE[setNow - 1] - 2)))) {
+		return generateFinalCallText();
 	} else if (scoreLeft >= DEUCE_START_SCORE[setNow - 1] 
 		|| scoreRight >= DEUCE_START_SCORE[setNow - 1]) {
 		return generateFinalCallText();
@@ -390,26 +407,45 @@ function generateFinalCallText() {
 	let scoreA = judgeAreguLeft() ? scoreLeft : scoreRight;
 	let scoreB = judgeAreguLeft() ? scoreRight : scoreLeft;
 	if (scoreA > scoreB) {
-		if (isMatchPoint('A')) {
-			callText =  " マッチポイント ";
-		} else {
-			callText =  " セットポイント ";
-		}
-	// } else if (scoreA === scoreB === (MAX_SCORE[setNow - 1] - 1)) {
-	// 	// ここ何ていうの？
-	// 	callText = " デュース ";
+		callText = isMatchPoint('A') ? " マッチポイント " : " セットポイント ";
+	// } else if (scoreA == scoreB) {		
+	// 	callText = isMatchPoint('A') ? " マッチポイント " : " セットポイント ";
 	} else {
-		if (isMatchPoint('B')) {
-			callText =  " マッチポイント ";
-		} else {
-			callText =  " セットポイント ";
-		}
+		callText = isMatchPoint('B') ? " マッチポイント " : " セットポイント ";
 	}
 	if (judgeAreguServe(isAreguServeArray[serialNumber])) {
 		callText += convertNumberToCallText[scoreA][1] + " - " + convertNumberToCallText[scoreB][1];
 	} else {
 		callText += convertNumberToCallText[scoreB][1] + " - " + convertNumberToCallText[scoreA][1];
 	}
+	return callText;
+}
+
+// セット終了時のコールテキストを生成する
+function generateSetEndCallText() {
+	var callText;
+	let scoreA = judgeAreguLeft() ? scoreLeft : scoreRight;
+	let scoreB = judgeAreguLeft() ? scoreRight : scoreLeft;	
+	let scoreWin = isAreguSetWin() ? scoreA : scoreB;
+	let scoreLose = isAreguSetWin() ? scoreB : scoreA;
+	let reguNameWin = isAreguSetWin() ? AreguName : BreguName;
+
+	switch (setNow) {
+		case 1:
+			callText = "ファーストセット ";
+			break;
+		case 2:
+			callText = "セカンドセット ";
+			break;
+		case 3:
+			callText = "サードセット ";
+			break;
+		default:
+			callText = "";
+	}
+
+	callText += scoreWin + " 対 " + scoreLose + " " + reguNameWin + "チーム ウィン トゥーミニッツ レスト";
+
 	return callText;
 }
 
@@ -455,6 +491,12 @@ const convertNumberToCallText = {
 	24: ["Twenty Four", "トゥウェンティ フォー"],
 	25: ["Twenty Five", "トゥウェンティ ファイブ"],
 }
+
+// /コール管理 ========================================================================================
+
+
+
+// サーブ管理 =========================================================================================
 
 // サーブ表示を更新する
 function updateServeDisplay() {
@@ -525,6 +567,10 @@ function stopServeDisplay() {
 	document.getElementById("serveGageRight3").classList.remove('active');
 }
 
+// /サーブ管理 ========================================================================================
+
+// 点数表示管理 =======================================================================================
+
 function updateSetNumberDisplay(score_) {
 	let popped = scoreStockList.slice(-1)[0];
 	if (popped === 'L') {
@@ -566,7 +612,7 @@ function updateSetNumberDisplay(score_) {
 	}
 }
 
-// Aレグがサブかどうかを判定する
+// Aレグがサーブかどうかを判定する
 function judgeAreguServe(isAreguServeInit_) {
 	// Aレグがサーブの時は以下の時
 	// 1セット目かつ、Aレグが最初にサーブする時

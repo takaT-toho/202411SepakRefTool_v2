@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>審判支援システム</title>
-<link href="/demo202411/css/header-non-menu.css" rel="stylesheet" />
-<link href="/demo202411/css/form.css" rel="stylesheet" />
-<link href="/demo202411/css/gameSettingProgress.css" rel="stylesheet" />
-<link href="/demo202411/css/gameReady-jsp.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/header-non-menu.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/form.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/gameSettingProgress.css" rel="stylesheet" />
+<link href="/202411SepakRefTool/css/gameReady-jsp.css" rel="stylesheet" />
 </head>
 <body>
 <%@ include file="headerNonMenu.jsp" %>	
@@ -65,13 +65,13 @@
 			</div>            
 			<div class="explain-quote">
                 <c:if test="${ sessionScope.gameConfig.isAreguLeft == true }">
-                    <p>「オンマイライト <c:out value="${ sessionScope.reguB.name }" />、
+                    <p>「オンマイライト <c:out value="${ sessionScope.reguB.abbreviation }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListB }">
                             <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>
                         <%--リザーブ --%>」
                     </p>
-                    <p>「オンマイレフト <c:out value="${ sessionScope.reguA.name }" />、
+                    <p>「オンマイレフト <c:out value="${ sessionScope.reguA.abbreviation }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListA }">
                             <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>
@@ -79,13 +79,13 @@
                     </p>
                 </c:if>
                 <c:if test="${ sessionScope.gameConfig.isAreguLeft == false }">
-                    <p>「オンマイライト <c:out value="${ sessionScope.reguA.name }" />、
+                    <p>「オンマイライト <c:out value="${ sessionScope.reguA.abbreviation }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListA }">
                             <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>
                         <%--リザーブ --%>」
                     </p>
-                    <p>「オンマイレフト <c:out value="${ sessionScope.reguB.name }" />、
+                    <p>「オンマイレフト <c:out value="${ sessionScope.reguB.abbreviation }" />、
                         <c:forEach var="player" items="${ sessionScope.playerListB }">
                             <br><c:out value="${ player.name }" /> 選手
                         </c:forEach>

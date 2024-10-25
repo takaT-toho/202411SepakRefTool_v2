@@ -1,0 +1,312 @@
+body {
+	background-color: #000;
+	color: white;
+}
+.container{
+	padding: 0px;
+}
+
+/* スコアボード */
+
+
+.scoreboard {
+  display: flex;
+  background-color: #000;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.team {
+	width: 100%;
+	margin: 0 10px;
+	text-align: center;
+}
+
+.team-name {
+	height: 30px;
+	position: relative;
+	background-color: #333;
+	padding: 5px 0px;
+	border-radius: 5px;
+	font-weight: bold;
+	border: 2px solid grey;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+
+.team-name.active::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	width: 100%;
+	height: 100%;
+	border: 2px solid yellow;
+	border-radius: 5px;
+	animation: flash 1.61s linear infinite;
+}
+
+@keyframes flash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.serveGages {
+  display: flex;
+  justify-content: space-between;
+}
+
+.serveGage {
+	width: 100%;
+	height: 2px;
+	margin: 1px;
+	border-radius: 1px;
+	background-color: grey;
+}
+
+.serveGage.active {
+	background-color: yellow;
+}
+
+.score {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ff9900;
+  margin: 10px 0;
+}
+
+.score.active {
+	animation: flashScore 0.616s linear 2;
+}
+
+@keyframes flashScore {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+    background: #fce0b3;
+  }
+}
+
+.sets {
+  display: flex;
+  justify-content: center;
+}
+
+.set {
+  margin: 0 5px;
+}
+
+.set-number {
+  background-color: #333;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*
+  font-size: 14px;
+  */
+  font-weight: bold;
+}
+
+.set-number.active {
+	color: #ff9900;
+}
+
+.set-number.win {
+	border: 1px solid yellow;
+}
+
+.set-label {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* 得点加算ボタン */
+.addPointContianer {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px;
+}
+
+.addPointButton {
+	display: flex;
+	width: 5rem;
+	height: 5rem;
+	margin: 0 auto;
+	border-radius: 2.5rem;
+	background-color: yellow;
+	color: black;
+	justify-content: center;
+	align-items: center;
+	
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-decoration: none;
+    border-bottom: 2px solid #cccc00;
+    -webkit-box-shadow: 0 5px 0 #e6d900;
+    box-shadow: 0 2px 0 #e6d900;
+}
+
+.addPointButton.active {
+  -webkit-box-shadow: 0 2px 0 #e6d900;
+  box-shadow: 0 2px 0 #e6d900;
+  animation: clicking 0.3s;
+}
+   
+@keyframes clicking {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(6px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.score.active {
+	animation: flashScore 0.616s linear 2;
+}
+
+@keyframes flashScore {
+	0%, 100% {
+	  opacity: 1;
+	}
+	50% {
+	  opacity: 0.5;
+	  background-color: #FFFF00;
+	}
+  }
+
+/* コールメッセージ */
+.callMsgContainer {
+	margin-top: 10px;
+}
+.callMsgArea {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+	padding: 10px 20px;
+	border: 1px solid white;
+	border-radius: 2px;
+}
+.callMsgLine {
+	height: 2px;
+	background: linear-gradient(to right, transparent, yellow, transparent);
+}
+#callMsg {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.middleButtonContainer {
+	display: flex;
+	padding: 20px 20px;
+	height: 64px;
+}
+
+.undo-button {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: linear-gradient(to bottom, #3b3b3b, #333333);
+	border: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+	box-shadow: 0 4px 6px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.1);
+}
+.undo-button:hover {
+	background: linear-gradient(to bottom, #333333, #2b2b2b);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.05);
+}
+.undo-button:active {
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+.undo-icon {
+	width: 32px;
+	height: 32px;
+	fill: none;
+	stroke: #e5e5e5;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.formContainer {
+	flex: 1;
+}
+
+.submitResult {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	padding: 5px;
+	margin: 0 calc((100vw - 240px) / 2) 0 calc((100vw - 336px) / 2);
+	border: none;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background-color: #ff9900;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-weight: bold;
+}
+
+.submitResult:hover {
+	background-color: #ff7700;
+}
+
+button[type="submit"] {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	padding: 22px 5px;
+	margin-left: calc(50vw - 184px);
+	border: none;
+	border-radius: 6px;
+	box-sizing: border-box;
+	background-color: #ff9900;
+	color: #333;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-weight: bold;
+}
+
+button[type="submit"]:hover {
+	background-color: #ff7700;
+}
+
+#SetEndButton {
+	display: none;
+}
