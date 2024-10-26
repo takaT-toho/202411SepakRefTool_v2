@@ -1,3 +1,4 @@
+// 2400
 package logic;
 
 import java.sql.Connection;
@@ -23,14 +24,16 @@ public class UpdateGameEventHistoryLogic  {
 			}
             result = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(24001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(24002)");
 			}
 		}
 		
@@ -52,14 +55,16 @@ public class UpdateGameEventHistoryLogic  {
 				throw new JudgeBusinessException("データの更新に失敗しました");
 			}
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(24003)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(24004)");
 			}
 		}
 		

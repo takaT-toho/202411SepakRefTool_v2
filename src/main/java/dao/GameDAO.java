@@ -15,11 +15,11 @@ public class GameDAO {
 	}
 	
 	public Game selectLatestGameByCourtName(String courtName) throws SQLException {
-		String sql = "SELECT game.gameId, game.isFinished, game.isStarted FROM game "
-				+ "INNER JOIN court ON game.courtId = court.courtId "
-				+ "WHERE game.isFinished = false and game.courtId = "
-				+ "(SELECT court.courtId FROM court WHERE court.name = ?) "
-				+ "ORDER BY ROUND ASC LIMIT 1";
+		String sql = "SELECT g.gameId, g.isFinished, g.isStarted FROM GAME g "
+				+ "INNER JOIN COURT c ON g.courtId = c.courtId "
+				+ "WHERE g.isFinished = false and g.courtId = "
+				+ "(SELECT c.courtId FROM COURT c WHERE c.name = ?) "
+				+ "ORDER BY gameId ASC LIMIT 1";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		Game game = null;
@@ -48,7 +48,7 @@ public class GameDAO {
 	}
 	
 	public Game selectGameByGameId(int gameId) throws SQLException {
-		String sql = "SELECT * FROM game WHERE gameId = ?";
+		String sql = "SELECT * FROM GAME WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		Game game = null;
@@ -95,7 +95,7 @@ public class GameDAO {
 	}
 	
 	public boolean updateGameIsStarted(int gameId) throws SQLException {
-		String sql = "UPDATE game SET isStarted = true WHERE gameId = ?";
+		String sql = "UPDATE GAME SET isStarted = true WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -114,7 +114,7 @@ public class GameDAO {
 	}
 
 	public boolean updateSignInfoInGame(int gameId, String sign) throws SQLException {
-		String sql = "UPDATE game SET mainJudgeSign = ? WHERE gameId = ?";
+		String sql = "UPDATE GAME SET mainJudgeSign = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -134,7 +134,7 @@ public class GameDAO {
 	}
 
 	public boolean update1SetInfoA(int gameId) throws SQLException {
-		String sql = "UPDATE game SET setNow = setNow + 1, isFin1Set = true, setNumGotByA = setNumGotByA + 1 WHERE gameId = ?";
+		String sql = "UPDATE GAME SET setNow = setNow + 1, isFin1Set = true, setNumGotByA = setNumGotByA + 1 WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -153,7 +153,7 @@ public class GameDAO {
 	}
 
 	public boolean update2SetInfoA(int gameId) throws SQLException {
-		String sql = "UPDATE game SET setNow = setNow + 1, isFin2Set = true, setNumGotByA = setNumGotByA + 1 WHERE gameId = ?";
+		String sql = "UPDATE GAME SET setNow = setNow + 1, isFin2Set = true, setNumGotByA = setNumGotByA + 1 WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -172,7 +172,7 @@ public class GameDAO {
 	}
 
 	public boolean update3SetInfoA(int gameId) throws SQLException {
-		String sql = "UPDATE game SET setNow = setNow + 1, isFin3Set = true, setNumGotByA = setNumGotByA + 1 WHERE gameId = ?";
+		String sql = "UPDATE GAME SET setNow = setNow + 1, isFin3Set = true, setNumGotByA = setNumGotByA + 1 WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -191,7 +191,7 @@ public class GameDAO {
 	}
 
 	public boolean update1SetInfoB(int gameId) throws SQLException {
-		String sql = "UPDATE game SET setNow = setNow + 1, isFin1Set = true, setNumGotByB = setNumGotByB + 1 WHERE gameId = ?";
+		String sql = "UPDATE GAME SET setNow = setNow + 1, isFin1Set = true, setNumGotByB = setNumGotByB + 1 WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -210,7 +210,7 @@ public class GameDAO {
 	}
 
 	public boolean update2SetInfoB(int gameId) throws SQLException {
-		String sql = "UPDATE game SET setNow = setNow + 1, isFin2Set = true, setNumGotByB = setNumGotByB + 1 WHERE gameId = ?";
+		String sql = "UPDATE GAME SET setNow = setNow + 1, isFin2Set = true, setNumGotByB = setNumGotByB + 1 WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -229,7 +229,7 @@ public class GameDAO {
 	}
 
 	public boolean update3SetInfoB(int gameId) throws SQLException {
-		String sql = "UPDATE game SET setNow = setNow + 1, isFin3Set = true, setNumGotByB = setNumGotByB + 1 WHERE gameId = ?";
+		String sql = "UPDATE GAME SET setNow = setNow + 1, isFin3Set = true, setNumGotByB = setNumGotByB + 1 WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -248,7 +248,7 @@ public class GameDAO {
 	}
 
 	public boolean updateIsGameFinished(int gameId, boolean isGameFinished) throws SQLException {
-        String sql = "UPDATE game SET isFinished = ? WHERE gameId = ?";
+        String sql = "UPDATE GAME SET isFinished = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		
@@ -271,7 +271,7 @@ public class GameDAO {
     }
 
 	public boolean updateWinnerLoser(int gameId, int winner, int loser) throws SQLException {
-        String sql = "UPDATE game SET winner = ?, loser = ? WHERE gameId = ?";
+        String sql = "UPDATE GAME SET winner = ?, loser = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		
@@ -295,7 +295,7 @@ public class GameDAO {
     }
 	
 	public boolean updateARegu(int gameId, int regu) throws SQLException {
-        String sql = "UPDATE game SET areguid = ? WHERE gameId = ?";
+        String sql = "UPDATE GAME SET areguid = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		
@@ -318,7 +318,7 @@ public class GameDAO {
     }
 	
 	public boolean updateBRegu(int gameId, int regu) throws SQLException {
-        String sql = "UPDATE game SET breguid = ? WHERE gameId = ?";
+        String sql = "UPDATE GAME SET breguid = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		
@@ -341,7 +341,7 @@ public class GameDAO {
     }
 	
 	public boolean updateMainJudgeRegu(int gameId, int regu) throws SQLException {
-        String sql = "UPDATE game SET mainJudgeReguId = ? WHERE gameId = ?";
+        String sql = "UPDATE GAME SET mainJudgeReguId = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		
@@ -366,7 +366,7 @@ public class GameDAO {
 	
 	
 	public boolean updateSubJudgeRegu(int gameId, int regu) throws SQLException {
-        String sql = "UPDATE game SET subJudgeReguId = ? WHERE gameId = ?";
+        String sql = "UPDATE GAME SET subJudgeReguId = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		

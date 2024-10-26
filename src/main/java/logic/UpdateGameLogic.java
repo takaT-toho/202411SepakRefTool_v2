@@ -1,3 +1,4 @@
+// 2500
 package logic;
 
 import java.sql.Connection;
@@ -49,14 +50,15 @@ public class UpdateGameLogic {
             res = true;
 		} catch (SQLException e) {
             e.printStackTrace();
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。11");
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(25001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。12");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(25002)");
 			}
 		}
 
@@ -79,14 +81,16 @@ public class UpdateGameLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+            e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(25003)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(25004)");
 			}
 		}
 
@@ -109,14 +113,16 @@ public class UpdateGameLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+            e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(25005)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(25006)");
 			}
 		}
 
@@ -139,14 +145,16 @@ public class UpdateGameLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+            e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(25007)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(25008)");
 			}
 		}
 
@@ -166,8 +174,6 @@ public class UpdateGameLogic {
 			Game game = dao.selectGameByGameId(gameId);
 			Game nextGame = dao.selectGameByGameId(nextGameId);
 			String areguAbb = rDao.findReguByReguId(nextGame.getAreguId()).getAbbreviation();
-			System.out.println("areguAbb=" + areguAbb);
-			System.out.println("game.getName()=" + game.getName());
 			if (areguAbb.contains("::") && areguAbb.contains(game.getName())) {
 				result = dao.updateARegu(nextGameId, reguId);
 			}
@@ -175,7 +181,6 @@ public class UpdateGameLogic {
 				return true;
 			}
 			String breguAbb = rDao.findReguByReguId(nextGame.getBreguId()).getAbbreviation();
-			System.out.println("breguAbb=" + breguAbb);
 			if (breguAbb.contains("::") && breguAbb.contains(game.getName())) {
 				result = dao.updateBRegu(nextGameId, reguId);
 			}
@@ -187,18 +192,19 @@ public class UpdateGameLogic {
 			}
 
 			if (result == false) {
-				System.out.println("updateNextGameReguId: gameId=" + nextGameId + ", reguId=" + reguId);
 				throw new JudgeBusinessException("データベースの更新に失敗しました。");
 			}
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+            e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(25009)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(25010)");
 			}
 		}
 
@@ -206,7 +212,6 @@ public class UpdateGameLogic {
     }
 
 	public boolean updateNextGameJudgeReguId(int gameId, int nextGameId, int reguId) throws JudgeBusinessException, JudgeSystemException {
-		System.out.println("updateNextGameJudgeReguId: gameId=" + gameId + ", nextGameId=" + nextGameId + ", reguId=" + reguId);
         Connection con = null;
         boolean res = false;
 
@@ -219,8 +224,6 @@ public class UpdateGameLogic {
 			Game game = dao.selectGameByGameId(gameId);
 			Game nextGame = dao.selectGameByGameId(nextGameId);
 			String mainJudgeReguAbb = rDao.findReguByReguId(nextGame.getMainJudgeReguId()).getAbbreviation();
-			System.out.println("mainJudgeReguAbb=" + mainJudgeReguAbb);
-			System.out.println("game.getName()=" + game.getName());
 			if (mainJudgeReguAbb.contains("::") && mainJudgeReguAbb.contains(game.getName())) {
 				result = dao.updateMainJudgeRegu(nextGameId, reguId);
 			}
@@ -228,7 +231,6 @@ public class UpdateGameLogic {
 				return true;
 			}
 			String subJudgeReguAbb = rDao.findReguByReguId(nextGame.getSubJudgeReguId()).getAbbreviation();
-			System.out.println("subJudgeReguAbb=" + subJudgeReguAbb);
 			if (subJudgeReguAbb.contains("::") && subJudgeReguAbb.contains(game.getName())) {
 				result = dao.updateSubJudgeRegu(nextGameId, reguId);
 			}
@@ -240,14 +242,16 @@ public class UpdateGameLogic {
 				throw new JudgeBusinessException("データベースの更新に失敗しました。");
 			}
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+            e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(25011)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(25012)");
 			}
 		}
 

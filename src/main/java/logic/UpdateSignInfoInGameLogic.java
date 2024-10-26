@@ -1,3 +1,4 @@
+// 2800
 package logic;
 
 import java.sql.Connection;
@@ -22,14 +23,16 @@ public class UpdateSignInfoInGameLogic {
 				throw new JudgeBusinessException("署名が未入力です。");
 			}
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(28001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(28002)");
 			}
 		}
 		

@@ -1,3 +1,4 @@
+// 1200
 package logic;
 
 import java.sql.Connection;
@@ -24,14 +25,16 @@ public class SelectGameConfigLogic {
 				throw new JudgeBusinessException("試合が見つかりません。");
 			}
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。2");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(12001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。3");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(12002");
 			}
 		}
 		

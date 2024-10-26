@@ -1,3 +1,4 @@
+// 1500
 package logic;
 
 import java.sql.Connection;
@@ -24,14 +25,16 @@ public class SelectGameLogic {
 				throw new JudgeBusinessException("「" + gameId + "」という試合が見つかりません。");
 			}
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。31");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(15001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。32");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(15002)");
 			}
 		}
 		
@@ -52,14 +55,16 @@ public class SelectGameLogic {
 				throw new JudgeBusinessException("「" + courtName + "」というコートが見つかりません。");
 			}
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(15003)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(15004)");
 			}
 		}
 		

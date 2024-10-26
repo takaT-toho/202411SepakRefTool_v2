@@ -1,3 +1,4 @@
+// 2300
 package logic;
 
 import java.sql.Connection;
@@ -26,14 +27,16 @@ public class UpdateGameDetailLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(23001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(23002)");
 			}
 		}
 
@@ -72,14 +75,16 @@ public class UpdateGameDetailLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(23003)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(23004)");
 			}
 		}
 
@@ -120,14 +125,16 @@ public class UpdateGameDetailLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(23005)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(23006)");
 			}
 		}
 
@@ -162,14 +169,16 @@ public class UpdateGameDetailLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(23007)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(23008)");
 			}
 		}
 
@@ -196,14 +205,16 @@ public class UpdateGameDetailLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(23009)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(23010)");
 			}
 		}
 
@@ -232,14 +243,16 @@ public class UpdateGameDetailLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(23011)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(23012)");
 			}
 		}
 
@@ -262,14 +275,16 @@ public class UpdateGameDetailLogic {
 
             res = true;
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(23013)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(23014)");
 			}
 		}
 

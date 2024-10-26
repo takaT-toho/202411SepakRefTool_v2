@@ -17,8 +17,8 @@ public class PlayerDAO {
 	}
 	
 	public ArrayList<Player> findAllPlayersByReguId(int reguId) throws SQLException {
-		String sql = "SELECT p.playerId, pm.name, pm.katakana, p.position, p.orders FROM player AS p "
-            + "INNER JOIN playermaster as pm "
+		String sql = "SELECT p.playerId, pm.name, pm.katakana, p.position, p.orders FROM PLAYER AS p "
+            + "INNER JOIN PLAYERMASTER as pm "
             + "ON p.playerMasterId = pm.playerMasterId "
             + "WHERE p.reguId = ? "
 			+ "ORDER BY p.orders";
@@ -55,8 +55,8 @@ public class PlayerDAO {
 	
 	
 	public Player findPlayerByName(String name) throws SQLException {
-		String sql = "SELECT p.playerId, pm.name, pm.katakana, p.position, p.orders FROM player AS p "
-            + "INNER JOIN playermaster as pm "
+		String sql = "SELECT p.playerId, pm.name, pm.katakana, p.position, p.orders FROM PLAYER AS p "
+            + "INNER JOIN PLAYERMASTER as pm "
             + "ON p.playerMasterId = pm.playerMasterId "
             + "WHERE pm.name = ?";
 		PreparedStatement stmt = null;
@@ -91,7 +91,7 @@ public class PlayerDAO {
 	public boolean updatePlayersOrder(int playerId, int orders) throws SQLException {
 		System.out.println("playerId" + playerId);
 		System.out.println("orders" + orders);
-		String sql = "UPDATE player SET orders = ? WHERE playerId = ?";
+		String sql = "UPDATE PLAYER SET orders = ? WHERE playerId = ?";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		

@@ -1,3 +1,4 @@
+// 1400
 package logic;
 
 import java.sql.Connection;
@@ -25,14 +26,16 @@ public class SelectGameEventHistoryLogic {
 			}
 
 		} catch (SQLException e) {
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+			e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(14001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(14002)");
 			}
 		}
 		

@@ -1,3 +1,4 @@
+// 1700
 package logic;
 
 import java.sql.Connection;
@@ -32,16 +33,17 @@ public class SelectReguLogic {
             }
 
         } catch (SQLException e) {
-            throw new JudgeSystemException("システムエラーが発生しました");
+            e.printStackTrace();
+            throw new JudgeSystemException("システムエラーが発生しました(17001)");
         }
          finally {
             try {
-                // データベースへの接続をクローズ
                 if (con != null) {
                     con.close();
                 }
             } catch (Exception e) {
-                throw new JudgeSystemException("システムエラーが発生しました");
+                e.printStackTrace();
+                throw new JudgeSystemException("システムエラーが発生しました(17002");
             }
         }
 

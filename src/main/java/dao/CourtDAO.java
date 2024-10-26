@@ -16,8 +16,8 @@ public class CourtDAO {
 	}
 	
 	public Court selectCourtByGameId(int gameId) throws SQLException {
-		String sql = "SELECT * FROM court WHERE courtId = "
-				+ "(SELECT courtId FROM game where gameId = ?)";
+		String sql = "SELECT * FROM COURT WHERE courtId = "
+				+ "(SELECT courtId FROM GAME where gameId = ?)";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		Court court = null;
@@ -49,7 +49,7 @@ public class CourtDAO {
 	}
 	
 	public Court selectCourtByCourtName(String courtName) throws SQLException {
-		String sql = "SELECT * FROM court WHERE name = ?";
+		String sql = "SELECT * FROM COURT WHERE name = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		Court court = null;
@@ -81,7 +81,7 @@ public class CourtDAO {
 	}
 
 	public Court selectCourtByCourtId(int courtId) throws SQLException {
-		String sql = "SELECT * FROM court WHERE courtId = ?";
+		String sql = "SELECT * FROM COURT WHERE courtId = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		Court court = null;
@@ -113,7 +113,7 @@ public class CourtDAO {
 	}
 	
 	public boolean updateCourtLoginInfo(LoginMap loginMap) throws SQLException {
-		String sql = "UPDATE court SET sessionId = ?, lastUpdate = ? WHERE courtId = ?";
+		String sql = "UPDATE COURT SET sessionId = ?, lastUpdate = ? WHERE courtId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -135,7 +135,7 @@ public class CourtDAO {
 	}
 
 	public boolean initCourtSessionId(int courtId) throws SQLException {
-		String sql = "UPDATE court SET sessionId = null, lastUpdate = 0 WHERE courtId = ?";
+		String sql = "UPDATE COURT SET sessionId = null, lastUpdate = 0 WHERE courtId = ?";
 		PreparedStatement stmt = null;
 		
 		try {

@@ -1,3 +1,4 @@
+// 2200
 package logic;
 
 import java.sql.Connection;
@@ -27,14 +28,14 @@ public class UpdateGameConfigLogic {
             res = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。1");
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(22001)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(22002)");
 			}
 		}
 
@@ -58,14 +59,14 @@ public class UpdateGameConfigLogic {
             res = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new JudgeSystemException("データベースシステムエラーが発生しました。1");
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(22003)");
 		} finally {
 			try {
 				if (con != null) {
 					con.close();
 				} 
 			} catch (SQLException e) {
-				throw new JudgeSystemException("データベースシステムエラーが発生しました。");
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(22004)");
 			}
 		}
 

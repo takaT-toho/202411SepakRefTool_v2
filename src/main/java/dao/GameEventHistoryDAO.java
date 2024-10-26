@@ -17,7 +17,7 @@ private Connection con;
 
     public ArrayList<GameEventHistory> findGameEventHistoriesByGameId(int gameId) throws SQLException {
         String sql = "SELECT id, gameId, setNum, type, firstDetail, secondDetail, "
-            + "isSequential, isAreguGot, createdAt FROM gameEventHistory WHERE gameId = ? "
+            + "isSequential, isAreguGot, createdAt FROM GAMEEVENTHISTORY WHERE gameId = ? "
 			+ "ORDER BY createdAt";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
@@ -54,7 +54,7 @@ private Connection con;
     }
 
     public boolean insertGameEventHistory(GameEventHistory gameEventHistory) throws SQLException {
-        String sql = "INSERT INTO gameEventHistory (gameId, setNum, type, firstDetail, secondDetail, "
+        String sql = "INSERT INTO GAMEEVENTHISTORY (gameId, setNum, type, firstDetail, secondDetail, "
             + "isSequential, isAreguGot, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)";
 		PreparedStatement stmt = null;
 		boolean result = false;
@@ -84,7 +84,7 @@ private Connection con;
     }
 
     public GameEventHistory selectLatestGameEventHistory(int gameId) throws SQLException {
-        String sql = "SELECT * FROM gameeventhistory WHERE ID = (SELECT MAX(ID) FROM gameeventhistory WHERE GAMEID = ?)";
+        String sql = "SELECT * FROM GAMEEVENTHISTORY WHERE ID = (SELECT MAX(ID) FROM GAMEEVENTHISTORY WHERE GAMEID = ?)";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		GameEventHistory geh = null;
@@ -120,7 +120,7 @@ private Connection con;
     }
 
     public boolean deleteGameEventHistory(GameEventHistory gameEventHistory) throws SQLException {
-        String sql = "DELETE FROM gameeventhistory WHERE ID = ?;";
+        String sql = "DELETE FROM GAMEEVENTHISTORY WHERE ID = ?;";
 		PreparedStatement stmt = null;
 		boolean result = false;
 		

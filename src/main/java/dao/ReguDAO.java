@@ -16,7 +16,7 @@ public class ReguDAO {
 	}
 
     public Regu findReguByReguId(int reguId) throws SQLException {
-		String sql = "SELECT * FROM regu WHERE reguId = ?";
+		String sql = "SELECT * FROM REGU WHERE reguId = ?";
 		PreparedStatement stmt = null;
 		ResultSet res = null;
 		Regu regu = null;

@@ -1,3 +1,4 @@
+// 1600
 package logic;
 
 import java.sql.Connection;
@@ -28,14 +29,16 @@ public class SelectPlayerLogic {
 
 
         } catch (SQLException e) {
-                throw new JudgeSystemException(e.getMessage());
+            e.printStackTrace();
+            throw new JudgeSystemException("データベースシステムエラーが発生しました。(16001)");
         }finally {
             try {
                 if (con != null) {
                     con.close();
                 } 
             } catch (SQLException e) {
-                    throw new JudgeSystemException(e.getMessage());
+                e.printStackTrace();
+                throw new JudgeSystemException("データベースシステムエラーが発生しました。(16002)");
             }
         }
 
@@ -59,14 +62,16 @@ public class SelectPlayerLogic {
 
 
         } catch (SQLException e) {
-                throw new JudgeSystemException(e.getMessage());
+            e.printStackTrace();
+            throw new JudgeSystemException("データベースシステムエラーが発生しました。(16003)");
         }finally {
             try {
                 if (con != null) {
                     con.close();
                 } 
             } catch (SQLException e) {
-                    throw new JudgeSystemException(e.getMessage());
+                e.printStackTrace();
+                throw new JudgeSystemException("データベースシステムエラーが発生しました。(16004)");
             }
         }
 
