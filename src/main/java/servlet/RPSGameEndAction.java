@@ -45,8 +45,8 @@ public class RPSGameEndAction implements ActionIF {
             // 次の試合情報を更新する
             int nextGameIdWinner = game.getNextGameIdWinner();
             int nextGameIdLoser = game.getNextGameIdLoser();
-            gameLogic.updateNextGameReguId(nextGameIdWinner, winner);
-            gameLogic.updateNextGameReguId(nextGameIdLoser, loser);
+            gameLogic.updateNextGameReguId(game.getGameId(), nextGameIdWinner, winner);
+            gameLogic.updateNextGameReguId(game.getGameId(), nextGameIdLoser, loser);
 
 		} catch (JudgeBusinessException e) {
 			request.setAttribute("errorMsg", e.getMessage());

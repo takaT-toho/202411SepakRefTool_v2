@@ -1,6 +1,8 @@
 package servlet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import common.JudgeBusinessException;
 import common.JudgeSystemException;
@@ -17,7 +19,7 @@ public class SetEndAction implements ActionIF {
 
 	public String execute(HttpServletRequest request) {
 		// リダイレクトURLの設定
-		String page = "/judgeFC?buttonId=p0202";
+		String page = "/judgeFC?buttonId=p0005";
 
 		try {            
 			// パラメータの取得
@@ -80,8 +82,35 @@ public class SetEndAction implements ActionIF {
 				
 				int nextGameIdWinner = game.getNextGameIdWinner();
 				int nextGameIdLoser = game.getNextGameIdLoser();
-				gameLogic.updateNextGameReguId(nextGameIdWinner, winner);
-				gameLogic.updateNextGameReguId(nextGameIdLoser, loser);
+				gameLogic.updateNextGameReguId(game.getGameId(), nextGameIdWinner, winner);
+				gameLogic.updateNextGameReguId(game.getGameId(), nextGameIdLoser, loser);
+
+				Map<Integer, Integer> gameIdMap = new HashMap<>();
+				gameIdMap.put(708, 1004);
+				gameIdMap.put(801, 1004);
+				gameIdMap.put(601, 1005);
+				gameIdMap.put(605, 1007);
+				gameIdMap.put(905, 1102);
+				gameIdMap.put(906, 1102);
+				gameIdMap.put(903, 1103);
+				gameIdMap.put(904, 1103);
+				gameIdMap.put(607, 1104);
+				gameIdMap.put(608, 1104);
+				gameIdMap.put(507, 1106);
+				gameIdMap.put(907, 1106);
+				gameIdMap.put(703, 1108);
+				gameIdMap.put(704, 1108);
+				gameIdMap.put(805, 1203);
+				gameIdMap.put(806, 1203);
+				gameIdMap.put(901, 1205);
+				gameIdMap.put(902, 1205);
+				gameIdMap.put(1004, 1207);
+				gameIdMap.put(707, 1207);
+
+				if (gameIdMap.containsKey(game.getGameId())) {
+					int nextGameId = gameIdMap.get(game.getGameId());
+					gameLogic.updateNextGameJudgeReguId(game.getGameId(), nextGameId, loser);
+				}
 			}
 
             // セッションのgame・gamedetailを更新する

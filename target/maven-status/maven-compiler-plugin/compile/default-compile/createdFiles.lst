@@ -46,13 +46,13 @@ entity\Team.class
 servlet\UpdateIsGameFinishedAction.class
 dao\CourtDAO.class
 common\JudgeSystemException.class
-servlet\TwoMinutesWarmUpAction.class
 logic\UpdateGameConfigLogic.class
 servlet\UpdatePlayerSubstituteAction.class
 logic\UpdateSignInfoInGameLogic.class
 common\JudgeBusinessException.class
 servlet\IndexAction.class
 dao\GameDAO.class
+servlet\TwoMinutesRestAction.class
 servlet\UpdateSessionPlayerList.class
 entity\PlayerMaster.class
 logic\SelectReguLogic.class

@@ -56,6 +56,10 @@ public class FrontController extends HttpServlet {
 				// QRログイン処理
 				shouldDoPost = true;
 				break;
+			case "p0005":
+				// 2分休憩画面
+				shouldDoPost = true;
+				break;
 			case "p0006":
 				// メイン画面
 				shouldDoPost = true;
@@ -166,10 +170,10 @@ public class FrontController extends HttpServlet {
 				// トス・サーブ権処理 > ゲーム開始画面
 				action = new TossAndServeAction();
 				break;
-			// case "p0005":
-			// 	// 2分練ページ処理 > ゲーム開始画面
-				// action = new TwoMinutesWarmUpAction();
-			// 	break;
+			case "p0005":
+				// 2分練ページ処理 > ゲーム開始画面
+				action = new TwoMinutesRestAction();
+				break;
 			case "p0006":
 				// ゲーム開始処理 > メイン画面
 				action = new GameStartAction();
@@ -206,13 +210,13 @@ public class FrontController extends HttpServlet {
 				break;
 			case "p0306":
 				// メイン画面：メニュー：試合設定 > メニュー画面
-				action = new GameSettingChangeAction();				
+				action = new GameSettingChangeAction();
 				shouldRedirect = true;
 				break;
 			// セット終了処理
 			case "p0201":
-				// セット終了処理 > 次セット画面
-				action = new SetEndAction();				
+				// セット終了処理 > 2分休憩画面
+				action = new SetEndAction();
 				shouldRedirect = true;
 				break;
 			case "p0202":

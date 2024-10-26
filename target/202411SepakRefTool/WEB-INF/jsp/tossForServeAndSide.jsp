@@ -28,10 +28,6 @@
 			</div>
 			<div class="step">
 				<div class="step-circle">2</div>
-				<span class="step-text">2分間練習</span>
-			</div>
-			<div class="step">
-				<div class="step-circle">3</div>
 				<span class="step-text">チーム・選手紹介</span>
 			</div>
 		</div>
@@ -124,7 +120,7 @@
 	
 	<div class="explain-steps">
 		<div class="explain-step">
-			<p class="explain-step-description">コイントスに勝ったチームが、最初に2分間のウォーミングアップを行います。2分練へ進みましょう。</p>
+			<p class="explain-step-description">次はチーム・選手紹介です。</p>
 		</div>
 	</div>
 
@@ -132,7 +128,7 @@
 		<input type="hidden" id="isAreguTossWin" name="isAreguTossWin" value="1">
 		<input type="hidden" id="serve" name="serve" value="1">
 		<input type="hidden" id="court" name="court" value="1">
-		<button type="submit" name="buttonId" value="p0004">2分練へ</button>
+		<button type="submit" name="buttonId" value="p0004">チーム・選手紹介へ</button>
 	</form>
 </div>
 

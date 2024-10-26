@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import logic.SelectGameConfigLogic;
+import logic.SelectPlayerLogic;
 import logic.UpdateGameConfigLogic;
 import common.JudgeBusinessException;
 import common.JudgeSystemException;
 import entity.Game;
 import entity.GameConfig;
+import entity.Player;
 import entity.Regu;
 
 public class TossAndServeAction implements ActionIF {
@@ -78,6 +80,29 @@ public class TossAndServeAction implements ActionIF {
 			// トス勝者とトス敗者を変数に格納する
 			session.setAttribute("tossWinner", isAreguTossWin.equals("1") ? reguA.getName() : reguB.getName());
 			session.setAttribute("tossLoser", isAreguTossWin.equals("1") ? reguB.getName() : reguA.getName());
+
+			
+
+            // AレグとBレグの選手情報を取得
+            SelectPlayerLogic logic = new SelectPlayerLogic();
+            ArrayList<Player> playerListA = logic.findAllPlayersByReguId(game.getAreguId());
+            ArrayList<Player> playerListB = logic.findAllPlayersByReguId(game.getBreguId());
+			
+			if (playerListA.size() == 0) {
+                errorMsgList.add("Aレグの選手情報がありません");
+            }	
+            if (playerListB.size() == 0) {
+                errorMsgList.add("Bレグの選手情報がありません");
+            }
+            // エラーメッセージがある場合
+            // 業務例外をスローする
+            if (!errorMsgList.isEmpty()) {
+                throw new JudgeBusinessException(errorMsgList);
+            }
+			
+			// 情報の格納
+            session.setAttribute("playerListA", playerListA);
+            session.setAttribute("playerListB", playerListB);
 			
 		} catch (JudgeBusinessException e) {
 			request.setAttribute("errorMsg", e.getMessage());

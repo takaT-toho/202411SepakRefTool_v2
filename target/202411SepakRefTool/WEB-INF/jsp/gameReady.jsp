@@ -27,11 +27,7 @@
 				<span class="step-text">サービス/サイド決め</span>
 			</div>
 			<div class="step">
-				<div class="step-circle completed">2</div>
-				<span class="step-text">2分間練習</span>
-			</div>
-			<div class="step">
-				<div class="step-circle active">3</div>
+				<div class="step-circle active">2</div>
 				<span class="step-text active">チーム・選手紹介</span>
 			</div>
 		</div>

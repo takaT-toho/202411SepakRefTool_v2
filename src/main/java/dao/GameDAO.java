@@ -339,4 +339,52 @@ public class GameDAO {
 		}
 		return result;
     }
+	
+	public boolean updateMainJudgeRegu(int gameId, int regu) throws SQLException {
+        String sql = "UPDATE game SET mainJudgeReguId = ? WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		boolean result = false;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+            stmt.setInt(1, regu);
+            stmt.setInt(2, gameId);
+			int row = stmt.executeUpdate();
+			
+			if (row != 1) {
+				throw new SQLException("更新対象のデータが存在しません");
+			}
+			result = true;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return result;
+    }
+
+	
+	
+	public boolean updateSubJudgeRegu(int gameId, int regu) throws SQLException {
+        String sql = "UPDATE game SET subJudgeReguId = ? WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		boolean result = false;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+            stmt.setInt(1, regu);
+            stmt.setInt(2, gameId);
+			int row = stmt.executeUpdate();
+			
+			if (row != 1) {
+				throw new SQLException("更新対象のデータが存在しません");
+			}
+			result = true;
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return result;
+    }
 }

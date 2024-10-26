@@ -153,7 +153,7 @@ public class UpdateGameLogic {
         return res;
     }
 
-	public boolean updateNextGameReguId(int gameId, int reguId) throws JudgeBusinessException, JudgeSystemException {
+	public boolean updateNextGameReguId(int gameId, int nextGameId, int reguId) throws JudgeBusinessException, JudgeSystemException {
         Connection con = null;
         boolean res = false;
 
@@ -164,21 +164,73 @@ public class UpdateGameLogic {
 			boolean result = false;
 
 			Game game = dao.selectGameByGameId(gameId);
-			System.out.println("gameId: " + game.getGameId());
-			String areguAbb = rDao.findReguByReguId(game.getAreguId()).getAbbreviation();
-			System.out.println("areguAbb: " + areguAbb);
-			if (areguAbb.contains("::")) {
-				System.out.println("inside: 1");
-				result = dao.updateARegu(gameId, reguId);
+			Game nextGame = dao.selectGameByGameId(nextGameId);
+			String areguAbb = rDao.findReguByReguId(nextGame.getAreguId()).getAbbreviation();
+			System.out.println("areguAbb=" + areguAbb);
+			System.out.println("game.getName()=" + game.getName());
+			if (areguAbb.contains("::") && areguAbb.contains(game.getName())) {
+				result = dao.updateARegu(nextGameId, reguId);
 			}
 			if (result) {
 				return true;
 			}
-			String breguAbb = rDao.findReguByReguId(game.getBreguId()).getAbbreviation();
-			System.out.println("breguAbb: " + breguAbb);
-			if (breguAbb.contains("::")) {
-				System.out.println("inside: 2");
-				result = dao.updateBRegu(gameId, reguId);
+			String breguAbb = rDao.findReguByReguId(nextGame.getBreguId()).getAbbreviation();
+			System.out.println("breguAbb=" + breguAbb);
+			if (breguAbb.contains("::") && breguAbb.contains(game.getName())) {
+				result = dao.updateBRegu(nextGameId, reguId);
+			}
+			if (result) {
+				return true;
+			}
+			if (nextGameId == 9999) {
+				return true;
+			}
+
+			if (result == false) {
+				System.out.println("updateNextGameReguId: gameId=" + nextGameId + ", reguId=" + reguId);
+				throw new JudgeBusinessException("データベースの更新に失敗しました。");
+			}
+		} catch (SQLException e) {
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。21");
+		} finally {
+			try {
+				if (con != null) {
+					con.close();
+				} 
+			} catch (SQLException e) {
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。22");
+			}
+		}
+
+        return res;
+    }
+
+	public boolean updateNextGameJudgeReguId(int gameId, int nextGameId, int reguId) throws JudgeBusinessException, JudgeSystemException {
+		System.out.println("updateNextGameJudgeReguId: gameId=" + gameId + ", nextGameId=" + nextGameId + ", reguId=" + reguId);
+        Connection con = null;
+        boolean res = false;
+
+        try {
+			con = ConnectionManager.getConnectionManager().getConnection();
+			GameDAO dao = new GameDAO(con);
+			ReguDAO rDao = new ReguDAO(con);
+			boolean result = false;
+
+			Game game = dao.selectGameByGameId(gameId);
+			Game nextGame = dao.selectGameByGameId(nextGameId);
+			String mainJudgeReguAbb = rDao.findReguByReguId(nextGame.getMainJudgeReguId()).getAbbreviation();
+			System.out.println("mainJudgeReguAbb=" + mainJudgeReguAbb);
+			System.out.println("game.getName()=" + game.getName());
+			if (mainJudgeReguAbb.contains("::") && mainJudgeReguAbb.contains(game.getName())) {
+				result = dao.updateMainJudgeRegu(nextGameId, reguId);
+			}
+			if (result) {
+				return true;
+			}
+			String subJudgeReguAbb = rDao.findReguByReguId(nextGame.getSubJudgeReguId()).getAbbreviation();
+			System.out.println("subJudgeReguAbb=" + subJudgeReguAbb);
+			if (subJudgeReguAbb.contains("::") && subJudgeReguAbb.contains(game.getName())) {
+				result = dao.updateSubJudgeRegu(nextGameId, reguId);
 			}
 			if (result) {
 				return true;

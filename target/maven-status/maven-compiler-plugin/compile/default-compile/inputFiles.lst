@@ -6,6 +6,7 @@ C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\servlet\FrontControl
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\common\JudgeBusinessException.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\dao\GameDetailDAO.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\servlet\GameEndAction.java
+C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\servlet\TwoMinutesRestAction.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\entity\PointJSON.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\servlet\TossAndServeAction.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\dao\GameDAO.java
@@ -25,7 +26,6 @@ C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\dao\CourtDAO.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\logic\UpdateGameLogic.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\entity\GameConfig.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\servlet\ServiceCourtSideAction.java
-C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\servlet\TwoMinutesWarmUpAction.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\entity\Game.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\logic\UpdateGameEventHistoryLogic.java
 C:\Users\user\Downloads\202411SepakRefTool_v2\src\main\java\servlet\SessionCheck.java
