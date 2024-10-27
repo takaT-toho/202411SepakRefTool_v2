@@ -422,8 +422,6 @@ function generateFinalCallText() {
 	
 	if (scoreA > scoreB) {
 		callText = isMatchPoint('A') ? " マッチポイント " : " セットポイント ";
-	// } else if (scoreA == scoreB) {		
-	// 	callText = isMatchPoint('A') ? " マッチポイント " : " セットポイント ";
 	} else {
 		callText = isMatchPoint('B') ? " マッチポイント " : " セットポイント ";
 	}

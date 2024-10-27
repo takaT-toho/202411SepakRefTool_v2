@@ -10,6 +10,7 @@ import logic.UpdateCourtLogic;
 public class GameEndAction implements ActionIF {
     public String execute(HttpServletRequest request) {
 		String page = "gameEnd.jsp";
+		
 		try {
 			// セッションを取得する
 			HttpSession session = request.getSession(false);

@@ -18,13 +18,13 @@ body {
   padding: 10px;
 }
 
-.team {
+.regu {
 	width: 100%;
 	margin: 0 10px;
 	text-align: center;
 }
 
-.team-name {
+.regu-name {
 	height: 30px;
 	position: relative;
 	background-color: #333;
@@ -37,7 +37,7 @@ body {
 	align-items: center;
 }
 
-.team-name.active::before {
+.regu-name.active::before {
 	content: "";
 	display: block;
 	position: absolute;

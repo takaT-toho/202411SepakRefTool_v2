@@ -14,17 +14,18 @@
 <%@ include file="header.jsp" %>
 
 <div class="container">
-	<div id="isAreguLeft" hidden><c:out value="${ sessionScope.gameConfig.isAreguLeft }" /></div>
-	<div id="isAreguFirstServe" hidden><c:out value="${ sessionScope.gameConfig.isAreguFirstServe }" /></div>
-	<div id="is3setCourtChanged" hidden><c:out value="${ sessionScope.gameDetail.is3setCourtChanged }" /></div>
-	<div id="sumPoints" hidden><c:out value="${ sessionScope.gameDetail.sumPoints }" /></div>
-	<div id="reguAName" hidden><c:out value="${ sessionScope.reguA.abbreviation }" /></div>
-	<div id="reguBName" hidden><c:out value="${ sessionScope.reguB.abbreviation }" /></div>
-	<div id="setNumGotByA" hidden><c:out value="${ sessionScope.game.setNumGotByA }" /></div>
-	<div id="setNumGotByB" hidden><c:out value="${ sessionScope.game.setNumGotByB }" /></div>
-	<div id="isFin1Set" hidden><c:out value="${ sessionScope.game.isFin1Set }" /></div>
-	<div id="isFin2Set" hidden><c:out value="${ sessionScope.game.isFin2Set }" /></div>
-	<div id="isFin3Set" hidden><c:out value="${ sessionScope.game.isFin3Set }" /></div>
+	<span id="IS_AREGU_FIRST_LEFT" hidden><c:out value="${ sessionScope.gameConfig.isAreguLeft }" /></span>
+	<span id="IS_AREGU_FIRST_SERVE" hidden><c:out value="${ sessionScope.gameConfig.isAreguFirstServe }" /></span>
+	<span id="IS_3SET_COURT_CHANGED" hidden><c:out value="${ sessionScope.gameDetail.is3setCourtChanged }" /></span>
+	<span id="SUM_POINTS" hidden><c:out value="${ sessionScope.gameDetail.sumPoints }" /></span>
+	<span id="AREGU_ABB" hidden><c:out value="${ sessionScope.reguA.abbreviation }" /></span>
+	<span id="BREGU_ABB" hidden><c:out value="${ sessionScope.reguB.abbreviation }" /></span>
+	<span id="SET_GOY_BY_A" hidden><c:out value="${ sessionScope.game.setNumGotByA }" /></span>
+	<span id="SET_GOY_BY_B" hidden><c:out value="${ sessionScope.game.setNumGotByB }" /></span>
+	<span id="IS_FIN_1SET" hidden><c:out value="${ sessionScope.game.isFin1Set }" /></span>
+	<span id="IS_FIN_2SET" hidden><c:out value="${ sessionScope.game.isFin2Set }" /></span>
+	<span id="IS_FIN_3SET" hidden><c:out value="${ sessionScope.game.isFin3Set }" /></span>
+	<span id="IS_GAME_FINISHED" hidden><c:out value="${ sessionScope.game.isFinished }" /></span>
 
 	<span id="LANGUAGE" hidden><c:out value="${ sessionScope.gameConfig.language }" /></span>
 	<span id="MAX_SCORE_1SET" hidden><c:out value="${ sessionScope.gameConfig.maxScore1set }" /></span>
@@ -33,17 +34,14 @@
 	<span id="DEUCE_START_SCORE_1SET" hidden><c:out value="${ sessionScope.gameConfig.deuceStartScore1set }" /></span>
 	<span id="DEUCE_START_SCORE_2SET" hidden><c:out value="${ sessionScope.gameConfig.deuceStartScore2set }" /></span>
 	<span id="DEUCE_START_SCORE_3SET" hidden><c:out value="${ sessionScope.gameConfig.deuceStartScore3set }" /></span>
-	<span id="DEUCE_DIFFERENCE_1SET" hidden><c:out value="${ sessionScope.gameConfig.deuceDifference1set }" /></span>
-	<span id="DEUCE_DIFFERENCE_2SET" hidden><c:out value="${ sessionScope.gameConfig.deuceDifference2set }" /></span>
-	<span id="DEUCE_DIFFERENCE_3SET" hidden><c:out value="${ sessionScope.gameConfig.deuceDifference3set }" /></span>
 	<span id="COURT_CHANGE_SCORE" hidden><c:out value="${ sessionScope.gameConfig.courtChangeScore }" /></span>
 	<span id="MAX_SET" hidden><c:out value="${ sessionScope.gameConfig.maxSet }" /></span>
 	
 	<div id="GAME_RULE" hidden><c:out value="${ sessionScope.gameConfig.gameRule }" /></div>
 
 	<div class="scoreboard">
-	  <div class="team team-a">
-	    <div class="team-name" id="teamLeft"><span class="reguName">
+	  <div class="regu regu-a">
+	    <div class="regu-name" id="reguLeft"><span class="reguName">
 			<c:choose>
 				<c:when test="${ (sessionScope.gameConfig.isAreguLeft == (sessionScope.game.setNow % 2 == 1)) == !sessionScope.gameDetail.is3setCourtChanged }">
 					<c:out value="${ sessionScope.reguA.abbreviation }" />
@@ -54,9 +52,7 @@
 			</c:choose>
 		</span></div>
 	    <div class="serveGages">
-	    	<div class="serveGage" id="serveGageLeft1"></div>
-	    	<div class="serveGage" id="serveGageLeft2"></div>
-	    	<div class="serveGage" id="serveGageLeft3"></div>
+	    	<div class="serveGage" id="serveGageLeft"></div>
 	    </div>
 	    <div class="score" id="scoreLeft">
 			<c:choose>
@@ -111,8 +107,8 @@
 	    </div>
 	  </div>
 	
-	  <div class="team team-b">
-	    <div class="team-name" id="teamRight"><span class="reguName">
+	  <div class="regu regu-b">
+	    <div class="regu-name" id="reguRight"><span class="reguName">
 			<c:choose>
 				<c:when test="${ (sessionScope.gameConfig.isAreguLeft == (sessionScope.game.setNow % 2 == 1)) == !sessionScope.gameDetail.is3setCourtChanged }">
 					<c:out value="${ sessionScope.reguB.name }" />
@@ -123,9 +119,7 @@
 			</c:choose>
 		</span></div>
 	    <div class="serveGages">
-	    	<div class="serveGage" id="serveGageRight1"></div>
-	    	<div class="serveGage" id="serveGageRight2"></div>
-	    	<div class="serveGage" id="serveGageRight3"></div>
+	    	<div class="serveGage" id="serveGageRight"></div>
 	    </div>
 	    <div class="score" id="scoreRight">
 			<c:choose>
@@ -182,8 +176,8 @@
 	</div>
 	  
 	<div class="addPointContianer">
-		<div class="addPointButton" id="addLeftRegu">+1</div>
-		<div class="addPointButton" id="addRightRegu">+1</div>
+		<div class="addPointButton" id="buttonLeft">+1</div>
+		<div class="addPointButton" id="buttonRight">+1</div>
 	</div>
 	
 	
@@ -197,7 +191,7 @@
 	</div>
 	
 	<div class="middleButtonContainer">
-		<button class="undo-button" aria-label="元に戻す" id="backGame">
+		<button class="undo-button" aria-label="元に戻す" id="undoButton">
 			<svg class="undo-icon" viewBox="0 0 24 24">
 				<path d="M1 4v6h6"></path>
 				<path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
@@ -213,8 +207,9 @@
 
 <%@ include file="footer.jsp" %>
 
-<script type="text/javascript" src="/202411SepakRefTool/js/main.js"></script>
-<script type="text/javascript" src="/202411SepakRefTool/js/mainAsync.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/mainGame.js"></script>
+<!-- <script type="text/javascript" src="/202411SepakRefTool/js/main.js"></script>
+<script type="text/javascript" src="/202411SepakRefTool/js/mainAsync.js"></script> -->
 <script type="text/javascript" src="/202411SepakRefTool/js/header.js"></script>
 </body>
 </html>
