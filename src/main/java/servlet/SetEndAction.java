@@ -25,6 +25,10 @@ public class SetEndAction implements ActionIF {
 			// パラメータの取得
 			String setNow = request.getParameter("setNow");
 			String isAreguSetWin = request.getParameter("isAreguSetWin");
+			String isAreguGameWin = request.getParameter("isAreguGameWin");
+			System.out.println("POST:setNow:" + setNow);
+			System.out.println("POST:isAreguSetWin:" + isAreguSetWin);
+			System.out.println("POST:isAreguGameWin:" + isAreguGameWin);
 			
 			ArrayList<String> errorMsgList = new ArrayList<>();
 			// パラメータが未入力の場合
@@ -76,8 +80,8 @@ public class SetEndAction implements ActionIF {
 			
 				int areguId = game.getAreguId();
 				int beguId = game.getBreguId();
-				int winner = isAreguSetWin.equals("true") ? areguId : beguId;
-				int loser = isAreguSetWin.equals("true") ? beguId : areguId;
+				int winner = isAreguGameWin.equals("true") ? areguId : beguId;
+				int loser = isAreguGameWin.equals("true") ? beguId : areguId;
 				gameLogic.updateWinnerLoser(game.getGameId(), winner, loser);
 				
 				int nextGameIdWinner = game.getNextGameIdWinner();

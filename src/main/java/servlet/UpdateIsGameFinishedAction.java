@@ -22,7 +22,6 @@ public class UpdateIsGameFinishedAction {
                 throw new JudgeBusinessException("gameId is null or empty.");
             }
             
-            // 得点加算処理
             // GameDetailへの登録
             UpdateGameLogic logic = new UpdateGameLogic();
             boolean res = logic.UpdateIsGameFinished(Integer.parseInt(gameId), isGameFinished);

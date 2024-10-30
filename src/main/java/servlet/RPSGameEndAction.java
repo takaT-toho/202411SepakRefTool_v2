@@ -13,8 +13,8 @@ public class RPSGameEndAction implements ActionIF {
 
 		try {
             // パラメータを取得
-            String isAreguWin = request.getParameter("isAreguWin");
-            if (isAreguWin == null || isAreguWin.isEmpty()) {
+            String isAreguGameWin = request.getParameter("isAreguGameWin");
+            if (isAreguGameWin == null || isAreguGameWin.isEmpty()) {
                 throw new JudgeBusinessException("正しい試合情報が取得できませんでした。");
             }
 
@@ -34,11 +34,18 @@ public class RPSGameEndAction implements ActionIF {
 				throw new JudgeBusinessException("セッションが切れました。再度ログインしてください。");
 			}
 
+			// GameDetailへの登録
+			UpdateGameLogic logic = new UpdateGameLogic();
+			boolean res = logic.UpdateIsGameFinished(game.getGameId(), true);
+			if (res == false) {
+				throw new JudgeBusinessException("データベースの更新に失敗しました。");
+			}
+
             // 試合情報を更新する(SetEndActionと同じ処理)
             int areguId = game.getAreguId();
             int beguId = game.getBreguId();
-            int winner = isAreguWin.equals("true") ? areguId : beguId;
-            int loser = isAreguWin.equals("true") ? beguId : areguId;
+            int winner = isAreguGameWin.equals("true") ? areguId : beguId;
+            int loser = isAreguGameWin.equals("true") ? beguId : areguId;
             UpdateGameLogic gameLogic = new UpdateGameLogic();
             gameLogic.updateWinnerLoser(game.getGameId(), winner, loser);        
 

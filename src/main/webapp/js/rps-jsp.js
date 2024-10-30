@@ -1,14 +1,14 @@
 function updateWinner(winner) {
-    const teamA = document.getElementById("teamA");
-    const teamB = document.getElementById("teamB");
-    teamA.innerHTML = winner ? "〇" : "";
-    teamB.innerHTML = winner ? "" : "〇";
-    teamA.classList.toggle("win", winner);
-    teamB.classList.toggle("win", !winner);
+    const reguA = document.getElementById("reguA");
+    const reguB = document.getElementById("reguB");
+    reguA.innerHTML = winner ? "〇" : "";
+    reguB.innerHTML = winner ? "" : "〇";
+    reguA.classList.toggle("win", winner);
+    reguB.classList.toggle("win", !winner);
 }
   
-function selectWinner(team) {
-    const winner = team === "A" ? 1 : 0;
-    document.getElementById("isAreguWin").value = winner;
-    updateWinner(winner);
+function selectWinner(regu) {
+    const isAreguGameWin = regu === "A";
+    document.getElementById("isAreguGameWin").value = isAreguGameWin;
+    updateWinner(isAreguGameWin);
 }

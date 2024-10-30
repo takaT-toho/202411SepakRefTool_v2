@@ -24,14 +24,14 @@
 			</tr>
 			<tr>
 				<td>じゃんけんの<br>勝者レグ</td>
-				<td id="teamA" onclick="selectWinner('A')"></td>
-			    <td id="teamB" onclick="selectWinner('B')"></td>
+				<td id="reguA" onclick="selectWinner('A')"></td>
+			    <td id="reguB" onclick="selectWinner('B')"></td>
 			</tr>
 		</table>
 	</div>
 	
 	<form action="/202411SepakRefTool/judgeFC" method="post" id="checkForm">
-        <input type="text" name="isAreguWin" id="isAreguWin" value="" hidden></span>
+        <input type="text" name="isAreguGameWin" id="isAreguGameWin" value="" hidden></span>
 		<button type="submit" name="buttonId" value="p0205">試合を終了する</button>
 	</form>
 	<div class="errorMsg" id="errorMsg"></div>

@@ -200,6 +200,7 @@
 		<form action="judgeFC" method="post" id="main-submit-form" class="formContainer">
 			<input type="text" name="setNow" id="setNow" value="<c:out value='${sessionScope.game.setNow}'/>" hidden>
 			<input type="text" name="isAreguSetWin" id="isAreguSetWin" value="" hidden>
+			<input type="text" name="isAreguGameWin" id="isAreguGameWin" value="" hidden>
 			<button type="submit" name="buttonId" id="SetEndButton" value="p0201">1セット目の結果を送る</button>
 		</form>
 	</div>

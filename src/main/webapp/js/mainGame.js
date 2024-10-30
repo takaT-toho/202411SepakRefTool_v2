@@ -18,11 +18,24 @@ const initialState = {
     IS_SET_FINISHED: false,
     IS_GAME_FINISHED: document.getElementById("IS_GAME_FINISHED").textContent === "true",
     IS_DEUCE_MODE: false,
+    IS_RPS_MODE: false,
+    IS_AREGU_GAME_WIN: false,
   
     // スコア履歴
     SCORE_STOCK_LIST: JSON.parse(sessionStorage.getItem('SCORE_STOCK_LIST')) || [],
     SCORE_LEFT: parseInt(document.getElementById("scoreLeft").textContent) || 0,
     SCORE_RIGHT: parseInt(document.getElementById("scoreRight").textContent) || 0,
+
+    SET_NUMBER_LEFT: {
+        1: parseInt(document.getElementById("setNumber1setLeft").textContent),
+        2: parseInt(document.getElementById("setNumber2setLeft").textContent),
+        3: parseInt(document.getElementById("setNumber3setLeft").textContent),
+    },
+    SET_NUMBER_RIGHT: {
+        1: parseInt(document.getElementById("setNumber1setRight").textContent),
+        2: parseInt(document.getElementById("setNumber2setRight").textContent),
+        3: parseInt(document.getElementById("setNumber3setRight").textContent),
+    },
   
     // 設定値
     LANGUAGE: parseInt(document.getElementById("LANGUAGE").textContent) || 0,
@@ -69,6 +82,8 @@ const initialState = {
         24: ["Twenty Four", "トゥウェンティ フォー"],
         25: ["Twenty Five", "トゥウェンティ ファイブ"],
     },
+
+    IS_PROCESSING: false,
 };
   
 // DOM要素を取得
@@ -104,6 +119,7 @@ const updateState = (state, action) => {
             return {
                 ...state,
                 SCORE_LEFT: state.SCORE_LEFT + 1,
+                SET_NUMBER_LEFT: getSetNumber(state.SET_NUMBER_LEFT, state.SET_NOW, state.SCORE_LEFT + 1),
                 SCORE_STOCK_LIST: [...state.SCORE_STOCK_LIST, 'L'],
                 SUM_POINTS: state.SUM_POINTS + 1,
                 IS_SET_FINISHED: checkHasSetFinished(state.SCORE_LEFT + 1, state.SCORE_RIGHT, state.MAX_SCORE[state.SET_NOW], state.DEUCE_START_SCORE[state.SET_NOW]),
@@ -112,12 +128,13 @@ const updateState = (state, action) => {
             return {
                 ...state,
                 SCORE_RIGHT: state.SCORE_RIGHT + 1,
+                SET_NUMBER_RIGHT: getSetNumber(state.SET_NUMBER_RIGHT, state.SET_NOW, state.SCORE_RIGHT + 1),
                 SCORE_STOCK_LIST: [...state.SCORE_STOCK_LIST, 'R'],
                 SUM_POINTS: state.SUM_POINTS + 1,
                 IS_SET_FINISHED: checkHasSetFinished(state.SCORE_LEFT, state.SCORE_RIGHT + 1, state.MAX_SCORE[state.SET_NOW], state.DEUCE_START_SCORE[state.SET_NOW]),
             };
         case 'UNDO_SCORE':
-            const popped = state.SCORE_STOCK_LIST[state.SCORE_STOCK_LIST.length - 1];
+            const popped = state.SCORE_STOCK_LIST.slice(-1)[0];
             return popped === 'L'
                 ? {
                 ...state,
@@ -146,28 +163,64 @@ const updateState = (state, action) => {
                 ...state,
                 IS_3SET_COURT_CHANGED: action.IS_3SET_COURT_CHANGED,
             }
+        case 'UPDATE_RPS_MODE':
+            return {
+                ...state,
+                IS_RPS_MODE: action.IS_RPS_MODE,
+            }
+        case 'UPDATE_GAME_FINISHED':
+            return {
+                ...state,
+                IS_GAME_FINISHED: action.IS_GAME_FINISHED,
+            }
+        case 'UPDATE_IS_AREGU_GAME_WIN':
+            return {
+                ...state,
+                IS_AREGU_GAME_WIN: action.IS_AREGU_GAME_WIN,
+            }
         default:
         return state;
     }
+};
+
+// セットごとのスコアを取得する関数
+const getSetNumber = (setNumber, setNow, score) => {
+    console.log("execute getSetNumber");
+    if (setNow === 1) {
+        return {
+            ...setNumber,
+            1: score,
+        };
+    } else if (setNow === 2) {
+        return {
+            ...setNumber,
+            2: score,
+        };
+    } else if (setNow === 3) {
+        return {
+            ...setNumber,
+            3: score,
+        };
+    }
+    return setNumber;
 };
   
 // セットが終了しているかどうかをチェック
 const checkHasSetFinished = (SCORE_LEFT, SCORE_RIGHT, MAX_SCORE, DEUCE_START_SCORE) => {
     console.log("execute checkHasSetFinished");
-    let returnValue = false;
     // どちらかのスコアが最大スコアに達した場合、セットが終了
     if (SCORE_LEFT === MAX_SCORE || SCORE_RIGHT === MAX_SCORE) {
-        returnValue = true;
+        return true;
     // 一方が基準点で、もう一方が基準点-2点以下の場合、セットが終了
     } else if (((SCORE_LEFT === DEUCE_START_SCORE + 1)
         && (SCORE_RIGHT <= DEUCE_START_SCORE - 1))
         || ((SCORE_LEFT <= DEUCE_START_SCORE - 1)
         && (SCORE_RIGHT === DEUCE_START_SCORE + 1))) {
-            returnValue = true;
+        return true;
     }
 
-    return returnValue;
-}
+    return false;
+};
   
 // Aレグがその時点でサーブかどうかを判定する関数
 const isAreguServe = (state) => {
@@ -176,7 +229,7 @@ const isAreguServe = (state) => {
     const isEvenSumPoints = state.SUM_POINTS % 2 === 0;
 
     return isOddSet === state.IS_AREGU_FIRST_SERVE === isEvenSumPoints;
-}
+};
   
 // Aレグが左かどうかを判定する関数
 const isAreguLeft = (state) => {
@@ -188,7 +241,15 @@ const isAreguLeft = (state) => {
     } else {
         return !(isOddSet && !state.IS_3SET_COURT_CHANGED);
     }
-}
+};
+
+// Aレグがこのポイントを取ったのか判定する関数
+const isAreguPointGot = (state) => {
+    console.log("execute isAreguPointGot");
+    const popped = state.SCORE_STOCK_LIST.slice(-1)[0];
+    const isLeftReguPointGot = popped === 'L';
+    return isAreguLeft(state) === isLeftReguPointGot;
+};
   
 // マッチポイントのチームを判定する関数
 const isMatchPoint = (state, regu) => {
@@ -199,74 +260,73 @@ const isMatchPoint = (state, regu) => {
         return state.SET_GOY_BY_B === 1;
     }
     return false;
-}
-  
-// Aレグがこのセットを取ったのか判定する
-const isAreguSetWin = (state) => {
-    console.log("execute isAreguSetWin");
-    if (state.GAME_RULE === "drawGD") {
-        const scoreA = isAreguLeft(state) ? state.SCORE_LEFT : state.SCORE_RIGHT;
-        const scoreB = isAreguLeft(state) ? state.SCORE_RIGHT : state.SCORE_LEFT;
-        let hasUniqueWinner = false;
-        if (((scoreA > scoreB) && isMatchPoint(state, 'A'))
-            || ((scoreB > scoreA) && isMatchPoint(state, 'B'))) {
-            hasUniqueWinner = true;
-        }
-        if (!hasUniqueWinner) {
-            const popped = state.SCORE_STOCK_LIST.slice(-1)[0];
-            const addScore = popped === 'L' ? 1 : -1;
-            const goalDifference = getGoalDifference(state) + addScore;
-            if (goalDifference > 0) {
-                return isAreguLeft(state);
-            } else if (goalDifference < 0) {
-                return !isAreguLeft(state);
-            } else {
-                let returnValue = false;
-                if (popped === 'L') {
-                    returnValue = isAreguLeft(state) ? true : false;
-                } else if (popped === 'R') {
-                    returnValue = isAreguLeft(state) ? false : true;
+};
+
+// 明らかに勝負がついている
+const isPerfectWin = (state) => {
+    console.log("isPerfectWin");
+    // このセットはAレグが勝った場合
+    if (isAreguPointGot(state)) {
+        return state.SET_GOY_BY_A === 1;
+    // このセットはBレグが勝った場合
+    } else {
+        return state.SET_GOY_BY_B === 1;
+    }
+};
+
+const checkIsGameFinished = (state) => {
+    console.log("execute checkIsGameFinished");
+    // 最大セット数の場合
+    if (state.SET_NOW === state.MAX_SET) {
+        // 既に勝負がついている場合(どちらかがXセット目を獲得している場合)
+        if (isPerfectWin(state)) {
+            // 試合を終了して返す
+            const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: isAreguLeft(state)});
+            return updateState(newState, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: true });
+        } else {
+        // そうでない場合(0セットまたは1セット差の場合)
+            // 試合ルールが引き分け認める場合
+            if (state.GAME_RULE === "draw") {
+                return updateState(state, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: true });
+            // 試合ルールが得失点で勝負をつける場合
+            } else if (state.GAME_RULE === "drawGD") {
+                const goalDifference = getGoalDifference(state);
+                // 得失点で勝敗が決まる場合
+                if (goalDifference > 0) {
+                    // 試合を終了して返す
+                    const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: isAreguLeft(state)});
+                    return updateState(newState, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: true });
+                } else if (goalDifference < 0) {
+                    // 試合を終了して返す
+                    const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: !isAreguLeft(state)});
+                    return updateState(newState, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: true });
+                // 得失点で勝敗が決まらない場合
+                } else {
+                    // じゃんけんモードにして返す
+                    return updateState(state, { type: 'UPDATE_RPS_MODE', IS_RPS_MODE: true });
                 }
-                // document.getElementById("isAreguSetWin").value = returnValue;
-                throw new Error("Goal Difference is 0");
             }
         }
+    // そうでない場合
+    } else {
+        // 既に勝負がついている場合
+        if (isPerfectWin(state)) {
+            // 試合を終了して返す
+            const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: isAreguLeft(state)});
+            return updateState(newState, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: true });
+        // そうでない場合
+        } else {
+            // そのまま返す
+            return state;
+        }
     }
-    let popped = state.SCORE_STOCK_LIST.slice(-1)[0];
-    if (popped === 'L') {
-        return isAreguLeft(state) ? true : false;
-    } else if (popped === 'R') {
-        return isAreguLeft(state) ? false : true;
-    }
-}
+};
 
 // 得失点差を取得する
 const getGoalDifference = (state) => {
     console.log("execute getGoalDifference");
-    const scoreLeft1set = parseInt(document.getElementById("setNumber1setLeft").textContent);
-    const scoreRight1set = parseInt(document.getElementById("setNumber1setRight").textContent);
-    const scoreLeft2set = parseInt(document.getElementById("setNumber2setLeft").textContent);
-    const scoreRight2set = parseInt(document.getElementById("setNumber2setRight").textContent);
-    return scoreLeft1set - scoreRight1set + scoreLeft2set - scoreRight2set;
-}
-  
-// 試合が終了しているかどうかを判定する
-const checkIsGameFinished = (state) => {
-    console.log("execute checkIsGameFinished");
-    if (state.SET_NOW === state.MAX_SET) {
-        return true;
-    }
-    if (isAreguSetWin(state)) {
-        if (state.SET_GOY_BY_A === 1) {
-            return true;
-        }
-    } else {
-        if (state.SET_GOY_BY_B === 1) {
-            return true;
-        }
-    }
-    return false;
-}
+    return state.SET_NUMBER_LEFT[1] - state.SET_NUMBER_RIGHT[1] + state.SET_NUMBER_LEFT[2] - state.SET_NUMBER_RIGHT[2];
+};
 
 // アニメーション用の関数
 const startAnimation = (position) => {
@@ -289,7 +349,7 @@ const startAnimation = (position) => {
     } else {
       targetScore.classList.add('active');
     }
-  };
+};
   
 // === /純粋関数: 状態の更新と判定 ===
   
@@ -298,7 +358,10 @@ const startAnimation = (position) => {
   
 // 画面を更新する関数
 const render = (state) => {
+    if (state.IS_PROCESSING) return;
     console.log("execute render");
+
+
     // スコア表示を更新
     scoreLeft.textContent = state.SCORE_LEFT;
     scoreRight.textContent = state.SCORE_RIGHT;
@@ -314,69 +377,134 @@ const render = (state) => {
 
     // サーブ表示を更新
     updateServeDisplay(state);
+
+    // アニメーションの完了を待つ
 };
+
+// 上位の関数で状態と isProcessing を管理
+const handleButtonClick = (state, isLeftScore) => {
+    if (state.IS_PROCESSING) return state;
+    const newState = {...state, IS_PROCESSING: true};
+
+    const updatedState = isLeftScore ? handleScoreUpdateInner(newState, true) : handleScoreUpdateInner(newState, false);
+
+    return {...updatedState, IS_PROCESSING: false};
+}
   
 // スコア更新時の処理
-const handleScoreUpdate = (state, isLeftScore) => {
+const handleScoreUpdateInner = (state, isLeftScore) => {
     console.log("execute handleScoreUpdate");
+
+    // 連打対策：ボタンを無効化
+    buttonLeft.disabled = true;
+    buttonRight.disabled = true;
+    undoButton.disabled = true;
+
     const newState = updateState(state, { type: isLeftScore ? 'ADD_LEFT_SCORE' : 'ADD_RIGHT_SCORE' });
+    console.log(newState);
 
     // デュースモードの判定と処理
-    const deuceModeChangedState = checkDeuceMode(newState);
+    const deuceModeState = checkDeuceMode(newState);
 
     // 3セット目のコートチェンジ判定と処理
-    const courtChangedState = checkAndHandleCourtChange(deuceModeChangedState);
+    const courtChangedState = checkAndHandleCourtChange(deuceModeState);
 
-    // データベースへの保存
-    insertGameEventHistoryPoints(
-        courtChangedState,
-        isLeftScore ? courtChangedState.SCORE_LEFT : courtChangedState.SCORE_RIGHT,
-        isLeftScore === isAreguLeft(courtChangedState)
-    );
+    try{
+        // データベースへの保存
+        insertGameEventHistoryPoints(
+            courtChangedState,
+            isLeftScore ? courtChangedState.SCORE_LEFT : courtChangedState.SCORE_RIGHT,
+            isLeftScore === isAreguLeft(courtChangedState)
+        );
 
-    // アニメーション開始
-    startAnimation(isLeftScore ? 'LEFT' : 'RIGHT'); 
+        // アニメーション開始
+        startAnimation(isLeftScore ? 'LEFT' : 'RIGHT');
 
+        // セットが終了している場合
+        if (courtChangedState.IS_SET_FINISHED) {
+            // セットの勝者を反映
+            document.getElementById("isAreguSetWin").value = isAreguPointGot(courtChangedState);
+            // ここがじゃんけんモードの判定ではなく、試合終了判定とし、じゃんけんモード、継続モード、試合終了モードに分岐する。
+            const isGameFinishedState = checkIsGameFinished(courtChangedState);
+            // それに応じて、処理を分岐する。
+            if (isGameFinishedState.IS_RPS_MODE) {
+                SetEndButton.textContent = "結果が決まりません。じゃんけんを行います";
+                SetEndButton.style.display = "block";
+                SetEndButton.value = "p0203";
+            } else if (isGameFinishedState.IS_GAME_FINISHED) {
+                document.getElementById("isAreguGameWin").value = isGameFinishedState.IS_AREGU_GAME_WIN;
+                updateIsGameFinished(isGameFinishedState, isGameFinishedState.IS_GAME_FINISHED);
+                SetEndButton.textContent = "結果を送信し、試合を終了する";
+                SetEndButton.style.display = "block";
+            } else {
+                SetEndButton.textContent = isGameFinishedState.SET_NOW.toString() + "セット目の結果を送る";
+                SetEndButton.style.display = "block";
+            }
+            return isGameFinishedState;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    } finally {
+        // 連打対策：ボタンを有効化
+        buttonLeft.disabled = false;
+        buttonRight.disabled = false;
+        undoButton.disabled = false;
+    }
     return courtChangedState;
 };
   
 // 戻るボタンクリック時の処理
-const handleUndoScore = (state) => {
+const handleUndoScoreInner = (state) => {
+    if (state.IS_PROCESSING) return state;
     console.log("execute handleUndoScore");
-    const newState = updateState(state, { type: 'UNDO_SCORE' });
+    const processingState = {...state, IS_PROCESSING: true};
+
+    // 連打対策：ボタンを無効化
+    buttonLeft.disabled = true;
+    buttonRight.disabled = true;
+    undoButton.disabled = true;
+
+    const newState = updateState(processingState, { type: 'UNDO_SCORE' });
 
     const undoDeuceModeState = undoIsDeuceMode(newState);
 
     const isReseted = undo3setCourtChanged(undoDeuceModeState);
 
+    try {
     if (undoDeuceModeState.IS_SET_FINISHED) {
-        undoEndSet(newState);
-    }
+            undoEndSet(newState);
+        }
 
-    if (isReseted) {
-        sessionStorage.setItem('SCORE_STOCK_LIST', JSON.stringify(undoDeuceModeState.SCORE_STOCK_LIST));
-        window.location.reload();
+        if (isReseted) {
+            sessionStorage.setItem('SCORE_STOCK_LIST', JSON.stringify(undoDeuceModeState.SCORE_STOCK_LIST));
+            window.location.reload();
+        }
+        deleteGameEventHistoryPoints(undoDeuceModeState);
+    } catch (error) {
+        console.error('Error:', error);
+    } finally {
+        // 連打対策：ボタンを有効化
+        buttonLeft.disabled = false;
+        buttonRight.disabled = false;
+        undoButton.disabled = false;
     }
-    deleteGameEventHistoryPoints(undoDeuceModeState);
-    return undoDeuceModeState;
+    return {...undoDeuceModeState, IS_PROCESSING: false};
 };
   
 // セット終了ボタンクリック時の処理
 const handleSetEnd = (state) => {
+    if (state.IS_PROCESSING) return state;
     console.log("execute handleSetEnd");
-    try {
-        document.getElementById("isAreguSetWin").value = isAreguSetWin(state);
-    } catch (error) {
-        // TODO: じゃんけん処理
-    }
-    updateIsGameFinished(state, state.IS_SET_FINISHED);
-    return state;
+    const processingState = {...state, IS_PROCESSING: true};
+    updateIsGameFinished(processingState, state.IS_GAME_FINISHED);
+    return {...processingState, IS_PROCESSING: false};
 }
   
 // 非同期処理: ゲームイベント履歴をDBに保存
 const insertGameEventHistoryPoints = async (state, score, isAreguGot) => {
     console.log("execute insertGameEventHistoryPoints");
-    const previousRegu = state.SCORE_STOCK_LIST[state.SCORE_STOCK_LIST.length - 2];
+    const popped = state.SCORE_STOCK_LIST.slice(-2)[0];
+    const previousRegu = (popped === 'L') === isAreguLeft(state) ? 'A' : 'B';
     const isSequential = (previousRegu === 'A' && isAreguGot) || (previousRegu === 'B' && !isAreguGot);
 
     const data = {
@@ -496,30 +624,26 @@ const checkDeuceMode = (state) => {
     console.log("execute checkDeuceMode");
     if ((state.SCORE_LEFT === state.DEUCE_START_SCORE[state.SET_NOW])
         && (state.SCORE_RIGHT === state.DEUCE_START_SCORE[state.SET_NOW])) {
-        const newState = updateState(state, { type: 'UPDATE_DEUCE_MODE', IS_DEUCE_MODE: true });
-        return newState;
+        return updateState(state, { type: 'UPDATE_DEUCE_MODE', IS_DEUCE_MODE: true });
     }
     return state;
-}
+};
   
 // 3セット目のコートチェンジを判定する
 const checkAndHandleCourtChange = (state) => {
     console.log("execute checkAndHandleCourtChange");
+    // 既にコートチェンジ済みの場合は何もしない
+    if (state.IS_3SET_COURT_CHANGED) return state;
     // 3セット目かつ、どちらかのチームが8点になった時にコートチェンジする
     if (state.SET_NOW === 3 && (state.SCORE_LEFT === state.COURT_CHANGE_SCORE || state.SCORE_RIGHT === state.COURT_CHANGE_SCORE)) {
         const newState = updateState(state, { type: 'UPDATE_3SET_COURT_CHANGED', IS_3SET_COURT_CHANGED: true });
         updateIs3setCourtChanged(newState);
-        alert(state.COURT_CHANGE_SCORE + "点になりました。コートチェンジしてください。\n「チェンジコート(Change Court)!」");
-        // データベースへの保存
-        insertGameEventHistoryPoints(
-            newState,
-            state.SCORE_LEFT,
-            isAreguLeft(newState)
-        );
-        return updateState(newState, { type: newState.SCORE_STOCK_LIST.pop() === 'L' ? 'ADD_RIGHT_SCORE' : 'ADD_LEFT_SCORE' });
+        window.alert(state.COURT_CHANGE_SCORE + "点になりました。コートチェンジしてください。\n「チェンジコート(Change Court)!」");
+
+        return updateState(newState, { type: newState.scoreStockList.pop() === 'L' ? 'ADD_RIGHT_SCORE' : 'ADD_LEFT_SCORE' });;
     }
     return state;
-}
+};
 
 // デュースモードを解除する
 const undoIsDeuceMode = (state) => {
@@ -563,7 +687,7 @@ const undoEndSet = (state) => {
     const newState = updateState(state, { type: 'UNDO_END_SET' });
     updateIsGameFinished(newState, newState.IS_GAME_FINISHED);
     return newState;
-}
+};
   
 // === /副作用を持つ関数: DOM操作、非同期処理、状態更新 ===
   
@@ -602,7 +726,11 @@ const updateButtonDisplay = (state) => {
 // サーブ表示を更新する関数
 const updateServeDisplay = (state) => {
     console.log("execute updateServeDisplay");
-    if (state.IS_SET_FINISHED) return;
+    if (state.IS_SET_FINISHED) {
+        resetReguServe();
+        resetServeGage();
+        return;
+    };
 
     if (isAreguServe(state) === isAreguLeft(state)) {
         reguLeft.classList.add('active');
@@ -616,12 +744,27 @@ const updateServeDisplay = (state) => {
         serveGageRight.classList.add('active');
     }
 };
+
+// レグのサーブ表示をリセットする関数
+const resetReguServe = () => {
+    console.log("execute resetReguServe");
+    if (reguLeft.classList.contains('active')) {
+        reguLeft.classList.remove('active');
+    }
+    if (reguRight.classList.contains('active')) {
+        reguRight.classList.remove('active');
+    }
+};
   
 // サーブゲージをリセットする関数
 const resetServeGage = () => {
     console.log("execute resetServeGage");
-    serveGageLeft.classList.remove('active');
-    serveGageRight.classList.remove('active');
+    if (serveGageLeft.classList.contains('active')) {
+        serveGageLeft.classList.remove('active');
+    }
+    if (serveGageRight.classList.contains('active')) {
+        serveGageRight.classList.remove('active');
+    }
 };
   
 // コールテキストを更新する関数
@@ -680,17 +823,8 @@ const generateCallText = (state) => {
 const generateGameEndCallText = (state) => {
     console.log("execute generateGameEndCallText");
     let callText = "";
-    const scoreLeft = {
-        1: parseInt(document.getElementById("setNumber1setLeft").textContent),
-        2: parseInt(document.getElementById("setNumber2setLeft").textContent),
-        3: parseInt(document.getElementById("setNumber3setLeft").textContent),
-    };
-    const scoreRight = {
-        1: parseInt(document.getElementById("setNumber1setRight").textContent),
-        2: parseInt(document.getElementById("setNumber2setRight").textContent),
-        3: parseInt(document.getElementById("setNumber3setRight").textContent),
-    };
-    const isEquals = isAreguLeft(state) === isAreguSetWin(state);
+    const isAreguGameWin = state.IS_AREGU_GAME_WIN;
+    const isEquals = isAreguLeft(state) === isAreguGameWin;
     let scoreWin = {
         1: 0,
         2: 0,
@@ -707,25 +841,25 @@ const generateGameEndCallText = (state) => {
         3: "サードセット"
     };
     for (let i = 1; i <= state.SET_NOW; i++) {
-        scoreWin[i] = isEquals ? scoreLeft[i] : scoreRight[i];
-        scoreLose[i] = isEquals ? scoreRight[i] : scoreLeft[i];
+        scoreWin[i] = isEquals ? state.SET_NUMBER_LEFT[i] : state.SET_NUMBER_RIGHT[i];
+        scoreLose[i] = isEquals ? state.SET_NUMBER_RIGHT[i] : state.SET_NUMBER_LEFT[i];
         callText += SET_TO_CALL[i] + " ";
         callText += scoreWin[i] + " 対 " + scoreLose[i] + "、\n";
-    }    
-    const reguNameWin = isAreguSetWin(state) ? state.AREGU_ABB : state.BREGU_ABB;
+    }
+    const reguNameWin = isAreguGameWin ? state.AREGU_ABB : state.BREGU_ABB;
     callText += reguNameWin + " ウィン！ シェイクハンド プリーズ";
 
     return callText;
-}
+};
 
 // セット終了時のコールテキストを生成する関数
 const generateSetEndCallText = (state) => {
     console.log("execute generateSetEndCallText");
-    var callText;    
-    const isEquals = isAreguLeft(state) === isAreguSetWin(state);
-    let scoreWin = isEquals ? state.SCORE_LEFT : state.SCORE_RIGHT;
-    let scoreLose = isEquals ? state.SCORE_RIGHT : state.SCORE_LEFT;
-    let reguNameWin = isAreguSetWin(state) ? state.AREGU_ABB : state.BREGU_ABB;
+    let callText;    
+    const isEquals = isAreguLeft(state) === isAreguPointGot(state);
+    const scoreWin = isEquals ? state.SCORE_LEFT : state.SCORE_RIGHT;
+    const scoreLose = isEquals ? state.SCORE_RIGHT : state.SCORE_LEFT;
+    const reguNameWin = isAreguPointGot(state) ? state.AREGU_ABB : state.BREGU_ABB;
     
     const SET_TO_CALL = {
         1: "ファーストセット",
@@ -742,12 +876,12 @@ const generateSetEndCallText = (state) => {
 const generateDeuceModeCallText = (state) => {
     console.log("execute generateDeuceModeCallText");
     let callText = "";    
-    let scoreA = isAreguLeft(state) ? state.SCORE_LEFT : state.SCORE_RIGHT;
-    let scoreB = isAreguLeft(state) ? state.SCORE_RIGHT : state.SCORE_LEFT;
+    const scoreA = isAreguLeft(state) ? state.SCORE_LEFT : state.SCORE_RIGHT;
+    const scoreB = isAreguLeft(state) ? state.SCORE_RIGHT : state.SCORE_LEFT;
     // セットポイントまたはマッチポイントの場合
     if ((state.SCORE_LEFT === state.MAX_SCORE[state.SET_NOW] - 1)
         && (state.SCORE_RIGHT <= state.MAX_SCORE[state.SET_NOW] - 2)) {
-        let reguText = isAreguLeft(state) ? 'A' : 'B';
+        const reguText = isAreguLeft(state) ? 'A' : 'B';
         callText += isMatchPoint(state, reguText) ? " マッチポイント " : " セットポイント ";
         if (isAreguServe(state)) {
             callText += state.NUMBER_TO_CALL[scoreA][1] + " - " + state.NUMBER_TO_CALL[scoreB][1];
@@ -755,9 +889,10 @@ const generateDeuceModeCallText = (state) => {
             callText += state.NUMBER_TO_CALL[scoreB][1] + " - " + state.NUMBER_TO_CALL[scoreA][1];
         }
         return callText;
-    } else if ((state.SCORE_RIGHT === state.MAX_SCORE[state.SET_NOW] - 1)
+    }
+    if ((state.SCORE_RIGHT === state.MAX_SCORE[state.SET_NOW] - 1)
         && (state.SCORE_LEFT <= state.MAX_SCORE[state.SET_NOW] - 2)) {
-        let reguText = isAreguLeft(state) ? 'B' : 'A';
+        const reguText = isAreguLeft(state) ? 'B' : 'A';
         callText += isMatchPoint(state, reguText) ? " マッチポイント " : " セットポイント ";
         if (isAreguServe(state)) {
             callText += state.NUMBER_TO_CALL[scoreA][1] + " - " + state.NUMBER_TO_CALL[scoreB][1];
@@ -768,11 +903,17 @@ const generateDeuceModeCallText = (state) => {
     }
     // 同点の場合
     if (state.SCORE_LEFT === state.SCORE_RIGHT) {
+        // デュースになった場合
+        if ((state.SCORE_LEFT === state.DEUCE_START_SCORE[state.SET_NOW])
+            && (state.SCORE_RIGHT === state.DEUCE_START_SCORE[state.SET_NOW])) {
+            callText += " セッティング アップ トゥー ";
+            callText += state.NUMBER_TO_CALL[state.MAX_SCORE[state.SET_NOW]][1] + " ";
+        }
         // セットポイントまたはマッチポイントの場合
         if ((state.SCORE_LEFT === state.MAX_SCORE[state.SET_NOW] - 1)
             && (state.SCORE_RIGHT === state.MAX_SCORE[state.SET_NOW] - 1)) {
-            let isMatchPointForA = isMatchPoint(state, 'A');
-            let isMatchPointForB = isMatchPoint(state, 'B');
+            const isMatchPointForA = isMatchPoint(state, 'A');
+            const isMatchPointForB = isMatchPoint(state, 'B');
             if (isMatchPointForA && isMatchPointForB) {
                 callText += " マッチポイント ";
             } else if (!isMatchPointForA && !isMatchPointForB) {
@@ -789,7 +930,7 @@ const generateDeuceModeCallText = (state) => {
         callText += state.NUMBER_TO_CALL[scoreB][1] + " - " + state.NUMBER_TO_CALL[scoreA][1];
     }
     return callText;
-}
+};
   
 // セット開始時のコールテキストを生成する関数
 const generateFirstCallText = (state) => {
@@ -811,20 +952,18 @@ const generateFirstCallText = (state) => {
 // セット終了間際のコールテキストを生成する関数
 const generateFinalCallText = (state) => {
     console.log("execute generateFinalCallText");
-    var callText;
-    let scoreA = isAreguLeft(state) ? state.SCORE_LEFT : state.SCORE_RIGHT;
-    let scoreB = isAreguLeft(state) ? state.SCORE_RIGHT : state.SCORE_LEFT;
-    let popped = state.SCORE_STOCK_LIST.slice(-1)[0];
-    let isLeftReguPointGot = popped === 'L';
-    let isAreguPointGot = isAreguLeft(state) === isLeftReguPointGot;
+    let callText;
+    const scoreA = isAreguLeft(state) ? state.SCORE_LEFT : state.SCORE_RIGHT;
+    const scoreB = isAreguLeft(state) ? state.SCORE_RIGHT : state.SCORE_LEFT;
+    const _isAreguPointGot = isAreguPointGot(state);
 
     if (scoreA > scoreB) {
         callText = isMatchPoint(state, 'A') ? " マッチポイント " : " セットポイント ";
     } else {
         callText = isMatchPoint(state, 'B') ? " マッチポイント " : " セットポイント ";
     }
-    if ((isAreguPointGot && scoreB >= state.DEUCE_START_SCORE[state.SET_NOW])
-        || (!isAreguPointGot) && scoreA >= state.DEUCE_START_SCORE[state.SET_NOW]) {
+    if ((_isAreguPointGot && scoreB >= state.DEUCE_START_SCORE[state.SET_NOW])
+        || (!_isAreguPointGot) && scoreA >= state.DEUCE_START_SCORE[state.SET_NOW]) {
         callText = "";
     }
     if (isAreguServe(state)) {
@@ -838,29 +977,51 @@ const generateFinalCallText = (state) => {
 // 通常時のコールテキストを生成する関数
 const generateNormalCallText = (state) => {
     console.log("execute generateNormalCallText");
-    var callText;
-    let scoreA = isAreguLeft(state) ? state.SCORE_LEFT : state.SCORE_RIGHT;
-    let scoreB = isAreguLeft(state) ? state.SCORE_RIGHT : state.SCORE_LEFT;
+    let callText;
+    const scoreA = isAreguLeft(state) ? state.SCORE_LEFT : state.SCORE_RIGHT;
+    const scoreB = isAreguLeft(state) ? state.SCORE_RIGHT : state.SCORE_LEFT;
     if (isAreguServe(state)) {
         callText = state.NUMBER_TO_CALL[scoreA][1] + " - " + state.NUMBER_TO_CALL[scoreB][1];
     } else {
         callText = state.NUMBER_TO_CALL[scoreB][1] + " - " + state.NUMBER_TO_CALL[scoreA][1];
     }
     return callText;
-}
+};
   
 // === /ビュー関連の純粋関数 ===
   
 // === イベントリスナー ===
-  
+
+// 最初の実行結果をすぐに返し、指定時間内の追加のリクエストを破棄する関数
+const throttleOnceImmediate = (func, delay) => {
+    let isThrottled = false; // 処理中かどうかのフラグ
+    let result; // 結果を保存する変数
+
+    return (...args) => {
+        if (isThrottled) return result; // 処理中は前回の結果を返す
+
+        isThrottled = true; // 処理を開始
+        result = func(...args); // 関数を実行し、結果を保存
+
+        // 指定時間後にフラグをリセット
+        setTimeout(() => {
+            isThrottled = false;
+        }, delay);
+
+        return result; // 最初の実行結果をすぐに返す
+    };
+};
+
+const throttledHandleButtonClick = throttleOnceImmediate(handleButtonClick, 500);
+
 // 加算ボタン
 buttonLeft.addEventListener('click', () => {
-    currentState = handleScoreUpdate(currentState, true);
+    currentState = throttledHandleButtonClick(currentState, true);
     render(currentState);
 });
   
 buttonRight.addEventListener('click', () => {
-    currentState = handleScoreUpdate(currentState, false);
+    currentState = throttledHandleButtonClick(currentState, false);
     render(currentState);
 });
   
