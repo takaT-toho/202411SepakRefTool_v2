@@ -3,6 +3,7 @@ servlet\UpdateCourtChangeAction.class
 servlet\RPSNavigateAction.class
 entity\GameEventHistory.class
 servlet\SessionCheck.class
+servlet\UpdateIsSetFinishedAction.class
 logic\UpdateGameDetailLogic.class
 servlet\LoginAction.class
 servlet\QRLoginAction.class

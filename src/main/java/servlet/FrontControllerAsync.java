@@ -83,7 +83,7 @@ public class FrontControllerAsync extends HttpServlet {
 
 			//パラメータの取得
 			String buttonId = pointJson.getButtonId();
-			System.out.println("buttonId:async" + buttonId);	
+			System.out.println("buttonId:async:" + buttonId);	
 			if (buttonId == null || buttonId.equals("")) {
 				throw new Exception("buttonId is null or empty.");
 			}
@@ -139,6 +139,15 @@ public class FrontControllerAsync extends HttpServlet {
                 SelectGameDetailLogic selectGameDetailLogic = new SelectGameDetailLogic();
                 GameDetail gameDetail = selectGameDetailLogic.findGameDetailByGameId(game.getGameId());             
                 session.setAttribute("gameDetail", gameDetail);
+                break;
+            case "p0201":
+                // セット終了
+                result = new UpdateIsSetFinishedAction().execute(pointJson);   
+            
+                // 最新の試合情報を取得する
+                SelectGameLogic sGameLogic = new SelectGameLogic();
+                game = sGameLogic.selectGameByGameId(game.getGameId());             
+                session.setAttribute("game", game);
                 break;
             case "p0210":
                 // 試合終了

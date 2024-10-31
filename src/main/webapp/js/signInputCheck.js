@@ -14,7 +14,7 @@ function check() {
 	return true;
 }
 
-window.onload = function () {
+window.onload = function () {	
 	var checkForm = document.getElementById("checkForm");
 	checkForm.onsubmit = check;
 }

@@ -247,6 +247,63 @@ public class GameDAO {
 		return true;
 	}
 
+	public boolean update1SetInfoTemp(int gameId) throws SQLException {
+		String sql = "UPDATE GAME SET isFin1Set = true WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, gameId);
+			int row = stmt.executeUpdate();
+			if (row != 1) {
+				return false;
+			}
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return true;
+	}
+
+	public boolean update2SetInfoTemp(int gameId) throws SQLException {
+		String sql = "UPDATE GAME SET isFin2Set = true WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, gameId);
+			int row = stmt.executeUpdate();
+			if (row != 1) {
+				return false;
+			}
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return true;
+	}
+
+	public boolean update3SetInfoTemp(int gameId) throws SQLException {
+		String sql = "UPDATE GAME SET isFin3Set = true WHERE gameId = ?";
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, gameId);
+			int row = stmt.executeUpdate();
+			if (row != 1) {
+				return false;
+			}
+		} finally {
+			if (stmt != null) {
+				stmt.close();
+			}
+		}
+		return true;
+	}
+
 	public boolean updateIsGameFinished(int gameId, boolean isGameFinished) throws SQLException {
         String sql = "UPDATE GAME SET isFinished = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;

@@ -13,6 +13,46 @@ import entity.Game;
 
 public class UpdateGameLogic {
 
+    public boolean updateGameWhenSetFinishedTemp(int gameId, int setNow) throws JudgeBusinessException, JudgeSystemException {
+        Connection con = null;
+        boolean res = false;
+
+        try {
+			con = ConnectionManager.getConnectionManager().getConnection();
+			GameDAO dao = new GameDAO(con);
+            boolean result = false;
+            if (setNow == 1) {
+                    result = dao.update1SetInfoTemp(gameId);
+            } else if (setNow == 2) {
+                    result = dao.update2SetInfoTemp(gameId);
+            } else if (setNow == 3) {
+                    result = dao.update3SetInfoTemp(gameId);
+            } else {
+                throw new JudgeBusinessException("セット情報が取得できませんでした。");
+            }
+			
+			if (result == false) {
+				throw new JudgeBusinessException("データベースの更新に失敗しました。");
+			}
+
+            res = true;
+		} catch (SQLException e) {
+            e.printStackTrace();
+			throw new JudgeSystemException("データベースシステムエラーが発生しました。(25001)");
+		} finally {
+			try {
+				if (con != null) {
+					con.close();
+				} 
+			} catch (SQLException e) {
+				e.printStackTrace();
+				throw new JudgeSystemException("データベースシステムエラーが発生しました。(25002)");
+			}
+		}
+
+        return res;
+    }
+
     public boolean updateGameWhenSetFinished(int gameId, int setNow, boolean isAreguWin) throws JudgeBusinessException, JudgeSystemException {
         Connection con = null;
         boolean res = false;

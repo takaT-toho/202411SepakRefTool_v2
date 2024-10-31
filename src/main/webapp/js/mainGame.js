@@ -19,6 +19,7 @@ const initialState = {
     IS_GAME_FINISHED: document.getElementById("IS_GAME_FINISHED").textContent === "true",
     IS_DEUCE_MODE: false,
     IS_RPS_MODE: false,
+    IS_AREGU_SET_WIN: false,
     IS_AREGU_GAME_WIN: false,
   
     // スコア履歴
@@ -168,6 +169,11 @@ const updateState = (state, action) => {
                 ...state,
                 IS_RPS_MODE: action.IS_RPS_MODE,
             }
+        case 'UPDATE_IS_AREGU_SET_WIN':
+            return {
+                ...state,
+                IS_AREGU_SET_WIN: action.IS_AREGU_SET_WIN,
+            }
         case 'UPDATE_GAME_FINISHED':
             return {
                 ...state,
@@ -281,7 +287,7 @@ const checkIsGameFinished = (state) => {
         // 既に勝負がついている場合(どちらかがXセット目を獲得している場合)
         if (isPerfectWin(state)) {
             // 試合を終了して返す
-            const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: isAreguLeft(state)});
+            const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: isAreguPointGot(state)});
             return updateState(newState, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: true });
         } else {
         // そうでない場合(0セットまたは1セット差の場合)
@@ -312,7 +318,7 @@ const checkIsGameFinished = (state) => {
         // 既に勝負がついている場合
         if (isPerfectWin(state)) {
             // 試合を終了して返す
-            const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: isAreguLeft(state)});
+            const newState = updateState(state, { type: 'UPDATE_IS_AREGU_GAME_WIN', IS_AREGU_GAME_WIN: isAreguPointGot(state)});
             return updateState(newState, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: true });
         // そうでない場合
         } else {
@@ -377,6 +383,8 @@ const render = (state) => {
 
     // サーブ表示を更新
     updateServeDisplay(state);
+    
+    document.getElementById("isAreguSetWin").value = state.IS_AREGU_SET_WIN;
 
     // アニメーションの完了を待つ
 };
@@ -396,9 +404,13 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
     console.log("execute handleScoreUpdate");
 
     // 連打対策：ボタンを無効化
-    buttonLeft.disabled = true;
-    buttonRight.disabled = true;
-    undoButton.disabled = true;
+    buttonLeft.style.pointerEvents = 'none';
+    buttonRight.style.pointerEvents = 'none';
+    undoButton.style.pointerEvents = 'none';
+    buttonLeft.style.opacity = '0.5';
+    buttonRight.style.opacity = '0.5';
+    undoButton.style.opacity = '0.5';
+    
 
     const newState = updateState(state, { type: isLeftScore ? 'ADD_LEFT_SCORE' : 'ADD_RIGHT_SCORE' });
     console.log(newState);
@@ -422,10 +434,11 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
 
         // セットが終了している場合
         if (courtChangedState.IS_SET_FINISHED) {
-            // セットの勝者を反映
-            document.getElementById("isAreguSetWin").value = isAreguPointGot(courtChangedState);
+            const isSetWinState = updateState(courtChangedState, { type: 'UPDATE_IS_AREGU_SET_WIN', IS_AREGU_SET_WIN: isAreguPointGot(courtChangedState)});
+            document.getElementById("isAreguSetWin").value = isSetWinState.IS_AREGU_SET_WIN;
+            updateIsSetFinished(isSetWinState);
             // ここがじゃんけんモードの判定ではなく、試合終了判定とし、じゃんけんモード、継続モード、試合終了モードに分岐する。
-            const isGameFinishedState = checkIsGameFinished(courtChangedState);
+            const isGameFinishedState = checkIsGameFinished(isSetWinState);
             // それに応じて、処理を分岐する。
             if (isGameFinishedState.IS_RPS_MODE) {
                 SetEndButton.textContent = "結果が決まりません。じゃんけんを行います";
@@ -446,9 +459,13 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
         console.error('Error:', error);
     } finally {
         // 連打対策：ボタンを有効化
-        buttonLeft.disabled = false;
-        buttonRight.disabled = false;
-        undoButton.disabled = false;
+        buttonLeft.style.pointerEvents = 'auto';
+        buttonRight.style.pointerEvents = 'auto';
+        undoButton.style.pointerEvents = 'auto';
+        buttonLeft.style.opacity = '1';
+        buttonRight.style.opacity = '1';
+        undoButton.style.opacity = '1';
+
     }
     return courtChangedState;
 };
@@ -460,9 +477,12 @@ const handleUndoScoreInner = (state) => {
     const processingState = {...state, IS_PROCESSING: true};
 
     // 連打対策：ボタンを無効化
-    buttonLeft.disabled = true;
-    buttonRight.disabled = true;
-    undoButton.disabled = true;
+    buttonLeft.style.pointerEvents = 'none';
+    buttonRight.style.pointerEvents = 'none';
+    undoButton.style.pointerEvents = 'none';
+    buttonLeft.style.opacity = '0.5';
+    buttonRight.style.opacity = '0.5';
+    undoButton.style.opacity = '0.5';
 
     const newState = updateState(processingState, { type: 'UNDO_SCORE' });
 
@@ -484,9 +504,12 @@ const handleUndoScoreInner = (state) => {
         console.error('Error:', error);
     } finally {
         // 連打対策：ボタンを有効化
-        buttonLeft.disabled = false;
-        buttonRight.disabled = false;
-        undoButton.disabled = false;
+        buttonLeft.style.pointerEvents = 'auto';
+        buttonRight.style.pointerEvents = 'auto';
+        undoButton.style.pointerEvents = 'auto';
+        buttonLeft.style.opacity = '1';
+        buttonRight.style.opacity = '1';
+        undoButton.style.opacity = '1';
     }
     return {...undoDeuceModeState, IS_PROCESSING: false};
 };
@@ -569,7 +592,7 @@ const updateIs3setCourtChanged = async (state) => {
     console.log("execute updateIs3setCourtChanged");
     try {
         const response = await fetch('async', {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -591,12 +614,40 @@ const updateIs3setCourtChanged = async (state) => {
         // TODO: システムエラー画面へ遷移する
     }
 };
+
+// セット終了を記録する
+const updateIsSetFinished = async (state) => {
+    console.log("execute updateIsSetFinished");
+    try {
+        const response = await fetch('async', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                gameId: state.GAME_ID,
+                buttonId: "p0201",
+                setNum: state.SET_NOW
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log('Success:', result);
+    } catch (error) {
+        console.error('Error:', error);
+        // TODO: システムエラー画面へ遷移する
+    }
+};
   
 const updateIsGameFinished = async (state, isGameFinished) => {
     console.log("execute updateIsGameFinished");
     try {
         const response = await fetch('async', {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -1017,23 +1068,27 @@ const throttledHandleButtonClick = throttleOnceImmediate(handleButtonClick, 500)
 // 加算ボタン
 buttonLeft.addEventListener('click', () => {
     currentState = throttledHandleButtonClick(currentState, true);
+    saveStateToSessionStorage(currentState);
     render(currentState);
 });
   
 buttonRight.addEventListener('click', () => {
     currentState = throttledHandleButtonClick(currentState, false);
+    saveStateToSessionStorage(currentState);
     render(currentState);
 });
   
 // 戻るボタン
 undoButton.addEventListener('click', () => {
-    currentState = handleUndoScore(currentState);
+    currentState = andleUndoScore(currentState);
+    saveStateToSessionStorage(currentState);
     render(currentState);
 });
   
 // セット終了ボタン
 setEndButton.addEventListener('click', () => {
-    handleSetEnd(currentState);
+    currentState = handleSetEnd(currentState);
+    saveStateToSessionStorage(currentState);
 });
   
 // フォーム送信時
@@ -1048,7 +1103,6 @@ form.addEventListener('submit', function(e) {
 const saveStateToSessionStorage = (state) => {
     sessionStorage.setItem('gameState', JSON.stringify(state));
 };
-// saveStateToSessionStorage(currentState);
 
 // 状態の読み込み
 const loadStateFromSessionStorage = () => {
