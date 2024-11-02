@@ -137,19 +137,37 @@ const updateState = (state, action) => {
             };
         case 'UNDO_SCORE':
             const popped = state.SCORE_STOCK_LIST.slice(-1)[0];
-            return popped === 'L'
-                ? {
-                ...state,
-                SCORE_LEFT: state.SCORE_LEFT > 0 ? state.SCORE_LEFT - 1 : 0,
-                SCORE_STOCK_LIST: state.SCORE_STOCK_LIST.slice(0, -1),
-                SUM_POINTS: state.SUM_POINTS > 0 ? state.SUM_POINTS - 1 : 0,
+            let newState = null;
+
+            // コートチェンジ直後の状態に戻った場合
+            if (state.SET_NOW === 3 && state.IS_3SET_COURT_CHANGED) {
+                const courtChangeTargetScore = state.COURT_CHANGE_SCORE - 1;
+
+                //共通処理を呼び出す
+                if ((popped === 'R' && (state.SCORE_LEFT - 1) === courtChangeTargetScore && (state.SCORE_RIGHT <= courtChangeTargetScore)) ||
+                    (popped === 'L' && (state.SCORE_RIGHT - 1) === courtChangeTargetScore && (state.SCORE_LEFT <= courtChangeTargetScore))) {
+                    newState = revertCourtChange(state);
+                    console.log("newState 1.8 : ", newState);
                 }
-                : {
-                ...state,
-                SCORE_RIGHT: state.SCORE_RIGHT > 0 ? state.SCORE_RIGHT - 1 : 0,
-                SCORE_STOCK_LIST: state.SCORE_STOCK_LIST.slice(0, -1),
-                SUM_POINTS: state.SUM_POINTS > 0 ? state.SUM_POINTS - 1 : 0,
-            };
+            }
+            const newNewState = newState ? newState : state;
+
+            if (popped === 'L') {
+                newNewState.SCORE_LEFT = newNewState.SCORE_LEFT > 0 ? newNewState.SCORE_LEFT - 1 : 0;
+            } else {
+                newNewState.SCORE_RIGHT = newNewState.SCORE_RIGHT > 0 ? newNewState.SCORE_RIGHT - 1 : 0;
+            }
+            
+            console.log("newState 2 : ", newNewState);
+                
+            newNewState.SET_NUMBER_LEFT = getSetNumber(newNewState.SET_NUMBER_LEFT, newNewState.SET_NOW, newNewState.SCORE_LEFT);
+            newNewState.SET_NUMBER_RIGHT = getSetNumber(newNewState.SET_NUMBER_RIGHT, newNewState.SET_NOW, newNewState.SCORE_RIGHT);
+            newNewState.SCORE_STOCK_LIST = newNewState.SCORE_STOCK_LIST.slice(0, -1);
+            newNewState.SUM_POINTS = newNewState.SUM_POINTS > 0 ? newNewState.SUM_POINTS - 1 : 0;
+
+            console.log("BEFORE STATE: ", newNewState);
+
+            return newNewState;
         case 'UNDO_END_SET':
             return {
                 ...state,
@@ -200,6 +218,28 @@ const updateState = (state, action) => {
     }
 };
 
+// コートチェンジを戻す処理を関数として抽出
+const revertCourtChange = (state) => {
+    console.log("execute revertCourtChange");
+
+    const scoreLeftTemp = state.SCORE_LEFT;
+    const scoreRightTemp = state.SCORE_RIGHT;
+    const newState = {
+        ...state,
+        SCORE_LEFT: scoreRightTemp,
+        SCORE_RIGHT: scoreLeftTemp,
+        IS_3SET_COURT_CHANGED: false,
+    };
+    const newState2 = {
+        ...newState,
+        SET_NUMBER_LEFT: {...newState.SET_NUMBER_RIGHT},
+        SET_NUMBER_RIGHT: {...newState.SET_NUMBER_LEFT},
+    };
+    console.log("newState 5 : ", {...newState2});
+    updateIs3setCourtChanged({...newState2});
+    return {...newState2};
+};
+
 // すべてのセットのスコア表示を逆にする関数
 const reverseSetNumberDisplay = (state) => {
     console.log("execute reverseSetNumberDisplay");
@@ -222,6 +262,10 @@ const reverseSetNumberDisplay = (state) => {
 const getSetNumber = (setNumber, setNow, score) => {
     console.log("execute getSetNumber");
     if (setNow === 1) {
+        console.log("setNumber: ", {
+            ...setNumber,
+            1: score,
+        });
         return {
             ...setNumber,
             1: score,
@@ -520,18 +564,13 @@ const handleUndoScoreInner = (state) => {
 
     const newState = updateState(processingState, { type: 'UNDO_SCORE' });
 
+    console.log("AFTER STATE: ", newState);
+
     const undoDeuceModeState = undoIsDeuceMode(newState);
 
-    const isReseted = undo3setCourtChanged(undoDeuceModeState);
-
     try {
-    if (undoDeuceModeState.IS_SET_FINISHED) {
-            undoEndSet(newState);
-        }
-
-        if (isReseted) {
-            saveStateToSessionStorage(undoDeuceModeState);
-            window.location.reload();
+        if (undoDeuceModeState.IS_SET_FINISHED) {
+            undoEndSet(undoDeuceModeState);
         }
         deleteGameEventHistoryPoints(undoDeuceModeState);
     } catch (error) {
@@ -545,6 +584,7 @@ const handleUndoScoreInner = (state) => {
         buttonRight.style.opacity = '1';
         undoButton.style.opacity = '1';
     }
+    console.log("AFTER 2 STATE: ", undoDeuceModeState);
     return {...undoDeuceModeState, IS_PROCESSING: false};
 };
   
@@ -797,6 +837,7 @@ const updateReguDisplay = (state) => {
 // セットごとのスコア表示を更新する関数
 const updateSetNumberDisplay = (state) => {
     console.log("execute updateSetNumberDisplay");
+    console.log("state: ", state);
 
     const targetElement = {
         1: [setNumberLeft[1], setNumberRight[1]],
@@ -1123,6 +1164,7 @@ const throttleOnceImmediate = (func, delay) => {
 };
 
 const throttledHandleButtonClick = throttleOnceImmediate(handleButtonClick, 500);
+const throttledHandleUndoScore = throttleOnceImmediate(handleUndoScoreInner, 500);
 
 // 加算ボタン
 buttonLeft.addEventListener('click', () => {
@@ -1139,8 +1181,9 @@ buttonRight.addEventListener('click', () => {
   
 // 戻るボタン
 undoButton.addEventListener('click', () => {
-    currentState = handleUndoScore(currentState);
+    currentState = throttledHandleUndoScore(currentState);
     saveStateToSessionStorage(currentState);
+    console.log("currentState: ", currentState);
     render(currentState);
 });
   
