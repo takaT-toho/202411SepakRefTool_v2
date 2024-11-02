@@ -15,19 +15,18 @@
 <body>
 <%@ include file="headerNonMenu.jsp" %>
 <div class="container">
-	<div class="regus-container">
-		<table>
-			<tr>
-				<th></th>
-				<th><c:out value="${sessionScope.reguA.abbreviation}" /></th>
-				<th><c:out value="${sessionScope.reguB.abbreviation}" /></th>
-			</tr>
-			<tr>
-				<td>じゃんけんの<br>勝者レグ</td>
-				<td id="reguA" onclick="selectWinner('A')"></td>
-			    <td id="reguB" onclick="selectWinner('B')"></td>
-			</tr>
-		</table>
+	<div class="rps-container">
+	  <p>じゃんけんの勝者レグを選択してください。</p>
+	  <div class="regu-buttons">
+		<div id="reguA" class="regu-button" role="button" tabindex="0" onclick="selectWinner('A')" onkeydown="handleKeyDown(event, 'A')">
+		  <span class="regu-label"><c:out value="${sessionScope.reguA.abbreviation}" /></span>
+		  <span class="result-label" id="resultA"></span>
+		</div>
+		<div id="reguB" class="regu-button" role="button" tabindex="0" onclick="selectWinner('B')" onkeydown="handleKeyDown(event, 'B')">
+		  <span class="regu-label"><c:out value="${sessionScope.reguB.abbreviation}" /></span>
+		  <span class="result-label" id="resultB"></span>
+		</div>
+	  </div>
 	</div>
 	
 	<form action="/202411SepakRefTool/judgeFC" method="post" id="checkForm">

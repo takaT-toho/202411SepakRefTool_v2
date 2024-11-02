@@ -18,13 +18,14 @@ public class UpdateIsSetFinishedAction {
             // パラメータの取得
             String gameId = pointJson.getGameId();
             int setNow = pointJson.getSetNum();
+            boolean isSetFinished = pointJson.getIsSetFinished();
             if (gameId == null || gameId.equals("")) {
                 throw new JudgeBusinessException("gameId is null or empty.");
             }
             
             // 試合情報を更新する
             UpdateGameLogic gameLogic = new UpdateGameLogic();
-            gameLogic.updateGameWhenSetFinishedTemp(Integer.parseInt(gameId) , setNow);
+            gameLogic.updateGameWhenSetFinishedTemp(Integer.parseInt(gameId) , setNow, isSetFinished);
 
             result = true;
 

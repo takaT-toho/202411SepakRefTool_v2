@@ -247,13 +247,14 @@ public class GameDAO {
 		return true;
 	}
 
-	public boolean update1SetInfoTemp(int gameId) throws SQLException {
-		String sql = "UPDATE GAME SET isFin1Set = true WHERE gameId = ?";
+	public boolean update1SetInfoTemp(int gameId, boolean isSetFinished) throws SQLException {
+		String sql = "UPDATE GAME SET isFin1Set = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, gameId);
+			stmt.setBoolean(1, isSetFinished);
+			stmt.setInt(2, gameId);
 			int row = stmt.executeUpdate();
 			if (row != 1) {
 				return false;
@@ -266,13 +267,14 @@ public class GameDAO {
 		return true;
 	}
 
-	public boolean update2SetInfoTemp(int gameId) throws SQLException {
-		String sql = "UPDATE GAME SET isFin2Set = true WHERE gameId = ?";
+	public boolean update2SetInfoTemp(int gameId, boolean isSetFinished) throws SQLException {
+		String sql = "UPDATE GAME SET isFin2Set = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, gameId);
+			stmt.setBoolean(1, isSetFinished);
+			stmt.setInt(2, gameId);
 			int row = stmt.executeUpdate();
 			if (row != 1) {
 				return false;
@@ -285,13 +287,14 @@ public class GameDAO {
 		return true;
 	}
 
-	public boolean update3SetInfoTemp(int gameId) throws SQLException {
-		String sql = "UPDATE GAME SET isFin3Set = true WHERE gameId = ?";
+	public boolean update3SetInfoTemp(int gameId, boolean isSetFinished) throws SQLException {
+		String sql = "UPDATE GAME SET isFin3Set = ? WHERE gameId = ?";
 		PreparedStatement stmt = null;
 		
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, gameId);
+			stmt.setBoolean(1, isSetFinished);
+			stmt.setInt(2, gameId);
 			int row = stmt.executeUpdate();
 			if (row != 1) {
 				return false;

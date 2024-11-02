@@ -1,21 +1,56 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-    align-items: center;
+.rps-container {
+    text-align: center;
+  }
+  
+  .regu-buttons {
+    display: flex;
     justify-content: center;
-}
-.toss-regu-container th, .toss-regu-container td {
+    gap: 20px;
+  }
+  
+  .regu-button {
     border: 1px solid grey;
-    padding: 8px;
-    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
     cursor: pointer;
-}
-.regu-container th, .regu-container td {
-    border: 1px solid grey;
-    padding: 8px;
-    text-align: center;
-}
-.win {
-    background-color: #FFD700;
-    color: #4c3f00;
-}
+    width: 150px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* 縦方向配置を維持 */
+    align-items: center; /* 水平方向中央揃えを維持 */
+    justify-content: space-between; /* レグ名とWIN/LOSEを上下に配置 */
+    transition: background-color 0.3s ease;
+  }
+  
+  .regu-label {
+    display: block;
+    font-size: 1.2em;
+    color: #555;
+    font-weight: bold;
+  }
+  
+  
+  .result-label {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #000000;
+      color: white;
+  }
+  
+  
+  
+  .win {
+    background-color: gold;
+    color: black;
+  }
+  .win .regu-label {
+    color: black;
+  }
+  
+  .lose {
+    background-color: lightblue;
+    color: black;
+  }
+  .lose .regu-label {
+    color: black;
+  }

@@ -166,7 +166,7 @@ const updateState = (state, action) => {
         case 'UNDO_END_SET':
             return {
                 ...state,
-                IS_GAME_FINISHED: false,
+                IS_SET_FINISHED: false,
             };
         case 'UPDATE_DEUCE_MODE':
             return {
@@ -515,7 +515,7 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
                 SetEndButton.value = "p0203";
             } else if (isGameFinishedState.IS_GAME_FINISHED) {
                 document.getElementById("isAreguGameWin").value = isGameFinishedState.IS_AREGU_GAME_WIN;
-                updateIsGameFinished(isGameFinishedState, isGameFinishedState.IS_GAME_FINISHED);
+                updateIsGameFinished(isGameFinishedState);
                 SetEndButton.textContent = "結果を送信し、試合を終了する";
                 SetEndButton.style.display = "block";
             } else {
@@ -559,10 +559,10 @@ const handleUndoScoreInner = (state) => {
     const undoDeuceModeState = undoIsDeuceMode(newState);
 
     try {
-        if (undoDeuceModeState.IS_SET_FINISHED) {
-            undoEndSet(undoDeuceModeState);
-        }
-        deleteGameEventHistoryPoints(undoDeuceModeState);
+        const undoEndSetState = undoDeuceModeState.IS_SET_FINISHED ? updateState(undoDeuceModeState, { type: 'UNDO_END_SET' }) : undoDeuceModeState;
+        const undoEndGameState = undoEndSetState.IS_GAME_FINISHED ? updateState(undoEndSetState, { type: 'UPDATE_GAME_FINISHED', IS_GAME_FINISHED: false }) : undoEndSetState;
+        deleteGameEventHistoryPoints(undoEndGameState);
+        return {...undoEndGameState, IS_PROCESSING: false}
     } catch (error) {
         console.error('Error:', error);
     } finally {
@@ -582,7 +582,7 @@ const handleSetEnd = (state) => {
     if (state.IS_PROCESSING) return state;
     console.log("execute handleSetEnd");
     const processingState = {...state, IS_PROCESSING: true};
-    updateIsGameFinished(processingState, state.IS_GAME_FINISHED);
+    updateIsGameFinished(processingState);
     return {...processingState, IS_PROCESSING: false};
 }
   
@@ -678,7 +678,7 @@ const updateIs3setCourtChanged = async (state) => {
     }
 };
 
-// セット終了を記録する
+// セット終了を更新する
 const updateIsSetFinished = async (state) => {
     console.log("execute updateIsSetFinished");
     try {
@@ -690,7 +690,8 @@ const updateIsSetFinished = async (state) => {
             body: JSON.stringify({
                 gameId: state.GAME_ID,
                 buttonId: "p0201",
-                setNum: state.SET_NOW
+                setNum: state.SET_NOW,
+                isSetFinished: state.IS_SET_FINISHED,
             })
         });
 
@@ -706,7 +707,7 @@ const updateIsSetFinished = async (state) => {
     }
 };
   
-const updateIsGameFinished = async (state, isGameFinished) => {
+const updateIsGameFinished = async (state) => {
     console.log("execute updateIsGameFinished");
     try {
         const response = await fetch('async', {
@@ -717,7 +718,7 @@ const updateIsGameFinished = async (state, isGameFinished) => {
             body: JSON.stringify({
                 gameId: state.GAME_ID,
                 buttonId: "p0210",
-                isGameFinished: isGameFinished,
+                isGameFinished: state.IS_GAME_FINISHED,
             })
         });
 
@@ -766,9 +767,9 @@ const undoIsDeuceMode = (state) => {
 
     if ((state.SCORE_LEFT < state.DEUCE_START_SCORE[state.SET_NOW])
         || (state.SCORE_RIGHT < state.DEUCE_START_SCORE[state.SET_NOW])) {
-        return state;
+        return updateState(state, { type: 'UPDATE_DEUCE_MODE', IS_DEUCE_MODE: false });
     }
-    return updateState(state, { type: 'UPDATE_DEUCE_MODE', IS_DEUCE_MODE: false });
+    return state;
 };
   
 // 3セット目のコートチェンジを解除する
@@ -798,8 +799,9 @@ const undo3setCourtChanged = (state) => {
 // セット終了処理のキャンセル処理
 const undoEndSet = (state) => {
     console.log("execute undoEndSet");
-    const newState = updateState(state, { type: 'UNDO_END_SET' });
-    updateIsGameFinished(newState, newState.IS_GAME_FINISHED);
+    const newState = updateState(state, { type: 'UNDO_END_SET', IS_SET_FINISHED: false });
+    updateIsSetFinished(newState);
+    updateIsGameFinished(newState);
     return newState;
 };
   

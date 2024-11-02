@@ -13,7 +13,7 @@ import entity.Game;
 
 public class UpdateGameLogic {
 
-    public boolean updateGameWhenSetFinishedTemp(int gameId, int setNow) throws JudgeBusinessException, JudgeSystemException {
+    public boolean updateGameWhenSetFinishedTemp(int gameId, int setNow, boolean isSetFinished) throws JudgeBusinessException, JudgeSystemException {
         Connection con = null;
         boolean res = false;
 
@@ -22,11 +22,11 @@ public class UpdateGameLogic {
 			GameDAO dao = new GameDAO(con);
             boolean result = false;
             if (setNow == 1) {
-                    result = dao.update1SetInfoTemp(gameId);
+                    result = dao.update1SetInfoTemp(gameId, isSetFinished);
             } else if (setNow == 2) {
-                    result = dao.update2SetInfoTemp(gameId);
+                    result = dao.update2SetInfoTemp(gameId, isSetFinished);
             } else if (setNow == 3) {
-                    result = dao.update3SetInfoTemp(gameId);
+                    result = dao.update3SetInfoTemp(gameId, isSetFinished);
             } else {
                 throw new JudgeBusinessException("セット情報が取得できませんでした。");
             }
