@@ -10,6 +10,7 @@ const initialState = {
     SET_NOW: parseInt(document.getElementById("setNow").value),
     SUM_POINTS: parseInt(document.getElementById("SUM_POINTS").textContent),
     IS_3SET_COURT_CHANGED: document.getElementById("IS_3SET_COURT_CHANGED").textContent === "true",
+    IS_NOT_COURT_CHANGED_YET: false,
     IS_FIN_SET: {
         1: document.getElementById("IS_FIN_1SET").textContent === "true",
         2: document.getElementById("IS_FIN_2SET").textContent === "true",
@@ -160,9 +161,19 @@ const updateState = (state, action) => {
                 IS_DEUCE_MODE: action.IS_DEUCE_MODE,
             }
         case 'UPDATE_3SET_COURT_CHANGED':
+            console.log("BEFORE STATE: ", state);
             return {
                 ...state,
                 IS_3SET_COURT_CHANGED: action.IS_3SET_COURT_CHANGED,
+                SCORE_LEFT: state.SCORE_RIGHT,
+                SCORE_RIGHT: state.SCORE_LEFT,
+                SET_NUMBER_LEFT: reverseSetNumberDisplay(state).SET_NUMBER_LEFT,
+                SET_NUMBER_RIGHT: reverseSetNumberDisplay(state).SET_NUMBER_RIGHT,
+            }
+        case 'UPDATE_NOT_COURT_CHANGED_YET':
+            return {
+                ...state,
+                IS_NOT_COURT_CHANGED_YET: action.IS_NOT_COURT_CHANGED_YET,
             }
         case 'UPDATE_RPS_MODE':
             return {
@@ -188,6 +199,24 @@ const updateState = (state, action) => {
         return state;
     }
 };
+
+// すべてのセットのスコア表示を逆にする関数
+const reverseSetNumberDisplay = (state) => {
+    console.log("execute reverseSetNumberDisplay");
+    return {
+        ...state,
+        SET_NUMBER_LEFT: {
+            1: state.SET_NUMBER_RIGHT[1],
+            2: state.SET_NUMBER_RIGHT[2],
+            3: state.SCORE_RIGHT,
+        },
+        SET_NUMBER_RIGHT: {
+            1: state.SET_NUMBER_LEFT[1],
+            2: state.SET_NUMBER_LEFT[2],
+            3: state.SCORE_LEFT,
+        },
+    };
+}
 
 // セットごとのスコアを取得する関数
 const getSetNumber = (setNumber, setNow, score) => {
@@ -367,10 +396,14 @@ const render = (state) => {
     if (state.IS_PROCESSING) return;
     console.log("execute render");
 
-
     // スコア表示を更新
     scoreLeft.textContent = state.SCORE_LEFT;
     scoreRight.textContent = state.SCORE_RIGHT;
+
+    // 3セット目のコートチェンジがされた場合、左右のレグ名表示を逆にする
+    if (state.IS_3SET_COURT_CHANGED) {
+        updateReguDisplay(state);
+    }
 
     // セットごとのスコア表示を更新
     updateSetNumberDisplay(state);
@@ -415,22 +448,22 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
     const newState = updateState(state, { type: isLeftScore ? 'ADD_LEFT_SCORE' : 'ADD_RIGHT_SCORE' });
     console.log(newState);
 
-    // デュースモードの判定と処理
-    const deuceModeState = checkDeuceMode(newState);
-
-    // 3セット目のコートチェンジ判定と処理
-    const courtChangedState = checkAndHandleCourtChange(deuceModeState);
-
     try{
         // データベースへの保存
         insertGameEventHistoryPoints(
-            courtChangedState,
-            isLeftScore ? courtChangedState.SCORE_LEFT : courtChangedState.SCORE_RIGHT,
-            isLeftScore === isAreguLeft(courtChangedState)
+            newState,
+            isLeftScore ? newState.SCORE_LEFT : newState.SCORE_RIGHT,
+            isLeftScore === isAreguLeft(newState)
         );
 
         // アニメーション開始
         startAnimation(isLeftScore ? 'LEFT' : 'RIGHT');
+
+        // デュースモードの判定と処理
+        const deuceModeState = checkDeuceMode(newState);
+
+        // 3セット目のコートチェンジ判定と処理
+        const courtChangedState = checkAndHandleCourtChange(deuceModeState);
 
         // セットが終了している場合
         if (courtChangedState.IS_SET_FINISHED) {
@@ -455,6 +488,7 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
             }
             return isGameFinishedState;
         }
+        return courtChangedState;
     } catch (error) {
         console.error('Error:', error);
     } finally {
@@ -467,7 +501,7 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
         undoButton.style.opacity = '1';
 
     }
-    return courtChangedState;
+    return newState;
 };
   
 // 戻るボタンクリック時の処理
@@ -496,7 +530,7 @@ const handleUndoScoreInner = (state) => {
         }
 
         if (isReseted) {
-            sessionStorage.setItem('SCORE_STOCK_LIST', JSON.stringify(undoDeuceModeState.SCORE_STOCK_LIST));
+            saveStateToSessionStorage(undoDeuceModeState);
             window.location.reload();
         }
         deleteGameEventHistoryPoints(undoDeuceModeState);
@@ -688,10 +722,11 @@ const checkAndHandleCourtChange = (state) => {
     // 3セット目かつ、どちらかのチームが8点になった時にコートチェンジする
     if (state.SET_NOW === 3 && (state.SCORE_LEFT === state.COURT_CHANGE_SCORE || state.SCORE_RIGHT === state.COURT_CHANGE_SCORE)) {
         const newState = updateState(state, { type: 'UPDATE_3SET_COURT_CHANGED', IS_3SET_COURT_CHANGED: true });
+        console.log("AFTER STATE: ", newState);
         updateIs3setCourtChanged(newState);
         window.alert(state.COURT_CHANGE_SCORE + "点になりました。コートチェンジしてください。\n「チェンジコート(Change Court)!」");
 
-        return updateState(newState, { type: newState.scoreStockList.pop() === 'L' ? 'ADD_RIGHT_SCORE' : 'ADD_LEFT_SCORE' });;
+        return newState;
     }
     return state;
 };
@@ -744,15 +779,39 @@ const undoEndSet = (state) => {
   
   
 // === ビュー関連の純粋関数 ===
+
+// レグ表示を更新する関数
+const updateReguDisplay = (state) => {
+    console.log("execute updateReguDisplay");
+
+    if ((state.IS_AREGU_FIRST_LEFT === (state.SET_NOW % 2 === 1)) === !state.IS_3SET_COURT_CHANGED) {
+        reguLeft.textContent = state.AREGU_ABB;
+        reguRight.textContent = state.BREGU_ABB;
+    } else {
+        reguLeft.textContent = state.BREGU_ABB;
+        reguRight.textContent = state.AREGU_ABB;
+    }
+};
+
   
 // セットごとのスコア表示を更新する関数
 const updateSetNumberDisplay = (state) => {
-    console.log("execute updateSetNumberDisplay"); 
-    const popped = state.SCORE_STOCK_LIST.slice(-1)[0];
-    const targetElement = popped === 'L' ? setNumberLeft[state.SET_NOW] : setNumberRight[state.SET_NOW];
-    if (targetElement) {
-        targetElement.textContent = popped === 'L' ? state.SCORE_LEFT : state.SCORE_RIGHT;
-    }
+    console.log("execute updateSetNumberDisplay");
+
+    const targetElement = {
+        1: [setNumberLeft[1], setNumberRight[1]],
+        2: [setNumberLeft[2], setNumberRight[2]],
+        3: [setNumberLeft[3], setNumberRight[3]],
+    };
+    for (let i = 1; i <= 3; i++) {
+        if (i === state.SET_NOW) {
+            targetElement[i][0].textContent = state.SCORE_LEFT;
+            targetElement[i][1].textContent = state.SCORE_RIGHT;
+        } else {
+            targetElement[i][0].textContent = state.SET_NUMBER_LEFT[i];
+            targetElement[i][1].textContent = state.SET_NUMBER_RIGHT[i];
+        }
+    }    
 };
   
 // ボタンの表示状態を更新する関数
@@ -1080,7 +1139,7 @@ buttonRight.addEventListener('click', () => {
   
 // 戻るボタン
 undoButton.addEventListener('click', () => {
-    currentState = andleUndoScore(currentState);
+    currentState = handleUndoScore(currentState);
     saveStateToSessionStorage(currentState);
     render(currentState);
 });
