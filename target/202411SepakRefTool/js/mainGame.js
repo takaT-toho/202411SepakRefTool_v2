@@ -513,6 +513,7 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
                 SetEndButton.textContent = "結果が決まりません。じゃんけんを行います";
                 SetEndButton.style.display = "block";
                 SetEndButton.value = "p0203";
+                saveStateToLocalStorage(isGameFinishedState);
             } else if (isGameFinishedState.IS_GAME_FINISHED) {
                 document.getElementById("isAreguGameWin").value = isGameFinishedState.IS_AREGU_GAME_WIN;
                 updateIsGameFinished(isGameFinishedState);
@@ -1192,6 +1193,11 @@ form.addEventListener('submit', function(e) {
 // 状態の保存
 const saveStateToSessionStorage = (state) => {
     sessionStorage.setItem('gameState', JSON.stringify(state));
+};
+
+// ローカルストレージへの保存
+const saveStateToLocalStorage = (state) => {
+    localStorage.setItem('gameState', JSON.stringify(state));
 };
 
 // 状態の読み込み

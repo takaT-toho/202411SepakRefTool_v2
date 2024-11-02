@@ -16,17 +16,25 @@
 <%@ include file="headerNonMenu.jsp" %>
 <div class="container">
 	<div class="rps-container">
-	  <p>じゃんけんの勝者レグを選択してください。</p>
+	  <p>じゃんけんの勝ちレグを選択してください。</p>
 	  <div class="regu-buttons">
-		<div id="reguA" class="regu-button" role="button" tabindex="0" onclick="selectWinner('A')" onkeydown="handleKeyDown(event, 'A')">
+		<div id="reguA" class="regu-button" role="button" tabindex="0" onclick="selectWinner('A')">
 		  <span class="regu-label"><c:out value="${sessionScope.reguA.abbreviation}" /></span>
 		  <span class="result-label" id="resultA"></span>
 		</div>
-		<div id="reguB" class="regu-button" role="button" tabindex="0" onclick="selectWinner('B')" onkeydown="handleKeyDown(event, 'B')">
+		<div id="reguB" class="regu-button" role="button" tabindex="0" onclick="selectWinner('B')">
 		  <span class="regu-label"><c:out value="${sessionScope.reguB.abbreviation}" /></span>
 		  <span class="result-label" id="resultB"></span>
 		</div>
 	  </div>
+	</div>
+		
+	<div class="callMsgContainer">
+		<div class="callMsgLine"></div>
+		<div class="callMsgArea">
+			<div id="callMsg">メッセージ</div>
+		</div>
+		<div class="callMsgLine"></div>
 	</div>
 	
 	<form action="/202411SepakRefTool/judgeFC" method="post" id="checkForm">
