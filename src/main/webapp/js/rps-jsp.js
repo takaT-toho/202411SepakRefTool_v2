@@ -77,6 +77,13 @@ const generateGameEndCallText = (state, isAreguGameWin) => {
 // フォーム送信時
 const form = document.getElementById('checkForm');
 form.addEventListener('submit', function(e) {
+    const isAreguGameWinValue = document.getElementById("isAreguGameWin").value;
+
+    if (!isAreguGameWinValue) {
+        e.preventDefault();
+        document.getElementById("errorMsg").innerText = "勝者を選択してください。";
+    }
+
     localStorage.removeItem('gameState');
 });
 

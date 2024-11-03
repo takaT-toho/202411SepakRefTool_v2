@@ -57,7 +57,7 @@
 			</div>
 			<p class="explain-step-description">各チームの名前と選手名を読み上げて紹介します。</p>
 			<div class="explain-quote">
-				<p>"只今より、第<c:out value="${ sessionScope.court }" />コート、第<c:out value="${ sessionScope.game.round }" />試合を始めます。"</p>
+				<p>"只今より、<c:out value="${ sessionScope.court }" />コート、第<c:out value="${ sessionScope.game.round }" />試合を始めます。"</p>
 			</div>            
 			<div class="explain-quote">
                 <c:if test="${ sessionScope.gameConfig.isAreguLeft == true }">

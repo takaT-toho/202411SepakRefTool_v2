@@ -32,7 +32,7 @@
 	<div class="callMsgContainer">
 		<div class="callMsgLine"></div>
 		<div class="callMsgArea">
-			<div id="callMsg">メッセージ</div>
+			<div id="callMsg">勝ちレグを選択すると、コールが表示されます。</div>
 		</div>
 		<div class="callMsgLine"></div>
 	</div>

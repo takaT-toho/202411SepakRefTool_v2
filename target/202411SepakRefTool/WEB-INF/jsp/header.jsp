@@ -16,7 +16,7 @@
     <div class="navbar-links">
       <ul>
         <li><a href="judgeFC?buttonId=p0101">試合基本情報</a></li>
-        <li><a href="judgeFC?buttonId=p0102">タイムアウト</a></li>
+        <!-- <li><a href="judgeFC?buttonId=p0102">タイムアウト</a></li> -->
         <li><a href="judgeFC?buttonId=p0103">選手交代</a></li>
         <li><a href="judgeFC?buttonId=p0104">サービス/コートサイド選択</a></li>
         <li><a href="judgeFC?buttonId=p0105">得点経過表</a></li>

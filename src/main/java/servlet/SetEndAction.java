@@ -102,8 +102,10 @@ public class SetEndAction implements ActionIF {
 				gameIdMap.put(608, 1104);
 				gameIdMap.put(507, 1106);
 				gameIdMap.put(907, 1106);
-				gameIdMap.put(703, 1108);
-				gameIdMap.put(704, 1108);
+				gameIdMap.put(603, 1108);
+				gameIdMap.put(908, 1108);
+				gameIdMap.put(703, 1201);
+				gameIdMap.put(704, 1201);
 				gameIdMap.put(805, 1203);
 				gameIdMap.put(806, 1203);
 				gameIdMap.put(901, 1205);
