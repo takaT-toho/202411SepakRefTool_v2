@@ -9,6 +9,9 @@
 <title>審判支援システム</title>
 <link href="/202411SepakRefTool/css/header-non-menu.css" rel="stylesheet" />
 <style>
+    .container {
+        padding: 20px;
+    }
     button[type="submit"] {
         display: flex;
         justify-content: center;
@@ -33,12 +36,14 @@
 </head>
 <body>
 <%@ include file="headerNonMenu.jsp" %>
-<p>システムエラーです。</p>
+<div class="container">
+    <p>システムエラーです。</p>
 
-<c:out value = "${ requestScope.errorMsg }" />
-<c:forEach var="msg" items="${ requestScope.errorMsgList }">
-	<p><c:out value="${ msg }" /></p>
-</c:forEach>
+    <c:out value = "${ requestScope.errorMsg }" />
+    <c:forEach var="msg" items="${ requestScope.errorMsgList }">
+        <p><c:out value="${ msg }" /></p>
+    </c:forEach>
+</div>
 
 <form action="judgeFC" method="post">
     <button type="submit" name="buttonId" value="p0000">ログイン画面へ</button>

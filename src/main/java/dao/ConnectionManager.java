@@ -1,16 +1,50 @@
 package dao;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import jakarta.servlet.ServletContext;
 
 public class ConnectionManager {
-	private static final String FILENAME = "C:\\workspace\\demo202411\\DB.properties";
+	private static String FILENAME = "/WEB-INF/config/DB.properties";
 	private static ConnectionManager instance = null;
 	private static Properties prop;
+
+	private static void init(ServletContext context) {
+        try {
+            System.out.println("Loading properties from: " + FILENAME);
+            prop = loadResource(context, FILENAME);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+	public static ConnectionManager getConnectionManager() {
+        return instance;
+    }
+		
+	private ConnectionManager(ServletContext context) {
+        init(context);
+	}
+
+	private static Properties loadResource(ServletContext context, String fileName) {
+        Properties sysprop = new Properties();
+
+        try (InputStream input = context.getResourceAsStream(fileName)) {
+            if (input == null) {
+                throw new IllegalStateException("プロパティファイルが見つかりません: " + fileName);
+            }
+            sysprop.load(input);
+        } catch (IOException ioex) {
+            ioex.printStackTrace();
+            System.out.println(fileName + ": 読み込みに失敗しました");
+        }
+
+        return sysprop;
+    }
 	
 	public Connection getConnection() throws SQLException {
 		Connection con = null;
@@ -29,37 +63,10 @@ public class ConnectionManager {
 		}
 		return con;
 	}
-		
-	public static ConnectionManager getConnectionManager() {
-		if (instance == null) {
-			instance = new ConnectionManager();
-		}
-		return instance;
-	}
-		
-	private ConnectionManager() {
-		try {
-			prop = loadResource(FILENAME);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-		
-	public Properties loadResource(String fileName) {
-		try {
-			Properties sysprop = new Properties();
-			FileInputStream fis = new FileInputStream(fileName);
-			sysprop.load(fis);
-			return sysprop;
-		} catch (IOException ioex) {
-			ioex.printStackTrace();
-			System.out.println(fileName + ":読み込みに失敗しました");
-		} catch (NullPointerException npex) {
-			npex.printStackTrace();
-			System.out.println(fileName + ":読み込みに失敗しました");
-		}
-		return null;
-	}
-	
 
+	public static void initialize(ServletContext context) {
+        if (instance == null) {
+            instance = new ConnectionManager(context);
+        }
+    }
 }

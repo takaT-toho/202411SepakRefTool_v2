@@ -32,7 +32,7 @@ function updateTimer() {
   seconds--;
   if (seconds < 0) {
     clearInterval(timer);
-    const audio = new Audio('/202411SepakRefTool/media/alerm.mp3');
+    const audio = new Audio('/202411SepakRefTool/media/alarm.mp3');
     audio.play();
     // alert('タイマーが終了しました！');
     stopTimer();

@@ -7,6 +7,7 @@ servlet\UpdateIsSetFinishedAction.class
 logic\UpdateGameDetailLogic.class
 servlet\LoginAction.class
 servlet\QRLoginAction.class
+common\AppInitListener.class
 servlet\GameSettingChangeAction.class
 entity\GameConfig.class
 servlet\GameBasicInfoAction.class
