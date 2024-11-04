@@ -17,20 +17,17 @@
 
 <div class="step-container">
 	<div class="progress-bar">
-		<div class="progress-line">
-			<div class="line active"></div>
-			<div class="line active"></div>
+		<div class="line active"></div>
+		<div class="step">
+			<div class="step-circle active">1</div>
+			<span class="step-text step-text-1">サービス/サイド決め</span>
 		</div>
-		<div class="steps">
-			<div class="step">
-				<div class="step-circle completed">1</div>
-				<span class="step-text">サービス/サイド決め</span>
-			</div>
-			<div class="step">
-				<div class="step-circle active">2</div>
-				<span class="step-text active">チーム・選手紹介</span>
-			</div>
+		<div class="line active"></div>
+		<div class="step">
+			<div class="step-circle active">2</div>
+			<span class="step-text step-text-2 active">チーム・選手紹介</span>
 		</div>
+		<div class="line"></div>
 	</div>
 </div>
 
@@ -42,7 +39,7 @@
 	<div class="explain-steps">
 		<div class="explain-step">
 			<div class="explain-step-header">
-				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-title">エンドライン整列</span>
 				<span class="explain-step-number">Step 1</span>
 			</div>
 			<p class="explain-step-description">両チームの選手を各自陣のコートサイドのエンドラインに整列させます。</p>
@@ -52,7 +49,7 @@
 		</div>
 		<div class="explain-step">
 			<div class="explain-step-header">
-				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-title">チーム・選手読み上げ</span>
 				<span class="explain-step-number">Step 2</span>
 			</div>
 			<p class="explain-step-description">各チームの名前と選手名を読み上げて紹介します。</p>
@@ -92,7 +89,7 @@
 		</div>
 		<div class="explain-step">
 			<div class="explain-step-header">
-				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-title">試合開始合図</span>
 				<span class="explain-step-number">Step 3</span>
 			</div>
 			<p class="explain-step-description">紹介終了後、試合開始の合図を出します。</p>

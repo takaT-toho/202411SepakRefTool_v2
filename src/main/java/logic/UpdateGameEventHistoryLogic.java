@@ -18,7 +18,7 @@ public class UpdateGameEventHistoryLogic  {
 		try {
 			con = ConnectionManager.getConnectionManager().getConnection();
 			GameEventHistoryDAO dao = new GameEventHistoryDAO(con);
-			boolean res = dao.insertGameEventHistory(geh);		
+			boolean res = dao.insertGameEventHistory(geh);
 			if (res == false) {
 				throw new JudgeBusinessException("データの更新に失敗しました");
 			}

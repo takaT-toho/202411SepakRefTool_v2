@@ -18,12 +18,12 @@
 	<div class="match-header">
 	  <div class="round"><c:out value="${ sessionScope.game.round }" /></div>
 	  <div class="match-info">
-	    <span><c:out value="${ sessionScope.game.time }" /> -</span>
+	    <span><c:out value="${ sessionScope.game.time }" /> 開始</span>
 	    <span><c:out value="${ sessionScope.court }" />コート</span>
 	  </div>
 	  <div class="match-info">
-	    <span>試合番号: <c:out value="${ sessionScope.game.gameId }" /></span>
-	    <span>試合名: <c:out value="${ sessionScope.game.name }" /></span>
+	    <span>試合番号 <c:out value="${ sessionScope.game.gameId }" /></span>
+	    <span>試合名 <c:out value="${ sessionScope.game.name }" /></span>
 	  </div>
 	</div>
 	

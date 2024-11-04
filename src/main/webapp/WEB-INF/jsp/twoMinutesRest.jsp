@@ -21,7 +21,7 @@
 	<div class="explain-steps">
 		<div class="explain-step">
 			<div class="explain-step-header">
-				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-title">タイマー開始</span>
 				<span class="explain-step-number">Step 1</span>
 			</div>
 			<p class="explain-step-description">2分間のタイマーを開始してください。</p>

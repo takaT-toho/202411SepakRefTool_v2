@@ -17,20 +17,17 @@
 
 <div class="step-container">
 	<div class="progress-bar">
-		<div class="progress-line">
-			<div class="line"></div>
-			<div class="line"></div>
+		<div class="line active"></div>
+		<div class="step">
+			<div class="step-circle active">1</div>
+			<span class="step-text step-text-1 active">サービス/サイド決め</span>
 		</div>
-		<div class="steps">
-			<div class="step">
-				<div class="step-circle active">1</div>
-				<span class="step-text active">サービス/サイド決め</span>
-			</div>
-			<div class="step">
-				<div class="step-circle">2</div>
-				<span class="step-text">チーム・選手紹介</span>
-			</div>
+		<div class="line"></div>
+		<div class="step">
+			<div class="step-circle">2</div>
+			<span class="step-text step-text-2">チーム・選手紹介</span>
 		</div>
+		<div class="line"></div>
 	</div>
 </div>
 
@@ -41,7 +38,7 @@
 	<div class="explain-steps">
 		<div class="explain-step">
 			<div class="explain-step-header">
-				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-title">キャプテン集合</span>
 				<span class="explain-step-number">Step 1</span>
 			</div>
 			<p class="explain-step-description">両チームのキャプテンを呼び集めてください。</p>
@@ -51,7 +48,7 @@
 		</div>
 		<div class="explain-step">
 			<div class="explain-step-header">
-				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-title">コイントス実施</span>
 				<span class="explain-step-number">Step 2</span>
 			</div>
 			<p class="explain-step-description">コイントスを行います。</p>
@@ -70,52 +67,52 @@
 	
 	<div class="tossButton" id="tossButton">トス</div>
 	<div class="toss-regu-container">
-		<table>
-			<tr>
-				<th></th>
-				<th><c:out value="${sessionScope.reguA.abbreviation}" /></th>
-				<th><c:out value="${sessionScope.reguB.abbreviation}" /></th>
-			</tr>
-			<tr>
-				<td>トスの<br>勝ちチーム</td>
-				<td id="teamA" onclick="selectWinner('A')"></td>
-			<td id="teamB" onclick="selectWinner('B')"></td>
-			</tr>
-		</table>
+		<div class="regu-buttons">
+			<div id="reguA" class="regu-button" role="button" tabindex="0" onclick="selectWinner('A')">
+			<span class="regu-label"><c:out value="${sessionScope.reguA.abbreviation}" /></span>
+			<span class="result-label" id="resultA"></span>
+			</div>
+			<div id="reguB" class="regu-button" role="button" tabindex="0" onclick="selectWinner('B')">
+			<span class="regu-label"><c:out value="${sessionScope.reguB.abbreviation}" /></span>
+			<span class="result-label" id="resultB"></span>
+			</div>
+		</div>
 	</div>
 
 	<div class="explain-steps">
 		<div class="explain-step">
 			<div class="explain-step-header">
-				<span class="explain-step-title">主審の行動</span>
+				<span class="explain-step-title">サービス/コートサイド設定</span>
 				<span class="explain-step-number">Step 3</span>
 			</div>
-			<p class="explain-step-description">各チームの選択に聞いたうえで、サービスとコートサイドの設定を行いましょう。</p>
+			<p class="explain-step-description">各チームの選択を聞いたうえで、サービスとコートサイドの設定を行いましょう。</p>
 		</div>
 	</div>
 
 	<div class="regu-container">
-	  <table>
-	    <thead>
-	      <tr>
-	        <th><div id="labelLeft"><c:out value="${sessionScope.reguA.abbreviation}" /></div></th>
-	        <th></th>
-	        <th><div id="labelRight"><c:out value="${sessionScope.reguB.abbreviation}" /></div></th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <tr>
-	        <td><div class="serveCell active" id="serveLeft">先手</div></td>
-	        <td><div class="buttons serveButton" id="serveButton">サービス<br>⇔</div></td>
-	        <td><div class="serveCell" id="serveRight">後手</div></td>
-	      </tr>
-	      <tr>
-	        <td><div class="court">左</div></td>
-	        <td><div class="buttons courtButton" id="courtButton">コート<br>⇔</div></td>
-	        <td><div class="court">右</div></td>
-	      </tr>
-	    </tbody>
-	  </table>
+		<div class="court-display">
+			<div class="left-display">左</div>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="courtButton">
+				<circle cx="20" cy="20" r="20" fill="#666666"/>
+				<g fill="white" transform="translate(4, 10)">
+					<path d="M20 2 L8 2 L8 0 L2 4 L8 8 L8 6 L20 6 Z"/>
+					<path d="M12 14 L24 14 L24 12 L30 16 L24 20 L24 18 L12 18 Z"/>
+				</g>
+			</svg>
+			<div class="right-display">右</div>
+		</div>
+		<div class="regu-main-container">
+			<div class="regu-left-side">
+				<div class="labelLeft active" id="labelLeft"><c:out value="${sessionScope.reguA.abbreviation}" /></div>
+				<div class="serve-display active" id="serveLeft">先サーブ</div>
+			</div>
+			<div class="regu-middle-side">
+			</div>
+			<div class="regu-right-side">
+				<div class="labelRight" id="labelRight"><c:out value="${sessionScope.reguB.abbreviation}" /></div>
+				<div class="serve-display" id="serveRight">後サーブ</div>
+			</div>
+		</div>
 	</div>
 	
 	<div class="explain-steps">

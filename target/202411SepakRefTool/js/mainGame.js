@@ -441,6 +441,13 @@ const render = (state) => {
         updateReguDisplay(state);
     }
 
+    // 1セット目の0点目の場合、リストを表示する    
+    if (state.SUM_POINTS === 0 && state.SET_NOW === 1) {
+        showMenuLiElement(state);
+    } else {
+        hideMenuLiElement(state);
+    }
+
     // セットごとのスコア表示を更新
     updateSetNumberDisplay(state);
 
@@ -539,6 +546,22 @@ const handleScoreUpdateInner = (state, isLeftScore) => {
 
     }
     return newState;
+};
+
+// メニューのリストを表示にする
+const showMenuLiElement = (state) => {
+    console.log("execute hideLiElement");
+    const liElement = document.getElementById("serve-court-li");
+    liElement.style.display = "list-item";
+};
+
+// メニューのリストを非表示にする
+const hideMenuLiElement = (state) => {
+    console.log("execute hideLiElement");
+    const liElement = document.getElementById("serve-court-li");
+    if (liElement.style.display !== "none") {
+        liElement.style.display = "none";
+    }
 };
   
 // 戻るボタンクリック時の処理

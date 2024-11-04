@@ -78,7 +78,7 @@
 		<div class="setTitle">2SET</div>
 		<div class="secondSetContainer">
 			<table>
-				<c:forEach var="event" items="${ requestScope.gameEventsHistoryList }">
+				<c:forEach var="event" items="${ requestScope.gameEventHistoryList }">
 					<c:if test="${ event.setNum == 2 }">
 						<tr>
 		                    <c:choose>
@@ -125,7 +125,7 @@
 		<div class="setTitle">3SET</div>
 		<div class="thirdSetContainer">
 			<table>
-				<c:forEach var="event" items="${ requestScope.gameEventsHistoryList }">
+				<c:forEach var="event" items="${ requestScope.gameEventHistoryList }">
 					<c:if test="${ event.setNum == 3 }">
 						<tr>
 		                    <c:choose>

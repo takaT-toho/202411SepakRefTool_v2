@@ -89,16 +89,19 @@ function tossCoin() {
   }, 1400);
 }
 
+function updateWinner(isAreguWin) {
+  const reguA = document.getElementById("reguA");
+  const reguB = document.getElementById("reguB");
 
-function updateWinner(winner) {
-  teamA.innerHTML = winner ? "〇" : "";
-  teamB.innerHTML = winner ? "" : "〇";
-  teamA.classList.toggle("win", winner);
-  teamB.classList.toggle("win", !winner);
+  reguA.classList.toggle("win", isAreguWin);
+  reguB.classList.toggle("win", !isAreguWin);
+
+  coinToss.style.animation = "none";
+  coinToss.offsetHeight;
 }
 
-function selectWinner(team) {
-  const winner = team === "A" ? 1 : 0;
-  document.getElementById("isAreguTossWin").value = winner;
-  updateWinner(winner);
+function selectWinner(regu) {
+  const isAreguWin = regu === "A";
+  document.getElementById("isAreguTossWin").value = isAreguWin;
+  updateWinner(isAreguWin);
 }

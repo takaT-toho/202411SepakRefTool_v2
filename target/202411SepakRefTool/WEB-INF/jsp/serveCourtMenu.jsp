@@ -15,43 +15,63 @@
 <%@ include file="headerNonMenu.jsp" %>
 <div class="container">
 	<h2>サービス/コートサイド選択</h2>
-	
+
 	<div class="regu-container">
-	  <table>
-	    <thead>
-	      <tr>
-			<c:if test="${sessionScope.gameConfig.isAreguLeft}">
-				<th><div id="labelLeft"><c:out value="${ sessionScope.reguA.abbreviation }" /></div></th>
-				<th></th>
-				<th><div id="labelRight"><c:out value="${ sessionScope.reguB.abbreviation }" /></div></th>
-			</c:if>
-			<c:if test="${!sessionScope.gameConfig.isAreguLeft}">
-				<th><div id="labelLeft"><c:out value="${ sessionScope.reguB.abbreviation }" /></div></th>
-				<th></th>
-				<th><div id="labelRight"><c:out value="${ sessionScope.reguA.abbreviation }" /></div></th>
-			</c:if>
-	      </tr>
-	    </thead>
-	    <tbody>
-	      <tr>
-			<c:if test="${sessionScope.gameConfig.isAreguLeft == sessionScope.gameConfig.isAreguFirstServe}">
-				<td><div class="serveCell active" id="serveLeft">先手</div></td>
-				<td><div class="buttons serveButton" id="serveButton">サービス<br>⇔</div></td>
-				<td><div class="serveCell" id="serveRight">後手</div></td>
-			</c:if>
-			<c:if test="${sessionScope.gameConfig.isAreguLeft != sessionScope.gameConfig.isAreguFirstServe}">
-				<td><div class="serveCell" id="serveLeft">先手</div></td>
-				<td><div class="buttons serveButton" id="serveButton">サービス<br>⇔</div></td>
-				<td><div class="serveCell active" id="serveRight">後手</div></td>
-			</c:if>
-	      </tr>
-	      <tr>
-	        <td><div class="court">左</div></td>
-	        <td><div class="buttons courtButton" id="courtButton">コート<br>⇔</div></td>
-	        <td><div class="court">右</div></td>
-	      </tr>
-	    </tbody>
-	  </table>
+		<div class="court-display">
+			<div class="left-display">左</div>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="courtButton">
+				<circle cx="20" cy="20" r="20" fill="#666666"/>
+				<g fill="white" transform="translate(4, 10)">
+					<path d="M20 2 L8 2 L8 0 L2 4 L8 8 L8 6 L20 6 Z"/>
+					<path d="M12 14 L24 14 L24 12 L30 16 L24 20 L24 18 L12 18 Z"/>
+				</g>
+			</svg>
+			<div class="right-display">右</div>
+		</div>
+		<div class="regu-main-container">
+			<div class="regu-left-side">
+				<c:if test="${sessionScope.gameConfig.isAreguLeft == sessionScope.gameConfig.isAreguFirstServe}">
+					<c:if test="${sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelLeft active" id="labelLeft"><c:out value="${sessionScope.reguA.abbreviation}" /></div>
+					</c:if>
+					<c:if test="${!sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelLeft active" id="labelLeft"><c:out value="${sessionScope.reguB.abbreviation}" /></div>
+					</c:if>
+					<div class="serve-display active" id="serveLeft">先サーブ</div>
+				</c:if>				
+				<c:if test="${sessionScope.gameConfig.isAreguLeft != sessionScope.gameConfig.isAreguFirstServe}">
+					<c:if test="${sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelLeft" id="labelLeft"><c:out value="${sessionScope.reguA.abbreviation}" /></div>
+					</c:if>
+					<c:if test="${!sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelLeft" id="labelLeft"><c:out value="${sessionScope.reguB.abbreviation}" /></div>
+					</c:if>
+					<div class="serve-display" id="serveLeft">後サーブ</div>
+				</c:if>
+			</div>
+			<div class="regu-middle-side">
+			</div>
+			<div class="regu-right-side">
+				<c:if test="${sessionScope.gameConfig.isAreguLeft == sessionScope.gameConfig.isAreguFirstServe}">
+					<c:if test="${sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelRight" id="labelRight"><c:out value="${sessionScope.reguB.abbreviation}" /></div>
+					</c:if>
+					<c:if test="${!sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelRight" id="labelRight"><c:out value="${sessionScope.reguA.abbreviation}" /></div>
+					</c:if>
+					<div class="serve-display" id="serveRight">後サーブ</div>
+				</c:if>
+				<c:if test="${sessionScope.gameConfig.isAreguLeft != sessionScope.gameConfig.isAreguFirstServe}">
+					<c:if test="${sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelRight active" id="labelRight"><c:out value="${sessionScope.reguB.abbreviation}" /></div>
+					</c:if>
+					<c:if test="${!sessionScope.gameConfig.isAreguLeft}">
+						<div class="labelRight active" id="labelRight"><c:out value="${sessionScope.reguA.abbreviation}" /></div>
+					</c:if>
+					<div class="serve-display active" id="serveRight">先サーブ</div>
+				</c:if>
+			</div>
+		</div>
 	</div>
 	
 	<form action="judgeFC" method="post">

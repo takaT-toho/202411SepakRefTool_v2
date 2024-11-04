@@ -18,12 +18,12 @@
 	<div class="match-header">
 	  <div class="round"><c:out value="${sessionScope.game.round}"/></div>
 	  <div class="match-info">
-	    <span><c:out value="${sessionScope.game.time}"/> -</span>
+	    <span><c:out value="${sessionScope.game.time}"/> 開始</span>
 	    <span><c:out value="${sessionScope.court}"/>コート</span>
 	  </div>
 	  <div class="match-info">
-	    <span>試合番号: <c:out value="${sessionScope.game.gameId}"/></span>
-	    <span>試合名: <c:out value="${sessionScope.game.name}"/></span>
+	    <span>試合番号 <c:out value="${sessionScope.game.gameId}"/></span>
+	    <span>試合名 <c:out value="${sessionScope.game.name}"/></span>
 	  </div>
 	</div>
 	
@@ -45,7 +45,7 @@
 	<div class="explain-steps">
 		<div class="explain-step">
 			<p class="explain-step-description">上記の試合で合っていますか？</p>
-			<p class="explain-step-description">確認したら、ご自身のお名前を記入の上、次へお進みください。</p>
+			<p class="explain-step-description">内容を確認したら、お名前を記入し、次へ進んでください。</p>
 		</div>
 	</div>
 	
