@@ -15,7 +15,7 @@
 	<h3>お疲れさまでした。</h3>
 	<h3>最後に試合結果が正しく反映されているか確認してください。</h3>
 	<h3>間違っている場合はお手数ですが本部までお越しください。</h3>
-	<div><a href="#">試合結果ページへ行く</a></div>
+	<div><a href="https://ttsbase.site/" target="_blank">試合結果ページへ行く</a></div>
 </div>
 
 <%@ include file="footer.jsp" %>

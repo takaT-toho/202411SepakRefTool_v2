@@ -28,268 +28,268 @@ WHERE COURTID=99;
 
 
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=101;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=13, points3setA=0, points1setB=11, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=102;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=17, points2setA=14, points3setA=0, points1setB=14, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=103;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=3, points2setB=8, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=104;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=17, points3setA=0, points1setB=10, points2setB=16, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=105;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=12, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=106;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=10, points3setA=0, points1setB=5, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=107;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=10, points2setA=15, points3setA=0, points1setB=15, points2setB=11, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=108;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=8, points2setB=13, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=201;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=4, points3setA=0, points1setB=4, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=202;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=1, points3setA=0, points1setB=0, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=203;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=8, points2setA=15, points3setA=0, points1setB=15, points2setB=8, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=204;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=2, points2setA=15, points3setA=0, points1setB=15, points2setB=3, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=205;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=17, points2setA=14, points3setA=0, points1setB=16, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=206;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=16, points2setA=17, points3setA=0, points1setB=17, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=207;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=6, points2setB=4, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=208;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=6, points3setA=0, points1setB=8, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=301;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=14, points2setA=13, points3setA=0, points1setB=17, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=302;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=0, points3setA=0, points1setB=10, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=303;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=14, points2setA=17, points3setA=0, points1setB=17, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=304;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=16, points2setA=16, points3setA=0, points1setB=17, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=305;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=14, points2setA=15, points3setA=0, points1setB=17, points2setB=12, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=306;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=8, points2setB=11, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=307;
 UPDATE sendai.gameDetail
-SET is1setGotByA=2, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=0, points2setB=3, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=308;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=16, points3setA=0, points1setB=0, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=401;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=14, points2setA=16, points3setA=0, points1setB=17, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=402;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=12, points2setA=17, points3setA=0, points1setB=15, points2setB=14, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=403;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=404;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=14, points2setA=15, points3setA=0, points1setB=17, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=405;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=406;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=4, points2setA=6, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=407;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=13, points2setB=13, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=408;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=5, points3setA=0, points1setB=0, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=501;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=0, points2setA=15, points3setA=0, points1setB=15, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=502;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=16, points2setA=17, points3setA=0, points1setB=17, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=503;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=12, points2setB=13, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=504;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=13, points3setA=0, points1setB=11, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=505;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=0, points3setA=0, points1setB=8, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=506;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=0, points3setA=0, points1setB=4, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=507;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=11, points2setB=8, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=508;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=9, points3setA=0, points1setB=4, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=601;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=11, points2setA=15, points3setA=0, points1setB=15, points2setB=13, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=602;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=10, points2setA=15, points3setA=0, points1setB=15, points2setB=10, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=603;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=17, points2setA=17, points3setA=0, points1setB=16, points2setB=14, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=604;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=5, points3setA=0, points1setB=0, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=605;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=7, points2setB=4, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=606;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=0, points2setA=15, points3setA=0, points1setB=15, points2setB=3, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=607;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=12, points3setA=0, points1setB=10, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=608;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=0, points3setA=0, points1setB=0, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=701;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=12, points2setA=15, points3setA=0, points1setB=15, points2setB=10, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=702;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=2, points3setA=0, points1setB=6, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=703;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=11, points2setA=17, points3setA=0, points1setB=15, points2setB=14, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=704;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=2, points2setA=17, points3setA=0, points1setB=15, points2setB=14, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=705;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=13, points2setB=11, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=706;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=6, points2setA=6, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=707;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=11, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=708;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=0, points3setA=0, points1setB=0, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=801;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=9, points2setA=15, points3setA=0, points1setB=15, points2setB=10, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=802;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=17, points2setA=15, points3setA=0, points1setB=14, points2setB=7, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=803;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=16, points2setA=16, points3setA=0, points1setB=17, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=33
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=804;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=13, points2setA=10, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=805;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=22, points3setA=0, points1setB=9, points2setB=17, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=806;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=3, points2setA=8, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=807;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=4, points2setB=6, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=808;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=9, points2setB=11, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=901;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=1, points3setA=0, points1setB=1, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=902;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=13, points2setA=17, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=903;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=14, points2setA=13, points3setA=0, points1setB=17, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=904;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=4, points3setA=0, points1setB=7, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=905;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=17, points3setA=0, points1setB=8, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=906;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=8, points3setA=0, points1setB=3, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=907;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=17, points2setA=15, points3setA=0, points1setB=14, points2setB=10, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=908;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=11, points2setB=11, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1001;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=1, points3setA=0, points1setB=0, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1002;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1003;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=0, points2setB=12, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1004;
 UPDATE sendai.gameDetail
 SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1005;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=2, points3setA=0, points1setB=12, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1006;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=17, points2setA=11, points3setA=0, points1setB=14, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1007;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=6, points2setB=8, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1008;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=12, points3setA=0, points1setB=8, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1101;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=13, points3setA=8, points1setB=12, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=1, sumPoints=8
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1102;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=1, is3setGotByA=NULL, points1setA=13, points2setA=15, points3setA=8, points1setB=15, points2setB=12, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=1, sumPoints=8
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1103;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=0, is3setGotByA=NULL, points1setA=15, points2setA=4, points3setA=8, points1setB=9, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=1, sumPoints=8
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1104;
 UPDATE sendai.gameDetail
 SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1105;
 UPDATE sendai.gameDetail
-SET is1setGotByA=0, is2setGotByA=0, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=15, points2setB=15, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1106;
 UPDATE sendai.gameDetail
 SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1107;
 UPDATE sendai.gameDetail
-SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=10, points2setA=0, points3setA=0, points1setB=8, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=18
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1108;
 UPDATE sendai.gameDetail
 SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
@@ -310,7 +310,7 @@ UPDATE sendai.gameDetail
 SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1206;
 UPDATE sendai.gameDetail
-SET is1setGotByA=1, is2setGotByA=1, is3setGotByA=NULL, points1setA=15, points2setA=15, points3setA=0, points1setB=2, points2setB=7, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
+SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
 WHERE gameId=1207;
 UPDATE sendai.gameDetail
 SET is1setGotByA=NULL, is2setGotByA=NULL, is3setGotByA=NULL, points1setA=0, points2setA=0, points3setA=0, points1setB=0, points2setB=0, points3setB=0, normalTimeoutRemainA=1, technicalTimeoutRemainA=5, normalTimeoutRemainB=1, technicalTimeoutRemainB=5, playerSubstitutionRemainA=2, playerSubstitutionRemainB=2, is3setCourtChanged=0, sumPoints=0
