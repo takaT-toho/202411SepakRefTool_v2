@@ -90,7 +90,7 @@
   ```
 - 生成されたWARファイルをTomcatのwebappsディレクトリにコピー
   ```
-  sudo cp target/202411SepakRefTool_v2.war /var/lib/tomcat10/webapps/
+  sudo cp target/202411SepakRefTool.war /var/lib/tomcat10/webapps/
   ```
 - Tomcatを再起動
   ```
