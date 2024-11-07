@@ -44,7 +44,7 @@
   ```
 - GitHubからプロジェクトのクローン
   ```
-  git clone https://github.com/takaT-toho/202411SepakRefTool.git
+  git clone https://github.com/takaT-toho/202411SepakRefTool_v2.git
   cd your-project
   ```
 - MySQLの初期データベース作成
