@@ -107,7 +107,7 @@
   ```
 - エラーログを見る
   ```
-  /var/lib/tomcat10/catalina.out
+  /var/lib/tomcat10/logs/catalina.out
   ```
 
 #### VPS(ubuntu)のセットアップ
