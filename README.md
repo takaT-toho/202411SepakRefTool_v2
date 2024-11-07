@@ -85,12 +85,12 @@
   ```
 - Mavenを使用してプロジェクトをビルド
   ```
-  cd ~/202411SepakRefTool
+  cd ~/202411SepakRefTool_v2
   mvn clean package
   ```
 - 生成されたWARファイルをTomcatのwebappsディレクトリにコピー
   ```
-  sudo cp target/demo202411.war /var/lib/tomcat10/webapps/
+  sudo cp target/202411SepakRefTool_v2.war /var/lib/tomcat10/webapps/
   ```
 - Tomcatを再起動
   ```
