@@ -103,7 +103,7 @@
   ```
 - Webアプリにアクセス
   ```
-  http://your-ec2-public-ip:8080/demo202411/judgeFC
+  http://your-ec2-public-ip:8080/202411SepakRefTool/judgeFC
   ```
 - エラーログを見る
   ```
