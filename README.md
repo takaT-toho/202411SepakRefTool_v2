@@ -44,7 +44,7 @@
   ```
 - GitHubからプロジェクトのクローン
   ```
-  git clone https://github.com/takaT-toho/202411SepakRefTool.git
+  git clone https://github.com/takaT-toho/202411SepakRefTool_v2.git
   cd your-project
   ```
 - MySQLの初期データベース作成
@@ -85,12 +85,12 @@
   ```
 - Mavenを使用してプロジェクトをビルド
   ```
-  cd ~/202411SepakRefTool
+  cd ~/202411SepakRefTool_v2
   mvn clean package
   ```
 - 生成されたWARファイルをTomcatのwebappsディレクトリにコピー
   ```
-  sudo cp target/demo202411.war /var/lib/tomcat10/webapps/
+  sudo cp target/202411SepakRefTool.war /var/lib/tomcat10/webapps/
   ```
 - Tomcatを再起動
   ```
@@ -103,11 +103,11 @@
   ```
 - Webアプリにアクセス
   ```
-  http://your-ec2-public-ip:8080/demo202411/judgeFC
+  http://your-ec2-public-ip:8080/202411SepakRefTool/judgeFC
   ```
 - エラーログを見る
   ```
-  /var/lib/tomcat10/catalina.out
+  /var/lib/tomcat10/logs/catalina.out
   ```
 
 #### VPS(ubuntu)のセットアップ
