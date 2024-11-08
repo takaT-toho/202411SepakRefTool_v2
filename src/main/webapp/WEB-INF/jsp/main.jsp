@@ -111,10 +111,10 @@
 	    <div class="regu-name" id="reguRight"><span class="reguName">
 			<c:choose>
 				<c:when test="${ (sessionScope.gameConfig.isAreguLeft == (sessionScope.game.setNow % 2 == 1)) == !sessionScope.gameDetail.is3setCourtChanged }">
-					<c:out value="${ sessionScope.reguB.name }" />
+					<c:out value="${ sessionScope.reguB.abbreviation }" />
 				</c:when>
 				<c:otherwise>
-					<c:out value="${ sessionScope.reguA.name }" />
+					<c:out value="${ sessionScope.reguA.abbreviation }" />
 				</c:otherwise>
 			</c:choose>
 		</span></div>
